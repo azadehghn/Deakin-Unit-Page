@@ -17,11 +17,12 @@ p {
   font-family: Arial
 }
 
-<!--ui-->  
+/* ui */ 
 div {
   background-color: darkcyan;
   text-align: right;
-<!--m-main-->  
+}
+/*m-main*/ 
 th,
 td {
   padding: 8px;
@@ -32,5 +33,5 @@ td {
 
 tr:nth-child(odd) {
   background-color: #f2f2f2;
-<!--...-->  
 }
+/*...*/
