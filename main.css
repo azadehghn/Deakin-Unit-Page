@@ -2,8 +2,10 @@
 
 h1 {
   font-size: 40px;
-  font-family: Arial
+  font-family: Arial;
+  background-color: green;
 }
+
 h2 {
   font-size: 25px;
   font-family: Arial
@@ -16,4 +18,8 @@ p {
   font-family: Arial
 }
 
+div{
+  background-color: darkcyan;
+  text-align: right;
 
+}
