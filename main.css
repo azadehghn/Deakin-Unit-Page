@@ -1,5 +1,3 @@
-
-
 h1 {
   font-size: 40px;
   font-family: Arial
@@ -14,6 +12,11 @@ h3 {
 p {
   font-size: 14px;
   font-family: Arial
+}
+
+div{
+  background-color: darkcyan;
+  text-align: right;
 }
 
 
