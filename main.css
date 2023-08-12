@@ -13,7 +13,13 @@ h3 {
 }
 p {
   font-size: 14px;
-  font-family: Arial
+  font-family: Arial;
+}
+
+div{
+
+  background-color: darkcyan;
+  text-align: right;
 }
 
 
