@@ -1,6 +1,4 @@
-
-.hello
-{
+.hello {
   font-size: 30px;
 }
 h1 {
@@ -10,14 +8,17 @@ h1 {
 }
 h2 {
   font-size: 25px;
-  font-family: Arial
+  font-family: Arial;
 }
 h3 {
-  font-family: Arial
+  font-family: Arial;
 }
 p {
   font-size: 14px;
-  font-family: Arial
+  font-family: Arial;
 }
 
-
+div {
+  background-color: darkcyan;
+  text-align: right;
+}
