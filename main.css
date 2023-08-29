@@ -1,5 +1,3 @@
-
-
 h1 {
   font-size: 40px;
   font-family: Arial
@@ -22,5 +20,3 @@ th, td {
   font-family: Arial
   }
   tr:nth-child(odd) {background-color: #f2f2f2;}
-
-
