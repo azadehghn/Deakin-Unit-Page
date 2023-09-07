@@ -15,5 +15,8 @@ p {
   font-size: 14px;
   font-family: Arial
 }
-
-
+/* added by aman background color of deakin logo bar*/
+div {
+  background-color: darkcyan;
+  text-align: right;
+ } 
