@@ -16,4 +16,24 @@ p {
   font-family: Arial
 }
 
+/* Style for the table */
+table {
+  border-collapse: collapse;
+  width: 50%;
+  margin: 50px auto; /* center the table */
+  border: 1px solid #ddd;
+}
+
+/* Style for the table headers and cells */
+th, td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: center;
+}
+
+/* Add a background color to table headers */
+th {
+  background-color: #f2f2f2;
+}
+
 
