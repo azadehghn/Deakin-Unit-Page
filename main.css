@@ -1,19 +1,96 @@
-
-
-h1 {
-  font-size: 40px;
-  font-family: Arial
-}
-h2 {
-  font-size: 25px;
-  font-family: Arial
-}
-h3 {
-  font-family: Arial
-}
-p {
-  font-size: 14px;
-  font-family: Arial
+/* Reset default margin and padding */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
+/* Body styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: white /* Light gray background */
+}
 
+/* Header styles */
+header {
+  background-color: green; /* Nice blue color */
+  color: #ffffff; /* White text */
+  padding: 15px 0;
+}
+
+.header-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+
+.header-container img {
+  height: 50px; /* Adjust height as needed */
+}
+
+/* Main styles */
+main {
+  padding: 20px 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Welcome section styles */
+.welcome-section {
+  background-color: lightblue; /* Light red for contrast */
+  padding: 40px 0;
+  text-align: center;
+}
+
+/* Navigation section styles */
+.navigation-section {
+  background-color: white; /* Nice green color */
+  color: #ffffff; /* White text */
+  text-align: center;
+}
+
+.navigation-links ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.navigation-links ul li {
+  display: inline-block;
+  margin-right: 20px;
+}
+
+.navigation-links ul li:last-child {
+  margin-right: 0;
+}
+
+.navigation-links ul li a {
+  color: darkblue; /* White text */
+  text-decoration: none;
+  font-size: 18px;
+}
+
+.navigation-links ul li a:hover {
+  text-decoration: underline;
+}
+/* Footer styles */
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-color: #333;
+  color: #ffffff;
+  padding: 10px 0;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
