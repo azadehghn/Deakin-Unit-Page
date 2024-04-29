@@ -12,8 +12,11 @@ h3 {
   font-family: Arial
 }
 p {
-  font-size: 14px;
+  font-size: 15px;
   font-family: Arial
 }
 
-
+div {
+  background-color: blue;
+text-align: right;
+}
