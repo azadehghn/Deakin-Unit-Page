@@ -1,36 +1,35 @@
 
+div {
+      background-color: blue;
+      text-align: right;
+    }
 
-h1 {
-  font-size: 40px;
-  font-family: Arial
-}
-h2 {
-  font-size: 25px;
-  font-family: Arial
-}
-h3 {
-  font-family: Arial
-}
-p {
-  font-size: 14px;
-  font-family: Arial
-}
- header {
-            background-color: green;
-            color: white;
-            padding: 20px;
-            text-align: center;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column; 
-        }
-        header img {
-            max-width: 100px;
-            margin-bottom: 20px;
-        }
-        h1 {
-            margin: 5px 0; 
-        }
+    h1 {
+      font-size: 40px;
+      font-family: Arial;
+    }
 
+    h2 {
+      font-size: 25px;
+      font-family: Arial;
+    }
+
+    h3 {
+      font-family: Arial;
+    }
+
+    p {
+      font-size: 14px;
+      font-family: Arial;
+    }
+
+    th, td {
+      padding: 8px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+      font-family: Arial;
+    }
+    tr:nth-child(odd) {
+      background-color: #f2f2f2;
+    }
 
