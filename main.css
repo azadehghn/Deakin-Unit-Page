@@ -2,18 +2,23 @@
 
 h1 {
   font-size: 40px;
-  font-family: Arial
+  font-family: Arial;
+  background-color: rgb(255, 119, 0);
 }
 h2 {
   font-size: 25px;
-  font-family: Arial
+  font-family: Arial;
 }
 h3 {
-  font-family: Arial
+  font-family: Arial;
 }
 p {
   font-size: 14px;
-  font-family: Arial
+  font-family: Arial;
+}
+div {
+  background-color: blue;
+  text-align: right;
 }
 
 
