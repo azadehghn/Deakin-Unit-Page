@@ -1,19 +1,41 @@
+/* Header styling */
+div {
+  background-color: darkcyan;
+  text-align: right;
+  padding: 10px;
+}
 
-
+/* H1 heading */
 h1 {
   font-size: 40px;
-  font-family: Arial
+  font-family: Arial, sans-serif;
+  margin: 20px 0;
 }
+
+/* H2 heading */
 h2 {
   font-size: 25px;
-  font-family: Arial
+  font-family: Arial, sans-serif;
 }
+
+/* H3 heading */
 h3 {
-  font-family: Arial
+  font-family: Arial, sans-serif;
 }
+
+/* Paragraph styling */
 p {
   font-size: 14px;
-  font-family: Arial
+  font-family: Arial, sans-serif;
 }
 
+/* Link styling */
+a {
+  font-family: Arial, sans-serif;
+  color: darkcyan;
+  text-decoration: none;
+}
 
+a:hover {
+  text-decoration: underline;
+}
