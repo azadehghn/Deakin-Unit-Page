@@ -16,4 +16,46 @@ p {
   font-family: Arial
 }
 
+div {
+  background-color: darkcyan;
+  text-align: right;
+}
+
+
+.header {
+  background-color: green;
+  text-align: right;
+  padding: 10px;
+}
+
+.header img {
+  float: left;
+  margin-right: 10px;
+}
+
+.header h1 {
+  font-size: 40px;
+  font-family: Arial;
+  margin: 0;
+}
+
+div {
+  background-color: #006600; /* Dark green color */
+  text-align: left; /* Aligns the content to the left */
+  padding: 10px; /* Adds some padding around the content */
+  display: flex;
+  align-items: center;
+  border-bottom: 5px solid #008000; /* Green border at the bottom */
+}
+
+img {
+  margin-right: 20px; /* Adds space between the logo and the heading */
+}
+
+h1 {
+  font-size: 24px; /* Adjust the font size as needed */
+  color: white; /* White text color to contrast with the green background */
+  margin: 0; /* Removes default margin */
+  font-family: Arial, sans-serif; /* Ensures consistent font across browsers */
+}
 
