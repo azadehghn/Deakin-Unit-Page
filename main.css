@@ -1,6 +1,11 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
 h1 {
     font-size: 40px;
-    font-family: Arial, sans-serif; /* Added fallback font */
+    font-family: Arial, sans-serif;
 }
 
 h2 {
@@ -8,17 +13,13 @@ h2 {
     font-family: Arial, sans-serif;
 }
 
-h3 {
-    font-family: Arial, sans-serif;
-    font-size: 20px; /* Added font-size for consistency */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
 }
 
-p {
-    font-size: 14px;
-    font-family: Arial, sans-serif;
-}
-
-th, td {
+td {
     padding: 8px;
     text-align: left;
     border-bottom: 1px solid #ddd;
