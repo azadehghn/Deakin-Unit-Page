@@ -15,5 +15,9 @@ p {
   font-size: 14px;
   font-family: Arial
 }
+div {
+    background-color: darkcyan; /* Change to green if specified */
+    text-align: right;
+}
 
 
