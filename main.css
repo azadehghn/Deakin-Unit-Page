@@ -1,19 +1,51 @@
-
-
 h1 {
   font-size: 40px;
-  font-family: Arial
+  font-family: Arial, sans-serif;
 }
+
 h2 {
   font-size: 25px;
-  font-family: Arial
+  font-family: Arial, sans-serif;
 }
+
 h3 {
-  font-family: Arial
+  font-family: Arial, sans-serif;
 }
+
 p {
   font-size: 14px;
-  font-family: Arial
+  font-family: Arial, sans-serif;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse; /* Ensures borders between cells are merged */
+  margin-top: 20px; /* Adds space above the table */
+}
+
+th, td {
+  padding: 12px; /* Adds padding inside table cells */
+  text-align: left; /* Aligns text to the left in table cells */
+  border-bottom: 1px solid #ddd; /* Adds a bottom border for rows */
+  font-family: Arial, sans-serif;
+}
+
+th {
+  background-color: #f4f4f4; /* Light grey background for table headers */
+}
+
+tr:nth-child(odd) {
+  background-color: #f9f9f9; /* Alternates row background color */
+}
+
+tr:hover {
+  background-color: #f1f1f1; /* Adds a hover effect for rows */
 }
 
 
+
+/* From incoming branch (not conflicting) */
+div {
+  background-color: blue;
+  text-align: right;
+}
