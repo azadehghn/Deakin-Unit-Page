@@ -1,0 +1,32 @@
+.bodySty
+{
+    background-color: darkcyan;
+}
+.form-group
+{
+    background-color: whitesmoke;
+    height: 50%;
+    width: 50%;
+    
+}
+
+.card {
+    width: 40%;
+    margin-left: 30%;
+    border: 1px solid #ddd;
+    padding: 20px;
+    background-color: white;
+    margin-top: 10%;
+}
+.btn-primary
+{
+    background-color: darkcyan;
+    font-weight: 700;
+    width: fit-content;
+    height: fit-content;
+    border-radius: 5px;
+    text-align: center;
+    font-size: large;
+    margin-top: 20px;
+    margin-left: 20px;
+}
