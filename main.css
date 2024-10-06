@@ -15,5 +15,9 @@ p {
   font-size: 14px;
   font-family: Arial
 }
+div {
+  background-color: green; /* Change this to blue later if needed */
+  text-align: right;
+}
 
 
