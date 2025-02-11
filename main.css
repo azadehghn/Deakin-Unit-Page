@@ -16,4 +16,28 @@ p {
   font-family: Arial
 }
 
-
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+table {
+  width: 50%;
+  margin: 20px auto;
+  border-collapse: collapse;
+  border: 2px solid #00ff08;
+}
+th, td {
+  border: 1px solid #120af4;
+  padding: 10px;
+  text-align: left;
+}
+th {
+  background-color: #f40dcd;
+  color: rgb(233, 241, 8);
+}
+tr:nth-child(even) {
+  background-color: #11ecf0;
+}
+tr:nth-child(odd) {
+  background-color: #11ecf0;
+}
