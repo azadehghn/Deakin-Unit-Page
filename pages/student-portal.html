@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Portal - Deakin University</title>
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="stylesheet" href="../css/navigation.css" />
+    <link rel="stylesheet" href="../css/responsive.css" />
+    <link rel="stylesheet" href="../css/portal.css" />
+    <link rel="icon" href="../favicon.ico" />
+  </head>
+  <body>
+    <!-- Top Bar same as homepage -->
+    <div class="top-bar">
+      <!-- Same content as index.html -->
+    </div>
+
+    <!-- Main Navigation same as homepage -->
+    <header class="main-header">
+      <!-- Same content as index.html -->
+    </header>
+
+    <!-- Login Form Section (shows if not logged in) -->
+    <section class="login-section">
+      <div class="container">
+        <div class="login-container">
+          <h2>Student Portal Login</h2>
+          <p>
+            Access your academic records, course materials, and other important
+            information.
+          </p>
+
+          <form id="login-form" class="login-form">
+            <div class="form-group">
+              <label for="username">Username</label>
+              <input type="text" id="username" name="username" required />
+            </div>
+
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input type="password" id="password" name="password" required />
+            </div>
+
+            <div class="form-group">
+              <div class="radio-group">
+                <input
+                  type="radio"
+                  id="student-type"
+                  name="user-type"
+                  value="student"
+                  checked
+                />
+                <label for="student-type">Student</label>
+
+                <input
+                  type="radio"
+                  id="staff-type"
+                  name="user-type"
+                  value="staff"
+                />
+                <label for="staff-type">Staff</label>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <button type="submit" class="btn btn-primary">Login</button>
+            </div>
+
+            <div class="form-links">
+              <a href="#">Forgot Password?</a>
+              <a href="#">Help</a>
+            </div>
+
+            <div class="error-message"></div>
+            <div class="success-message"></div>
+          </form>
+
+          <div class="security-note">
+            <p>
+              Your security is important to us. For your protection, please
+              ensure you're on the official Deakin University website before
+              entering your credentials.
+            </p>
+          </div>
+        </div>
+
+        <div class="login-info">
+          <h3>First time logging in?</h3>
+          <p>
+            If this is your first time accessing the student portal, you'll need
+            to activate your account.
+          </p>
+          <a href="#" class="btn btn-secondary">Activate Account</a>
+
+          <h3>Need Help?</h3>
+          <p>Contact our IT support team for assistance with login issues.</p>
+          <a href="#" class="contact-link">IT Support Contact</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Student Dashboard (shows if logged in) -->
+    <section
+      class="dashboard protected-page"
+      data-page-type="student"
+      style="display: none"
+    >
+      <div class="container">
+        <div class="dashboard-header">
+          <h2>Welcome, <span id="username-display">Student</span></h2>
+          <button id="logout-button" class="btn btn-secondary">Logout</button>
+        </div>
+
+        <div class="dashboard-grid">
+          <div class="dashboard-card">
+            <h3>My Courses</h3>
+            <ul class="course-list">
+              <li>
+                <a href="#">
+                  <span class="course-code">SIT223</span>
+                  <span class="course-name">Professional Practice in IT</span>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <span class="course-code">SIT753</span>
+                  <span class="course-name">Professional Practice in IT</span>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <span class="course-code">SIT315</span>
+                  <span class="course-name">Programming Paradigms</span>
+                </a>
+              </li>
+            </ul>
+            <a href="#" class="card-link">View All Courses</a>
+          </div>
+
+          <div class="dashboard-card">
+            <h3>Upcoming Assignments</h3>
+            <ul class="assignment-list">
+              <li>
+                <div class="assignment-info">
+                  <span class="assignment-name">Sprint Planning in Trello</span>
+                  <span class="assignment-course">SIT223/SIT753</span>
+                </div>
+                <span class="assignment-due">Due: Apr 20, 2025</span>
+              </li>
+              <li>
+                <div class="assignment-info">
+                  <span class="assignment-name"
+                    >Parallel Programming Assignment</span
+                  >
+                  <span class="assignment-course">SIT315</span>
+                </div>
+                <span class="assignment-due">Due: Apr 25, 2025</span>
+              </li>
+            </ul>
+            <a href="#" class="card-link">View All Assignments</a>
+          </div>
+
+          <div class="dashboard-card">
+            <h3>Announcements</h3>
+            <div class="announcement-list">
+              <div class="announcement">
+                <span class="announcement-date">Apr 14, 2025</span>
+                <h4>Important Deadline Changes</h4>
+                <p>
+                  Due to the upcoming holiday, some assessment deadlines have
+                  been adjusted.
+                </p>
+              </div>
+              <div class="announcement">
+                <span class="announcement-date">Apr 10, 2025</span>
+                <h4>Library Hours Extended</h4>
+                <p>
+                  The university library will have extended hours during the
+                  exam period.
+                </p>
+              </div>
+            </div>
+            <a href="#" class="card-link">View All Announcements</a>
+          </div>
+
+          <div class="dashboard-card">
+            <h3>Quick Links</h3>
+            <div class="quick-links-grid">
+              <a href="#" class="quick-link-card">
+                <img src="../images/grades-icon.svg" alt="" />
+                <span>My Grades</span>
+              </a>
+              <a href="#" class="quick-link-card">
+                <img src="../images/calendar-icon.svg" alt="" />
+                <span>Timetable</span>
+              </a>
+              <a href="#" class="quick-link-card">
+                <img src="../images/library-icon.svg" alt="" />
+                <span>Library</span>
+              </a>
+              <a href="#" class="quick-link-card">
+                <img src="../images/email-icon.svg" alt="" />
+                <span>Email</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer same as homepage -->
+    <footer class="main-footer">
+      <!-- Same content as index.html -->
+    </footer>
+
+    <script src="../js/main.js"></script>
+    <script src="../js/authentication.js"></script>
+  </body>
+</html>

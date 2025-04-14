@@ -1,0 +1,602 @@
+/* Reset and Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background-color: #f8f8f8;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  text-decoration: none;
+  color: #0062b0;
+  transition: color 0.3s;
+}
+
+a:hover {
+  color: #004582;
+}
+
+ul {
+  list-style: none;
+}
+
+/* Top Bar */
+.top-bar {
+  background-color: #0c2340;
+  color: white;
+  padding: 8px 0;
+  font-size: 14px;
+}
+
+.top-bar .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.top-links,
+.top-utilities {
+  display: flex;
+  gap: 20px;
+}
+
+.top-bar a {
+  color: white;
+}
+
+.top-bar a:hover {
+  text-decoration: underline;
+}
+
+.login-link {
+  display: flex;
+  align-items: center;
+}
+
+.login-link::before {
+  content: "";
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  background-image: url("../images/user-icon.svg");
+  background-size: contain;
+  margin-right: 5px;
+}
+
+/* Main Header */
+.main-header {
+  background-color: white;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.main-header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px;
+}
+
+.logo h1 {
+  color: #0062b0;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+/* Hero Section */
+.hero {
+  background-color: #0062b0;
+  color: white;
+  padding: 80px 0;
+  background-image: url("../images/campus-hero.jpg");
+  background-size: cover;
+  background-position: center;
+  background-blend-mode: overlay;
+  position: relative;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 98, 176, 0.7);
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 700px;
+}
+
+.hero h2 {
+  font-size: 42px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+
+.hero p {
+  font-size: 20px;
+  margin-bottom: 30px;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 24px;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.btn-primary {
+  background-color: white;
+  color: #0062b0;
+}
+
+.btn-primary:hover {
+  background-color: #f0f0f0;
+  color: #004582;
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: white;
+  border: 2px solid white;
+}
+
+.btn-secondary:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Quick Links */
+.quick-links {
+  background-color: white;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 15px 0;
+}
+
+.links-wrapper {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.quick-link {
+  display: flex;
+  align-items: center;
+  color: #0062b0;
+  font-weight: 500;
+}
+
+.quick-link img {
+  margin-right: 8px;
+}
+
+/* Featured Programs */
+.featured-programs {
+  padding: 60px 0;
+  background-color: white;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 32px;
+  margin-bottom: 40px;
+  color: #0c2340;
+}
+
+.programs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.program-card {
+  background-color: #f8f8f8;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.program-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+}
+
+.program-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.program-content {
+  padding: 20px;
+}
+
+.program-content h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: #0c2340;
+}
+
+.program-content p {
+  margin-bottom: 15px;
+  color: #555;
+}
+
+.read-more {
+  font-weight: 600;
+}
+
+/* News & Events */
+.news-events {
+  padding: 60px 0;
+  background-color: #f5f5f5;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.view-all {
+  font-weight: 600;
+}
+
+.news-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.news-card {
+  background-color: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.news-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+}
+
+.news-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.news-content {
+  padding: 20px;
+}
+
+.date {
+  display: block;
+  color: #777;
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+.news-content h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: #0c2340;
+}
+
+.news-content p {
+  margin-bottom: 15px;
+  color: #555;
+}
+
+/* Research Highlight */
+.research-highlight {
+  padding: 60px 0;
+  background-color: #e8f1f8;
+}
+
+.research-content {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.research-text {
+  flex: 1;
+}
+
+.research-image {
+  flex: 1;
+}
+
+.research-image img {
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.highlight-intro {
+  font-size: 20px;
+  margin-bottom: 15px;
+  color: #0c2340;
+}
+
+/* Footer */
+.main-footer {
+  background-color: #0c2340;
+  color: white;
+  padding: 60px 0 30px;
+}
+
+.footer-links {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+.footer-column h3 {
+  font-size: 18px;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.footer-column h3::after {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 40px;
+  height: 2px;
+  background-color: #0062b0;
+}
+
+.footer-column ul li {
+  margin-bottom: 10px;
+}
+
+.footer-column ul li a {
+  color: #ccc;
+  transition: color 0.3s;
+}
+
+.footer-column ul li a:hover {
+  color: white;
+}
+
+.footer-bottom {
+  padding-top: 30px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.legal-links {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.legal-links a {
+  color: #ccc;
+  font-size: 14px;
+}
+
+.legal-links a:hover {
+  color: white;
+}
+
+/* Add these styles to your main.css file */
+
+/* Material Icons Base Styling */
+.material-icons {
+  font-size: 20px;
+  vertical-align: middle;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Icon sizing variants */
+.material-icons.md-18 {
+  font-size: 18px;
+}
+.material-icons.md-24 {
+  font-size: 24px;
+}
+.material-icons.md-36 {
+  font-size: 36px;
+}
+.material-icons.md-48 {
+  font-size: 48px;
+}
+
+/* Specific icon styling */
+
+/* Navigation dropdown icons */
+.nav-links .material-icons {
+  font-size: 18px;
+  margin-left: 2px;
+}
+
+/* Search icon */
+.search-container .material-icons {
+  font-size: 20px;
+  color: #777;
+}
+
+.search-container button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* Update search input padding for icon */
+#search-input {
+  padding: 8px 15px 8px 35px;
+}
+
+/* Login link icon */
+.login-link .material-icons {
+  margin-right: 5px;
+  font-size: 16px;
+}
+
+/* Quick link icons */
+.quick-link .material-icons {
+  margin-right: 8px;
+  color: #0062b0;
+  font-size: 24px;
+}
+
+/* Button icons */
+.btn .material-icons {
+  margin-right: 6px;
+  font-size: 18px;
+}
+
+/* Arrow forward icon for "learn more" and "read more" links */
+.read-more .material-icons {
+  font-size: 16px;
+  margin-left: 4px;
+  transition: transform 0.3s;
+}
+
+.read-more:hover .material-icons {
+  transform: translateX(3px);
+}
+
+/* Calendar icon for date */
+.date .material-icons {
+  font-size: 14px;
+  margin-right: 4px;
+  vertical-align: text-top;
+}
+
+/* View all link */
+.view-all .material-icons {
+  font-size: 18px;
+  margin-left: 2px;
+  vertical-align: text-bottom;
+}
+
+/* Footer icons */
+.footer-column ul li a .material-icons {
+  font-size: 14px;
+  margin-right: 4px;
+  color: #0062b0;
+}
+
+.footer-bottom .material-icons {
+  font-size: 16px;
+  margin-right: 4px;
+}
+
+.legal-links a .material-icons {
+  font-size: 14px;
+  margin-right: 4px;
+}
+
+/* Update mobile menu toggle to use Material Icon */
+.mobile-menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #0c2340;
+}
+
+.mobile-menu-toggle .material-icons {
+  font-size: 28px;
+}
+
+/* Remove the old span elements for the mobile menu toggle */
+.mobile-menu-toggle span:not(.material-icons) {
+  display: none;
+}
+
+/* Media query updates for mobile */
+@media (max-width: 768px) {
+  .mobile-menu-toggle {
+    display: block;
+  }
+
+  /* We don't need the additional styling for spans since we're using the icon now */
+  .mobile-menu-toggle.active .material-icons {
+    color: #0062b0;
+  }
+}
+
+/* Logo styling updates */
+
+.logo {
+  padding: 10px 0;
+}
+
+.logo img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Adjust header spacing to accommodate logo */
+.main-header .container {
+  padding: 5px 15px;
+}
+
+/* Responsive adjustments for logo */
+@media (max-width: 768px) {
+  .logo img {
+    width: 220px; /* Smaller on mobile */
+  }
+}
+
+@media (max-width: 480px) {
+  .logo img {
+    width: 180px; /* Even smaller on very small screens */
+  }
+}

@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Deakin University - Home</title>
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/navigation.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+    <link rel="icon" href="favicon.ico" />
+  </head>
+  <body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+      <div class="container">
+        <div class="top-links">
+          <a href="#">Current Students</a>
+          <a href="#">Future Students</a>
+          <a href="#">Staff</a>
+          <a href="#">Research</a>
+        </div>
+        <div class="top-utilities">
+          <a href="#">Contact</a>
+          <a href="#">Directory</a>
+          <a href="pages/student-portal.html" class="login-link">Login</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Navigation -->
+    <header class="main-header">
+      <div class="container">
+        <div class="logo">
+          <a href="index.html">
+            <h1>DEAKIN UNIVERSITY</h1>
+          </a>
+        </div>
+        <nav class="main-nav">
+          <button class="mobile-menu-toggle" aria-label="Toggle menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+          <ul class="nav-links">
+            <li class="dropdown">
+              <a href="#">Study <span class="dropdown-arrow">▼</span></a>
+              <ul class="dropdown-menu">
+                <li><a href="pages/programs.html">Undergraduate</a></li>
+                <li><a href="pages/programs.html">Postgraduate</a></li>
+                <li><a href="pages/programs.html">Research Degrees</a></li>
+                <li><a href="#">How to Apply</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#">Research <span class="dropdown-arrow">▼</span></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Research Areas</a></li>
+                <li><a href="#">Publications</a></li>
+                <li><a href="#">Industry Partnerships</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#">About <span class="dropdown-arrow">▼</span></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Our History</a></li>
+                <li><a href="#">Campuses</a></li>
+                <li><a href="#">Leadership</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#"
+                >Life at Deakin <span class="dropdown-arrow">▼</span></a
+              >
+              <ul class="dropdown-menu">
+                <li><a href="#">Campus Life</a></li>
+                <li><a href="#">Accommodation</a></li>
+                <li><a href="#">Student Support</a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+        <div class="search-container">
+          <form id="search-form">
+            <input type="text" id="search-input" placeholder="Search..." />
+            <button type="submit" aria-label="Search">
+              <img
+                src="images/search-icon.svg"
+                alt="Search"
+                width="16"
+                height="16"
+              />
+            </button>
+          </form>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-content container">
+        <h2>Shape your future at Deakin University</h2>
+        <p>
+          Discover world-class education and research opportunities in a
+          supportive and inclusive environment.
+        </p>
+        <div class="hero-buttons">
+          <a href="pages/programs.html" class="btn btn-primary"
+            >Explore Courses</a
+          >
+          <a href="#" class="btn btn-secondary">Apply Now</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quick Links -->
+    <section class="quick-links">
+      <div class="container">
+        <div class="links-wrapper">
+          <a href="pages/programs.html" class="quick-link">
+            <img src="images/course-icon.svg" alt="" width="24" height="24" />
+            <span>Course Finder</span>
+          </a>
+          <a href="#" class="quick-link">
+            <img src="images/calendar-icon.svg" alt="" width="24" height="24" />
+            <span>Events</span>
+          </a>
+          <a href="pages/news.html" class="quick-link">
+            <img src="images/news-icon.svg" alt="" width="24" height="24" />
+            <span>News</span>
+          </a>
+          <a href="pages/student-portal.html" class="quick-link">
+            <img src="images/student-icon.svg" alt="" width="24" height="24" />
+            <span>Student Portal</span>
+          </a>
+          <a href="pages/staff-portal.html" class="quick-link">
+            <img src="images/staff-icon.svg" alt="" width="24" height="24" />
+            <span>Staff Portal</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Programs -->
+    <section class="featured-programs">
+      <div class="container">
+        <h2 class="section-title">Featured Programs</h2>
+        <div class="programs-grid">
+          <div class="program-card">
+            <img
+              src="images/business-program.jpg"
+              alt="Business student in classroom"
+              class="program-image"
+            />
+            <div class="program-content">
+              <h3>Bachelor of Business</h3>
+              <p>
+                Develop essential business skills and knowledge with our
+                industry-focused business degree.
+              </p>
+              <a href="#" class="read-more">Learn more →</a>
+            </div>
+          </div>
+          <div class="program-card">
+            <img
+              src="images/it-program.jpg"
+              alt="IT students coding"
+              class="program-image"
+            />
+            <div class="program-content">
+              <h3>Master of Information Technology</h3>
+              <p>
+                Advance your IT career with specialized knowledge in software
+                development, data analytics, or cybersecurity.
+              </p>
+              <a href="#" class="read-more">Learn more →</a>
+            </div>
+          </div>
+          <div class="program-card">
+            <img
+              src="images/health-program.jpg"
+              alt="Health sciences laboratory"
+              class="program-image"
+            />
+            <div class="program-content">
+              <h3>Bachelor of Health Sciences</h3>
+              <p>
+                Prepare for a career in the growing health sector with our
+                comprehensive health sciences program.
+              </p>
+              <a href="#" class="read-more">Learn more →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- News & Events -->
+    <section class="news-events">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Latest News & Events</h2>
+          <a href="pages/news.html" class="view-all">View all</a>
+        </div>
+        <div class="news-grid">
+          <div class="news-card">
+            <img
+              src="images/research-news.jpg"
+              alt="Research laboratory"
+              class="news-image"
+            />
+            <div class="news-content">
+              <span class="date">April 10, 2025</span>
+              <h3>Deakin Researchers Make Breakthrough in Renewable Energy</h3>
+              <p>
+                A team of Deakin University researchers has developed a new
+                method for storing renewable energy that could revolutionize the
+                industry.
+              </p>
+              <a href="#" class="read-more">Read more →</a>
+            </div>
+          </div>
+          <div class="news-card">
+            <img
+              src="images/campus-news.jpg"
+              alt="Campus building"
+              class="news-image"
+            />
+            <div class="news-content">
+              <span class="date">April 8, 2025</span>
+              <h3>New Student Hub Opening at Burwood Campus</h3>
+              <p>
+                Deakin University is proud to announce the opening of a new
+                student hub at our Burwood campus, featuring cutting-edge
+                facilities.
+              </p>
+              <a href="#" class="read-more">Read more →</a>
+            </div>
+          </div>
+          <div class="news-card">
+            <img
+              src="images/event-news.jpg"
+              alt="Career fair"
+              class="news-image"
+            />
+            <div class="news-content">
+              <span class="date">April 5, 2025</span>
+              <h3>Annual Career Fair: Connect with Top Employers</h3>
+              <p>
+                Don't miss the opportunity to meet representatives from leading
+                companies at our annual career fair on April 20.
+              </p>
+              <a href="#" class="read-more">Read more →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Research Highlight -->
+    <section class="research-highlight">
+      <div class="container">
+        <div class="research-content">
+          <div class="research-text">
+            <h2 class="section-title">Research at Deakin</h2>
+            <p class="highlight-intro">
+              Discover how our researchers are solving real-world problems and
+              making a difference through innovative research projects.
+            </p>
+            <p>
+              At Deakin, we're committed to research that makes an impact. Our
+              world-class researchers work across disciplines to address global
+              challenges in health, sustainability, technology, and society.
+              With state-of-the-art facilities and strong industry partnerships,
+              we're translating discoveries into real-world solutions.
+            </p>
+            <a href="#" class="btn btn-primary">Explore Research</a>
+          </div>
+          <div class="research-image">
+            <img
+              src="images/research-highlight.jpg"
+              alt="Researchers in laboratory"
+              width="600"
+              height="400"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+      <div class="container">
+        <div class="footer-links">
+          <div class="footer-column">
+            <h3>Study</h3>
+            <ul>
+              <li><a href="#">Courses</a></li>
+              <li><a href="#">Applications</a></li>
+              <li><a href="#">International Students</a></li>
+              <li><a href="#">Scholarships</a></li>
+              <li><a href="#">Fees</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h3>Research</h3>
+            <ul>
+              <li><a href="#">Research Areas</a></li>
+              <li><a href="#">Publications</a></li>
+              <li><a href="#">Partners</a></li>
+              <li><a href="#">News</a></li>
+              <li><a href="#">Grants</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h3>About</h3>
+            <ul>
+              <li><a href="#">Our History</a></li>
+              <li><a href="#">Campuses</a></li>
+              <li><a href="#">Leadership</a></li>
+              <li><a href="#">Careers at Deakin</a></li>
+              <li><a href="#">Contact Us</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h3>Connect</h3>
+            <ul>
+              <li><a href="#">Events</a></li>
+              <li><a href="#">News</a></li>
+              <li><a href="#">Alumni</a></li>
+              <li><a href="#">Giving</a></li>
+              <li><a href="#">Social Media</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2025 Deakin University. All rights reserved.</p>
+          <div class="legal-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Use</a>
+            <a href="#">Accessibility</a>
+            <a href="#">Sitemap</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/search.js"></script>
+  </body>
+</html>

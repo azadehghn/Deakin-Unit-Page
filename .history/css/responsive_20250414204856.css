@@ -1,0 +1,116 @@
+css/* Responsive Styles */
+@media (max-width: 1100px) {
+    .research-content {
+        flex-direction: column;
+    }
+    
+    .research-text {
+        order: 1;
+    }
+    
+    .research-image {
+        order: 0;
+        margin-bottom: 30px;
+    }
+}
+
+@media (max-width: 900px) {
+    .main-header .container {
+        flex-wrap: wrap;
+    }
+    
+    .logo {
+        margin-bottom: 10px;
+    }
+    
+    .search-container {
+        order: 3;
+        width: 100%;
+        margin-top: 10px;
+    }
+    
+    #search-input {
+        width: 100%;
+    }
+    
+    #search-input:focus {
+        width: 100%;
+    }
+    
+    .nav-links {
+        gap: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .mobile-menu-toggle {
+        display: block;
+    }
+    
+    .main-nav {
+        order: 2;
+    }
+    
+    .nav-links {
+        position: fixed;
+        top: 0;
+        left: -100%;
+        width: 80%;
+        max-width: 300px;
+        height: 100vh;
+        background-color: white;
+        flex-direction: column;
+        gap: 0;
+        padding: 80px 0 20px;
+        box-shadow: 0 0 20px rgba(0,0,0,0.2);
+        transition: left 0.3s;
+        z-index: 1000;
+    }
+    
+    .nav-links.active {
+        left: 0;
+    }
+    
+    .nav-links > li > a {
+        padding: 15px 20px;
+        border-bottom: 1px solid #f0f0f0;
+    }
+    
+    .dropdown-menu {
+        position: static;
+        box-shadow: none;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        max-height: 0;
+        min-width: 100%;
+        transition: max-height 0.3s;
+    }
+    
+    .dropdown.active .dropdown-menu {
+        max-height: 300px;
+    }
+    
+    .dropdown-menu li a {
+        padding-left: 40px;
+    }
+    
+    .hero h2 {
+        font-size: 32px;
+    }
+    
+    .hero p {
+        font-size: 18px;
+    }
+    
+    .links-wrapper {
+        justify-content: center;
+    }
+    
+    .quick-link {
+        margin: 0 10px;
+    }
+    
+    .section-title {
+        font-size: 28px;
+    }
