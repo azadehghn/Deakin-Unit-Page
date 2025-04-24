@@ -1,0 +1,115 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    margin: 0;
+    background-color: #f4f4f4;
+}
+
+/* Sidebar Navigation */
+.sidebar {
+    width: 250px;
+    background-color: #007bff;
+    color: white;
+    padding: 20px;
+    height: 100vh;
+}
+
+.sidebar h2 {
+    text-align: center;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin: 10px 0;
+}
+
+.sidebar ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    display: block;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.sidebar ul li a:hover {
+    background-color: #0056b3;
+}
+
+/* Sidebar Logo (if placed in the sidebar) */
+.sidebar-logo {
+    display: block;
+    margin: 0 auto 15px auto;
+    height: 50px; /* Reduce the height */
+    width: auto; /* Maintain aspect ratio */
+    border-radius: 8px; /* Optional: Rounded edges */
+}
+
+
+/* Main Content */
+.content {
+    flex-grow: 1;
+    padding: 20px;
+    background-color: white;
+}
+
+/* Dashboard Metrics */
+.dashboard-metrics {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.metric-card {
+    background-color: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 30%;
+    text-align: center;
+}
+
+/* Hidden Sections */
+.dashboard-section {
+    display: none;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Card Sections */
+.card-section {
+    padding: 20px;
+}
+
+.card {
+    background-color: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.card h3 {
+    margin-bottom: 10px;
+}
+
+.card p {
+    margin-bottom: 10px;
+}
+
+.card a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.card a:hover {
+    text-decoration: underline;
+}

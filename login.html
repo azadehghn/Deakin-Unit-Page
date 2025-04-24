@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" type="text/css" href="login.css">
+</head>
+<body>
+
+    <!-- Login Form -->
+    <section class="login-container">
+        <h2>Login to Portal</h2><br><br>
+        <form id="loginForm">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+
+            <button type="button" onclick="handleLogin()">Login</button>
+            <p id="errorMessage" class="error"></p>
+        </form>
+
+        <!-- Link to navigate back to the home page -->
+        <a href="index.html" class="home-link">Back to Home Page</a>
+    </section>
+
+    <script>
+        function handleLogin() {
+            // Mock data for role-based login
+            const users = {
+                student: { username: "student1", password: "12345", role: "student" },
+                staff: { username: "staff1", password: "67890", role: "staff" }
+            };
+
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+
+            let user = Object.values(users).find(
+                u => u.username === username && u.password === password
+            );
+
+            if (user) {
+                if (user.role === "student") {
+                    window.location.href = "studentportal.html";
+                } else if (user.role === "staff") {
+                    window.location.href = "staffportal.html";
+                }
+            } else {
+                document.getElementById("errorMessage").textContent =
+                    "Invalid username or password. Please try again.";
+            }
+        }
+    </script>
+
+</body>
+</html>

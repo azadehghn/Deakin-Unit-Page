@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deakin Staff Portal</title>
+    <link rel="stylesheet" href="staffportal.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <header class="welcome-banner">
+        <h1>Welcome!</h1>
+        <p>What do you need help with today?</p>
+    </header>
+
+    <div class="icon-buttons-container">
+         <a href="#hr-info" class="icon-button" data-target="hr-info">
+            <i class="fas fa-info-circle"></i> <span>HR Information</span>
+        </a>
+        <a href="#payroll" class="icon-button" data-target="payroll">
+            <i class="fas fa-dollar-sign"></i> <span>Payroll</span>
+        </a>
+        <a href="#prof-dev" class="icon-button" data-target="prof-dev">
+            <i class="fas fa-graduation-cap"></i> <span>Professional Development</span>
+        </a>
+        <a href="#directory" class="icon-button" data-target="directory">
+            <i class="fas fa-address-book"></i> <span>Staff Directory</span>
+        </a>
+    </div>
+
+    <div class="portal-content-container">
+
+        <!-- HR-Info -->
+        <section id="hr-info" class="portal-content">
+            <h2>HR Information</h2>
+            <p>Find important HR documents, policies, and forms here.</p>
+            <div class="hr-subsection">
+                <h3>Leave Policy</h3>
+                <p>Details regarding annual leave, sick leave, parental leave, and other leave entitlements.</p>
+                <ul>
+                    <li><a href="#">View Annual Leave Policy</a></li>
+                    <li><a href="#">Request Leave Form</a></li>
+                </ul>
+            </div>
+            <div class="hr-subsection">
+                <h3>Code of Conduct</h3>
+                <p>Information on professional standards, ethics, and expected workplace behaviour.</p>
+                <ul>
+                    <li><a href="#">Read the Full Code of Conduct</a></li>
+                </ul>
+            </div>
+            <div class="hr-subsection">
+                <h3>HR Forms</h3>
+                <p>Commonly used forms for various HR processes.</p>
+                <ul>
+                    <li><a href="#">Change of Details Form</a></li>
+                    <li><a href="#">Performance Review Template</a></li>
+                    <li><a href="#">Expense Claim Form</a></li>
+                </ul>
+            </div>
+        </section>
+        
+        <!-- Payroll -->
+        <section id="payroll" class="portal-content">
+            <h2>Payroll</h2>
+            <p>Access your payslips, payment summaries, and manage payroll details.</p>
+            <div class="payroll-subsection">
+                <h3>Payslips</h3>
+                <p>View your recent and historical payslips.</p>
+                <ul>
+                    <li><a href="#">View Current Payslip</a></li>
+                    <li><a href="#">Access Payslip Archive</a></li>
+                </ul>
+            </div>
+            <div class="payroll-subsection">
+                <h3>Payment Summaries / Tax Info</h3>
+                <p>Access end-of-financial-year summaries for tax purposes.</p>
+                <ul>
+                    <li><a href="#">Download Latest Payment Summary</a></li>
+                </ul>
+            </div>
+            <div class="payroll-subsection">
+                <h3>Bank Details & Superannuation</h3>
+                <p>View or update your bank account and superannuation fund details.</p>
+                <ul>
+                    <li><a href="#">Update Bank Details (Link to secure form/system)</a></li>
+                    <li><a href="#">View Superannuation Information</a></li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Prof-Dev -->
+        <section id="prof-dev" class="portal-content">
+            <h2>Professional Development</h2>
+            <p>Explore opportunities for training, skill advancement, and career growth.</p>
+            <div class="prof-dev-subsection">
+                <h3>Internal Workshops & Training</h3>
+                <p>Register for workshops offered by Deakin faculties and central units.</p>
+                <ul>
+                    <li><a href="#">Browse Current Workshop Schedule</a></li>
+                    <li><a href="#">Deakin Learning Futures Programs</a></li>
+                    <li><a href="#">IT Training Sessions (e.g., Software, Systems)</a></li>
+                    <li><a href="#">Research Development Programs</a></li>
+                </ul>
+            </div>
+            <div class="prof-dev-subsection">
+                <h3>Online Learning Resources</h3>
+                <p>Access online platforms and resources for self-paced learning.</p>
+                <ul>
+                    <li><a href="#">LinkedIn Learning Access</a></li>
+                    <li><a href="#">Deakin Online Compliance Training</a></li>
+                    <li><a href="#">Library Resources for Staff</a></li>
+                </ul>
+            </div>
+            <div class="prof-dev-subsection">
+                <h3>Leadership & Management Development</h3>
+                <p>Programs designed for current and aspiring leaders.</p>
+                <ul>
+                    <li><a href="#">Emerging Leaders Program Information</a></li>
+                    <li><a href="#">Management Skills Workshops</a></li>
+                </ul>
+            </div>
+             <div class="prof-dev-subsection">
+                <h3>External Conferences & Funding</h3>
+                <p>Information on attending external events and applying for development funding.</p>
+                <ul>
+                    <li><a href="#">Conference Attendance Policy</a></li>
+                    <li><a href="#">Apply for Professional Development Funding</a></li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Directory -->
+        <section id="directory" class="portal-content">
+            <h2>Staff Directory</h2>
+            <p>Find contact information for colleagues.</p>
+            <a href="#">Search Directory</a>
+        </section>
+    </div> <footer>
+        <p>&copy; 2025 Deakin University. Staff Portal.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+
+            const iconButtons = document.querySelectorAll('.icon-button');
+            const contentSections = document.querySelectorAll('.portal-content')
+
+            iconButtons.forEach(button => {
+                button.addEventListener('click', (event) => {
+
+                    event.preventDefault();
+
+                    const targetId = button.getAttribute('data-target');
+                    const targetSection = document.getElementById(targetId);
+
+                    // --- Debugging Step: Log to console ---
+                    console.log('Button clicked. Target ID:', targetId);
+                    if (targetSection) {
+                        console.log('Target section found:', targetSection);
+                    } else {
+                        console.error('Target section NOT found for ID:', targetId);
+                        return; // Stop if target section doesn't exist
+                    }
+                    // --- End Debugging Step ---
+
+
+                    const isAlreadyActive = targetSection.classList.contains('active-content');
+
+                    contentSections.forEach(section => {
+                        section.classList.remove('active-content');
+                    });
+
+                    if (!isAlreadyActive && targetSection) {
+                         targetSection.classList.add('active-content');
+                         
+                         targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+
+
+                });
+            });
+
+        }); 
+    </script>
+
+</body>
+</html>

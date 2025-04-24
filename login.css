@@ -1,0 +1,79 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #007bff, #00d4ff); /* Blue gradient background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full viewport height */
+}
+
+/* Login Container */
+.login-container {
+    background-color: white; /* White box for the form */
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    text-align: center;
+    width: 350px;
+}
+
+.login-container h2 {
+    margin-bottom: 10px;
+    color: #007bff; /* Matches gradient */
+    font-size: 24px;
+}
+
+.login-container form {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+.login-container label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.login-container input {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    background-color: #007bff; /* Matches gradient */
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Back to Home Link */
+.home-link {
+    display: block;
+    margin-top: 20px;
+    font-size: 14px;
+    color: #007bff;
+    text-decoration: none;
+}
+
+.home-link:hover {
+    text-decoration: underline;
+}
+
+.error {
+    color: red;
+    font-size: 14px;
+    margin-top: 10px;
+}

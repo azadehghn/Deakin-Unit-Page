@@ -1,0 +1,290 @@
+/* --- Global Styles & Variables --- */
+:root {
+    --primary-color: #0056b3;
+    --secondary-color: #4a90e2;
+    --background-color: #f8f9fa;
+    --sidebar-bg: #e9ecef;
+    --content-bg: #ffffff;
+    --text-color: #343a40;
+    --border-color: #dee2e6;
+    --link-hover-bg: #d0dff0;
+    --font-family: Arial, sans-serif;
+}
+
+body {
+    margin: 0;
+    font-family: var(--font-family);
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+/* --- Dashboard Layout --- */
+.dashboard-container {
+    display: flex;
+    min-height: 100vh;
+}
+
+.dashboard-sidebar {
+    width: 250px;
+    background-color: var(--sidebar-bg);
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.05);
+    flex-shrink: 0;
+    overflow-y: auto;
+}
+
+.dashboard-content {
+    flex-grow: 1;
+    padding: 30px;
+    overflow-y: auto;
+}
+
+/* --- Sidebar Styling --- */
+.dashboard-sidebar h2 {
+    color: var(--primary-color);
+    margin-top: 0;
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 10px;
+    font-size: 1.4em;
+}
+
+.dashboard-sidebar nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.dashboard-sidebar nav li {
+    margin-bottom: 5px;
+}
+
+.dashboard-sidebar nav a {
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    color: var(--text-color);
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+.dashboard-sidebar nav a i {
+    margin-right: 10px;
+    width: 20px;
+    text-align: center;
+    color: var(--primary-color);
+}
+
+.dashboard-sidebar nav a:hover {
+    background-color: var(--link-hover-bg);
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+/* Style for the active link in the sidebar */
+.dashboard-sidebar nav a.active-link {
+    background-color: var(--secondary-color);
+    color: white;
+    font-weight: bold;
+}
+
+.dashboard-sidebar nav a.active-link i {
+    color: white;
+}
+
+
+/* --- Main Content Area Styling --- */
+.dashboard-content header {
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+}
+
+.dashboard-content header h1 {
+    margin: 0;
+    color: var(--primary-color);
+    font-size: 1.8em;
+}
+
+.program-section {
+    background-color: var(--content-bg);
+    padding: 25px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    display: none;
+}
+
+.program-section h2 {
+    margin-top: 0;
+    color: var(--secondary-color);
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.course-listing {
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 20px;
+    background-color: #fdfdfd;
+}
+
+.course-listing h3 {
+    margin-top: 0;
+    color: var(--primary-color);
+}
+
+.course-listing ul {
+    list-style: none;
+    padding-left: 0;
+    font-size: 0.9em;
+    color: #555;
+}
+
+.course-listing li {
+    margin-bottom: 5px;
+}
+
+.course-listing a {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 5px 10px;
+    background-color: var(--secondary-color);
+    color: white;
+    border-radius: 4px;
+    font-size: 0.9em;
+}
+
+.course-listing a:hover {
+    background-color: var(--primary-color);
+    text-decoration: none;
+}
+
+/* --- Comparison Tool Styling --- */
+.comparison-tool {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: flex-end;
+    margin-bottom: 20px;
+}
+
+.course-selector {
+    display: flex;
+    flex-direction: column;
+}
+
+.course-selector label {
+    margin-bottom: 5px;
+    font-size: 0.9em;
+    color: #555;
+}
+
+.course-selector select {
+    padding: 8px 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    min-width: 200px;
+}
+
+.comparison-tool button {
+    padding: 8px 15px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    height: 36px;
+}
+
+.comparison-tool button:hover {
+    background-color: var(--secondary-color);
+}
+
+#comparison-results {
+    width: 100%;
+    margin-top: 20px;
+}
+
+/* --- Comparison Table Styling --- */
+.comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+.comparison-table th,
+.comparison-table td {
+    border: 1px solid var(--border-color);
+    padding: 10px 12px;
+    text-align: left;
+    vertical-align: top;
+}
+
+.comparison-table thead th {
+    background-color: var(--sidebar-bg);
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+.comparison-table tbody tr:nth-child(even) {
+    background-color: #f8f8f8;
+}
+
+.comparison-table td:first-child {
+    font-weight: bold;
+    width: 150px;
+    color: #555;
+}
+
+/* --- Contact Details Styling --- */
+.contact-details {
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eee;
+}
+.contact-details:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+.contact-details h3 {
+    color: var(--secondary-color);
+    margin-bottom: 10px;
+}
+
+/* --- Basic Responsiveness --- */
+@media (max-width: 768px) {
+    .dashboard-container {
+        flex-direction: column;
+    }
+
+    .dashboard-sidebar {
+        width: 100%;
+        height: auto;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        box-sizing: border-box;
+    }
+
+    .dashboard-content {
+        padding: 20px;
+    }
+
+    .comparison-tool {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .course-selector select {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+     .comparison-tool button {
+        width: 100%;
+    }
+}

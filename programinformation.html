@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deakin Programs Dashboard</title>
+    <link rel="stylesheet" href="programinformation.css">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="dashboard-container">
+
+        <aside class="dashboard-sidebar">
+            <h2>Program Levels</h2>
+            <nav>
+                <ul>
+                    <li><a href="#undergraduate" data-target="undergraduate"><i class="fas fa-user-graduate"></i> Undergraduate</a></li>
+                    <li><a href="#graduate" data-target="graduate"><i class="fas fa-user-tie"></i> Graduate</a></li>
+                    <li><a href="#research" data-target="research"><i class="fas fa-flask"></i> Research</a></li>
+                    <li><a href="#compare" data-target="compare"><i class="fas fa-balance-scale"></i> Compare Courses</a></li>
+                    <li><a href="#contact" data-target="contact"><i class="fas fa-phone-alt"></i> Contact Us</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="dashboard-content">
+            <header>
+                 <h1>Program Information</h1>
+            </header>
+
+            <!-- Undergraduate -->
+            <section id="undergraduate" class="program-section">
+                <h2>Undergraduate Programs</h2>
+                <p>Explore our range of bachelor's degrees and undergraduate courses.</p>
+                <article class="course-listing">
+                    <h3>Bachelor of Information Technology</h3>
+                    <p>Develop expertise in software development, cyber security, data analytics, and more. Prepare for a dynamic career in the tech industry.</p>
+                    <ul>
+                        <li><strong>Duration:</strong> 3 years full-time</li>
+                        <li><strong>Units/Credit Points:</strong> 24 credit points</li>
+                        <li><strong>Campuses:</strong> Burwood (Melbourne), Waurn Ponds (Geelong), Cloud (Online)</li>
+                        <li><a href="#">View Course Details</a></li>
+                    </ul>
+                </article>
+                <article class="course-listing">
+                    <h3>Bachelor of Commerce</h3>
+                    <p>Gain a comprehensive understanding of business principles with majors available in accounting, economics, finance, marketing, and management.</p>
+                    <ul>
+                        <li><strong>Duration:</strong> 3 years full-time</li>
+                        <li><strong>Units/Credit Points:</strong> 24 credit points</li>
+                        <li><strong>Campuses:</strong> Burwood (Melbourne), Waterfront (Geelong), Warrnambool, Cloud (Online)</li>
+                        <li><a href="#">View Course Details</a></li>
+                    </ul>
+                </article>
+            </section>
+
+            <!-- Graduate -->
+            <section id="graduate" class="program-section">
+                <h2>Graduate Programs</h2>
+                <p>Advance your career with our postgraduate coursework degrees, including graduate certificates, diplomas, and master's programs.</p>
+                <article class="course-listing">
+                    <h3 data-course-id="cyber">Master of Cyber Security</h3>
+                    <p>Develop advanced skills to protect data and systems in a rapidly evolving digital landscape.</p>
+                    <ul>
+                        <li><strong>Duration:</strong> 1-2 years full-time (depending on entry)</li>
+                        <li><strong>Units/Credit Points:</strong> 8-16 credit points</li>
+                        <li><strong>Campuses:</strong> Burwood (Melbourne), Cloud (Online)</li>
+                        <li><a href="#">View Course Details</a></li>
+                    </ul>
+                </article>
+                 <article class="course-listing">
+                    <h3 data-course-id="mba">Master of Business Administration (MBA)</h3>
+                    <p>Enhance your leadership and strategic management capabilities for senior roles.</p>
+                    <ul>
+                        <li><strong>Duration:</strong> 1.5 years full-time</li>
+                        <li><strong>Units/Credit Points:</strong> 12 credit points</li>
+                        <li><strong>Campuses:</strong> Cloud (Online), Burwood (Melbourne) - Intensive</li>
+                        <li><a href="#">View Course Details</a></li>
+                    </ul>
+                </article>
+                 <article class="course-listing">
+                    <h3 data-course-id="datasci">Master of Data Science</h3>
+                     <p>Learn to extract insights and knowledge from data using cutting-edge techniques.</p>
+                     <ul>
+                         <li><strong>Duration:</strong> 2 years full-time</li>
+                         <li><strong>Units/Credit Points:</strong> 16 credit points</li>
+                         <li><strong>Campuses:</strong> Burwood (Melbourne), Cloud (Online)</li>
+                         <li><a href="#">View Course Details</a></li>
+                     </ul>
+                 </article>
+            </section>
+
+            <!-- Research -->
+            <section id="research" class="program-section">
+                <h2>Research Programs</h2>
+                <p>Undertake in-depth research and contribute to knowledge in your field with our Higher Degrees by Research (HDR).</p>
+                 <article class="course-listing">
+                    <h3 data-course-id="phd">Doctor of Philosophy (PhD)</h3>
+                    <p>Conduct significant original research culminating in a thesis, under the guidance of expert supervisors.</p>
+                    <ul>
+                        <li><strong>Duration:</strong> 3-4 years full-time</li>
+                        <li><strong>Available across various faculties and institutes.</strong></li>
+                        <li><a href="#">Find a Supervisor</a></li>
+                        <li><a href="#">How to Apply for HDR</a></li>
+                    </ul>
+                </article>
+            </section>
+
+            <!-- Compare -->
+            <section id="compare" class="program-section">
+                <h2>Compare Courses</h2>
+                <p>Select two courses to compare their details side-by-side.</p>
+                 <div class="comparison-tool">
+                    <div class="course-selector">
+                        <label for="course1">Select Course 1:</label>
+                        <select name="course1" id="course1">
+                            <option value="">-- Select --</option>
+                            <option value="cyber">Master of Cyber Security</option>
+                            <option value="datasci">Master of Data Science</option>
+                            <option value="mba">Master of Business Administration (MBA)</option>
+                            <option value="bit">Bachelor of Information Technology</option>
+                            <option value="bcom">Bachelor of Commerce</option>
+                        </select>
+                    </div>
+                     <div class="course-selector">
+                        <label for="course2">Select Course 2:</label>
+                        <select name="course2" id="course2">
+                             <option value="">-- Select --</option>
+                            <option value="cyber">Master of Cyber Security</option>
+                            <option value="datasci">Master of Data Science</option>
+                            <option value="mba">Master of Business Administration (MBA)</option>
+                            <option value="bit">Bachelor of Information Technology</option>
+                            <option value="bcom">Bachelor of Commerce</option>
+                        </select>
+                    </div>
+                    <button id="compare-btn">Compare</button>
+                    <div id="comparison-results">
+                        <p><i>Comparison results will appear here.</i></p>
+                    </div>
+                 </div>
+            </section>
+
+            <!-- Contact -->
+            <section id="contact" class="program-section">
+                <h2>Contact Us</h2>
+                <p>Have questions about our programs or need help applying? Get in touch with our Future Students team.</p>
+
+                <div class="contact-details">
+                    <h3>General Enquiries</h3>
+                    <p><strong>Phone:</strong> <a href="tel:+61392446333">1800 MY DEAKIN (1800 693 325)</a> (within Australia)</p>
+                     <p><strong>Phone (International):</strong> <a href="tel:+61392446333">+61 3 9244 6333</a></p>
+                    <p><strong>Online Enquiry Form:</strong> <a href="#">Submit an Enquiry</a></p>
+                    <p><strong>Live Chat:</strong> Available during business hours</p>
+                </div>
+
+                 <div class="contact-details">
+                    <h3>Visit Us</h3>
+                    <p>Find information about campus tours and upcoming events.</p>
+                    <p><a href="#">Book a Campus Tour</a></p>
+                     <p><a href="#">Open Day Information</a></p>
+                </div>
+
+            </section>
+
+        </main> </div> <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const sidebarLinks = document.querySelectorAll('.dashboard-sidebar nav a');
+            const contentSections = document.querySelectorAll('.program-section');
+            const mainContentHeader = document.querySelector('.dashboard-content header h1');
+
+            // --- Course Data (Simple Example) ---
+            const courseData = {
+                "cyber": { name: "Master of Cyber Security", duration: "1-2 years", credits: "8-16", campuses: "Burwood, Cloud" },
+                "datasci": { name: "Master of Data Science", duration: "2 years", credits: "16", campuses: "Burwood, Cloud" },
+                "mba": { name: "Master of Business Administration (MBA)", duration: "1.5 years", credits: "12", campuses: "Cloud, Burwood" },
+                "bit": { name: "Bachelor of Information Technology", duration: "3 years", credits: "24", campuses: "Burwood, Waurn Ponds, Cloud" },
+                "bcom": { name: "Bachelor of Commerce", duration: "3 years", credits: "24", campuses: "Burwood, Waterfront, Warrnambool, Cloud" }
+            };
+            // --- End Course Data ---
+
+
+            // Function to show a specific section
+            function showSection(targetId) {
+                contentSections.forEach(section => { section.style.display = 'none'; });
+                sidebarLinks.forEach(link => { link.classList.remove('active-link'); });
+
+                const targetSection = document.getElementById(targetId);
+                if (targetSection) {
+                    targetSection.style.display = 'block';
+                    const sectionTitle = targetSection.querySelector('h2');
+                    mainContentHeader.textContent = sectionTitle ? sectionTitle.textContent : 'Program Information';
+
+                    const activeLink = document.querySelector(`.dashboard-sidebar nav a[data-target="${targetId}"]`);
+                    if (activeLink) { activeLink.classList.add('active-link'); }
+                } else {
+                     mainContentHeader.textContent = 'Program Information';
+                }
+            }
+
+            // Add click listeners to sidebar links
+            sidebarLinks.forEach(link => {
+                link.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    const targetId = this.getAttribute('data-target');
+                    showSection(targetId);
+                });
+            });
+
+            // --- Comparison Tool Logic ---
+            const compareButton = document.getElementById('compare-btn');
+            const course1Select = document.getElementById('course1');
+            const course2Select = document.getElementById('course2');
+            const resultsDiv = document.getElementById('comparison-results');
+
+            if (compareButton) {
+                compareButton.addEventListener('click', function() {
+                    const course1Id = course1Select.value;
+                    const course2Id = course2Select.value;
+                    resultsDiv.innerHTML = '';
+
+                    if (!course1Id || !course2Id) {
+                        resultsDiv.innerHTML = '<p style="color: red;">Please select two courses to compare.</p>';
+                        return;
+                    }
+                    if (course1Id === course2Id) {
+                         resultsDiv.innerHTML = '<p style="color: orange;">Please select two different courses.</p>';
+                        return;
+                    }
+
+                    const course1 = courseData[course1Id];
+                    const course2 = courseData[course2Id];
+
+                    if (course1 && course2) {
+                        // Basic comparison table
+                        resultsDiv.innerHTML = `
+                            <h3>Comparison</h3>
+                            <table class="comparison-table">
+                                <thead>
+                                    <tr>
+                                        <th>Feature</th>
+                                        <th>${course1.name}</th>
+                                        <th>${course2.name}</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Duration</td>
+                                        <td>${course1.duration}</td>
+                                        <td>${course2.duration}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Credits</td>
+                                        <td>${course1.credits}</td>
+                                        <td>${course2.credits}</td>
+                                    </tr>
+                                     <tr>
+                                        <td>Campuses</td>
+                                        <td>${course1.campuses}</td>
+                                        <td>${course2.campuses}</td>
+                                    </tr>
+                                    </tbody>
+                            </table>
+                        `;
+                    } else {
+                        resultsDiv.innerHTML = '<p style="color: red;">Could not retrieve data for selected courses.</p>';
+                    }
+                });
+            }
+            // --- End Comparison Tool Logic ---
+
+
+            // --- Initial State ---
+            if (sidebarLinks.length > 0) {
+                const initialTargetId = sidebarLinks[0].getAttribute('data-target');
+                showSection(initialTargetId);
+            } else {
+                 contentSections.forEach(section => { section.style.display = 'none'; });
+                 mainContentHeader.textContent = 'Program Information';
+            }
+
+        });
+    </script>
+
+</body>
+</html>
