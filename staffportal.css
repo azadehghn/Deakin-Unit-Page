@@ -1,0 +1,138 @@
+/* Basic Reset and Body Styles */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f4f4f4;
+}
+
+a {
+    color: #0056b3;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+h1, h2, h3 {
+    margin-top: 1em;
+    margin-bottom: 0.5em;
+}
+
+ul {
+    padding-left: 20px;
+}
+
+/* Welcome Banner Styling */
+.welcome-banner {
+    background: linear-gradient(90deg, #007bff, #0056b3);
+    color: white;
+    padding: 30px 20px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.welcome-banner h1 {
+    margin: 0 0 10px 0;
+    font-size: 2.5em;
+}
+
+.welcome-banner p {
+    margin: 0;
+    font-size: 1.2em;
+    opacity: 0.9;
+}
+
+/* Icon Button Container Styling */
+.icon-buttons-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 0 20px;
+    margin-bottom: 30px;
+    gap: 20px;
+}
+
+/* Icon Button Styling */
+.icon-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #0056b3;
+    color: white;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.icon-button i {
+    font-size: 2em;
+    margin-bottom: 5px;
+}
+
+.icon-button span {
+    font-size: 0.9em;
+    display: block;
+}
+
+.icon-button:hover {
+    background-color: #004085;
+    text-decoration: none;
+}
+
+/* Content Section Container */
+.portal-content-container {
+     padding: 0 20px;
+}
+
+
+/* Content Section Styling */
+.portal-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+    display: none;
+}
+
+/* Class to show the active content section */
+.portal-content.active-content {
+    display: block;
+}
+
+
+.hr-subsection,
+.payroll-subsection,
+.prof-dev-subsection {
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.hr-subsection:last-child,
+.payroll-subsection:last-child,
+.prof-dev-subsection:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+/* Footer Styling */
+footer {
+    text-align: center;
+    margin-top: 40px;
+    padding: 20px;
+    background-color: #e9ecef;
+    color: #6c757d;
+    border-top: 1px solid #dee2e6;
+}
