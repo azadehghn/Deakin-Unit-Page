@@ -1,19 +1,31 @@
+/* main.css */
 
-
-h1 {
+h1 { 
   font-size: 40px;
-  font-family: Arial
+  font-family: Arial, sans-serif;
 }
+
 h2 {
   font-size: 25px;
-  font-family: Arial
-}
-h3 {
-  font-family: Arial
-}
-p {
-  font-size: 14px;
-  font-family: Arial
+  font-family: Arial, sans-serif;
 }
 
+h3 {
+  font-family: Arial, sans-serif;
+}
+
+p {
+  font-size: 14px;
+  font-family: Arial, sans-serif;
+}
+
+ul {
+  list-style-type: disc;
+  margin-left: 20px;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+}
 
