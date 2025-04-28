@@ -1,0 +1,10 @@
+<table border="1">
+  <tr>
+    <th>Name</th>
+    <th>Subject</th>
+  </tr>
+  <tr>
+    <td>Student</td>
+    <td>SIT223</td>
+  </tr>
+</table>
