@@ -1,19 +1,68 @@
+/* Header styling */
+header {
+  background-color: darkcyan;
+  text-align: right;
+  padding: 10px;
+}
+
+header img {
+  float: left;
+  margin-left: 20px;
+}
+
+nav {
+  margin-top: 50px;
+  margin-right: 20px;
+}
+
+nav a {
+  text-decoration: none;
+  color: white;
+  font-family: Arial;
+  margin: 0 10px;
+  font-size: 18px;
+}
+
+/* Footer styling */
+footer {
+  background-color: lightgray;
+  text-align: center;
+  padding: 10px;
+  font-family: Arial;
+  font-size: 14px;
+}
+
+
 
 
 h1 {
   font-size: 40px;
-  font-family: Arial
+  font-family: Arial;
 }
 h2 {
   font-size: 25px;
-  font-family: Arial
+  font-family: Arial;
 }
 h3 {
-  font-family: Arial
+  font-family: Arial;
 }
 p {
   font-size: 14px;
-  font-family: Arial
+  font-family: Arial;
+}
+div {
+  background-color: darkcyan;
+  text-align: right;
 }
 
+/* New table styling */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: Arial;
+}
 
+td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
