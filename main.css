@@ -1,19 +1,21 @@
-
-
 h1 {
   font-size: 40px;
-  font-family: Arial
+  font-family: Arial;
 }
 h2 {
   font-size: 25px;
-  font-family: Arial
+  font-family: Arial;
 }
 h3 {
-  font-family: Arial
+  font-family: Arial;
 }
 p {
   font-size: 14px;
-  font-family: Arial
+  font-family: Arial;
 }
 
-
+/* Header styling */
+div {
+  background-color: #137275;  /* originally darkcyan, updated to blue */
+  text-align: right;
+}
