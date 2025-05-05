@@ -1,19 +1,16 @@
+div {
+    background-color: green;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+}
 
+div img {
+    margin-right: 15px;
+}
 
 h1 {
-  font-size: 40px;
-  font-family: Arial
+    font-size: 40px;
+    font-family: Arial;
+    color: white;
 }
-h2 {
-  font-size: 25px;
-  font-family: Arial
-}
-h3 {
-  font-family: Arial
-}
-p {
-  font-size: 14px;
-  font-family: Arial
-}
-
-
