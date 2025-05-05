@@ -15,5 +15,23 @@ p {
   font-size: 14px;
   font-family: Arial
 }
+ th, td {
+  padding: 10px; /* Increased padding */
+  text-align: left;
+  border-bottom: 2px solid #ccc; /* Thicker bottom border */
+  font-family: Arial, sans-serif; /* Added sans-serif for better font compatibility */
+}
 
+tr:nth-child(odd) {
+  background-color: #e6f7ff; /* Lighter blue background for odd rows */
+}
+
+tr:nth-child(even) {
+  background-color: #ffffff; /* White background for even rows */
+}
+
+div { 
+  background-color: darkcyan; 
+  text-align: right;
+}
 
