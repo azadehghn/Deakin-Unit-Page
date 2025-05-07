@@ -15,5 +15,14 @@ p {
   font-size: 14px;
   font-family: Arial
 }
+td { 
+  padding: 8px; 
+  text-align: left; 
+  border-bottom: 1px solid grey; 
+  font-family: Arial 
+} 
+ tr:nth-child(odd) {
+   background-color:lightgrey
+ }
 
 
