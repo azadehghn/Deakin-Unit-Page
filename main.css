@@ -1,19 +1,40 @@
-
-
 h1 {
   font-size: 40px;
   font-family: Arial
 }
+
 h2 {
   font-size: 25px;
   font-family: Arial
 }
+
 h3 {
   font-family: Arial
 }
+
 p {
   font-size: 14px;
   font-family: Arial
 }
 
+.header {
+  background-color: green;
+  text-align: right;
+  padding: 10px;
+}
 
+.unit-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: Arial;
+}
+
+.unit-table td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.unit-table tr:nth-child(odd) {
+  background-color: #f2f2f2;
+}
