@@ -18,7 +18,23 @@ p {
 }
 
 .header {
-  background-color: green;
+  background-color: rgb(74, 142, 74);
   text-align: right;
   padding: 10px;
+}
+
+.unit-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: Arial;
+}
+
+.unit-table td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.unit-table tr:nth-child(odd) {
+  background-color: #f2f2f2;
 }
