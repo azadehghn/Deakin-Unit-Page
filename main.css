@@ -1,19 +1,77 @@
-
+*{ 
+  margin: 0; 
+  box-sizing: border-box;
+  padding: 0;
+}
+body { 
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 20px;
+  display: flex; 
+  flex-direction: column;
+  align-items: center;
+}
 
 h1 {
   font-size: 40px;
-  font-family: Arial
 }
 h2 {
+  margin-top:20px;
   font-size: 25px;
-  font-family: Arial
 }
-h3 {
-  font-family: Arial
+h3 { 
+  margin-bottom: 7px;
+  color: #112A46;
 }
 p {
   font-size: 14px;
-  font-family: Arial
+  text-align: justify;
 }
 
+a {
+    text-decoration: none;
+    color:#00c3ff;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-align: center;
+    padding: 10px 0;
+}
+a:hover {
+  color: #d8a341;
+}
+.content-container { 
+  display: flex; 
+  flex-direction: column;
+  max-width: 60%;
+  padding: 20px;
+  margin-top: 30px;
+  background-color: #e7e6e6;
+  border-radius: 5px;
+  border: 1px solid #c4b3b3;
+}
+.content{
+  padding: 10px; 
+}
 
+.header {
+    text-align: right;
+    background-color: darkcyan;
+    width: 100%;
+}
+
+table {
+  background: white;
+  width: 100%;
+  margin-top: 20px;
+  border-collapse: collapse;
+}
+ 
+td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+  font-family: Arial;
+}
+ 
+tr:nth-child(odd) {
+  background-color: #f2f2f2;
+}
