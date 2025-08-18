@@ -1,19 +1,84 @@
+/* ===== Theme variables ===== */
+/* Light (day) — soft, gentle header */
+:root{
+  --bg:#f8fafc;          /* off-white background */
+  --text:#0f172a;        /* deep slate text */
+  --header-bg:#eef2ff;   /* soft indigo/blue header tint */
+  --border:#e2e8f0;      /* light border */
+  --button-bg:#111827;   /* dark button for contrast */
+  --button-text:#ffffff; /* readable on dark button */
+}
 
+/* Dark (night) — warm grey palette */
+html[data-theme="dark"]{
+  --bg:#0f1115;          /* soft charcoal */
+  --text:#e7e7ea;        /* light grey text */
+  --header-bg:#1f2937;   /* grey-blue header */
+  --border:#2b3542;      /* muted border */
+  --button-bg:#e7e7ea;   /* light button for contrast */
+  --button-text:#0f1115; /* readable on light button */
+}
 
-h1 {
-  font-size: 40px;
-  font-family: Arial
+/* ===== Base styles ===== */
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+html, body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.6;
 }
-h2 {
-  font-size: 25px;
-  font-family: Arial
+
+/* ===== Header ===== */
+.site-header{
+  background: var(--header-bg);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 16px;
 }
-h3 {
-  font-family: Arial
+.site-logo{
+  width: 160px;
+  height: auto;
+  display: block;
 }
-p {
+
+/* Toggle button */
+.theme-toggle{
+  border: 1px solid var(--border);
+  background: var(--button-bg);
+  color: var(--button-text);
+  padding: 8px 12px;
+  border-radius: 10px;
   font-size: 14px;
-  font-family: Arial
+  cursor: pointer;
+}
+.theme-toggle:focus-visible{
+  outline: 2px solid #60a5fa; /* accessible focus */
+  outline-offset: 2px;
 }
 
+/* ===== Layout ===== */
+.container{
+  max-width: 70ch;   /* comfortable reading width */
+  margin: 24px auto;
+  padding: 0 16px;
+}
 
+/* ===== Responsive ===== */
+@media (max-width: 480px){
+  .site-logo{ width: 130px; }
+}
+/* Subtle depth + breathing room */
+.site-header{
+  padding: 12px 20px;              /* a bit more height */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce){
+  * { transition: none !important; }
+}
