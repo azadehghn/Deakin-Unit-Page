@@ -1,10 +1,512 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<title> Home </title>
-<link rel="stylesheet" type="text/css" media="screen" href="main.css"/>
+    <title> Home </title>
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <!-- Custom styles for the modal -->
 </head>
+<div class="d-flex justify-content-between align-items-center p-3" style="background: linear-gradient(135deg, #008b8b 0%, #20b2aa 100%);">
+    <img src="logo.svg" alt="Deakin" width="200" height="210">
+    <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#loginModal">
+        <i class="bi bi-person-circle"></i> Login
+    </button>
+</div>
+
 <body>
-<h1>SIT223-SIT753 - Professional Practice in IT</h1>
+    <h1>SIT223-SIT753 - Professional Practice in IT</h1>
+    <h2> Unit details</h2>
+    <table style="width:100%">
+        <tr>
+            <td>Year: </td>
+            <td>2023 unit information</td>
+        </tr>
+        <tr>
+            <td>Enrolment modes:</td>
+            <td>Trimester 1: Burwood (Melbourne), Geelong, Cloud (online)</td>
+        </tr>
+        <tr>
+            <td>Credit point(s):</td>
+            <td>1</td>
+        </tr>
+        <tr>
+            <td> Unit Chair:</td>
+            <td> Trimester 1: Azadeh Ghari Neiat</td>
+        </tr>
+        <tr>
+            <td> Scheduled Learning Activities:</td>
+            <td> 1 x 3 hour active class per week, weekly drop in support.</td>
+        </tr>
+    </table>
+    <h3> Content</h3>
+    <p>
+        To be successful IT graduates need to understand the use of industry tools and practices,
+        the ways these tools work and connect together, and the underlying professional, ethical,
+        and teamwork knowledge and skills needed to put these into practice in a professional manner.
+    </p>
+    <a href="https://www.deakin.edu.au/students/enrolment-and-fees/fees"> > Current students</a>
+
+    <!-- Login/Signup Modal -->
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="loginModalLabel">
+                        <i class="bi bi-shield-lock"></i> Secure Access
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-container">
+                        <!-- Login Form -->
+                        <div class="form-content" id="loginForm">
+                            <div class="text-center">
+                                <i class="bi bi-person-circle login-icon"></i>
+                                <h4 class="mb-4">Welcome Back</h4>
+                            </div>
+                            
+                            <!-- Warning Message (hidden by default) -->
+                            <div id="warningMessage" class="warning-message d-none">
+                                <i class="bi bi-exclamation-triangle"></i>
+                                <strong>Security Alert!</strong> Multiple failed login attempts detected. Your account might be at risk. Please verify your credentials or contact support if you're having trouble accessing your account.
+                            </div>
+                            
+                            <form id="loginFormElement">
+                                <div class="mb-3">
+                                    <label for="loginUsername" class="form-label">
+                                        <i class="bi bi-person"></i> Username
+                                    </label>
+                                    <input type="text" class="form-control" id="loginUsername" placeholder="Enter your username" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="loginPassword" class="form-label">
+                                        <i class="bi bi-lock"></i> Password
+                                    </label>
+                                    <div class="input-group">
+                                        <input type="password" class="form-control" id="loginPassword" placeholder="Enter your password" required>
+                                        <button class="btn btn-outline-secondary" type="button" id="toggleLoginPassword">
+                                            <i class="bi bi-eye"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="mb-3 form-check">
+                                    <input type="checkbox" class="form-check-input" id="rememberMe">
+                                    <label class="form-check-label" for="rememberMe">
+                                        Remember me
+                                    </label>
+                                </div>
+                                <div class="d-grid">
+                                    <button type="submit" class="btn btn-primary">
+                                        <i class="bi bi-box-arrow-in-right"></i> Sign In
+                                    </button>
+                                </div>
+                            </form>
+                            
+                            <div class="text-center mt-3">
+                                <p>Don't have an account? <a href="#" class="switch-form" onclick="switchToSignup()">Sign up here</a></p>
+                                <a href="#" class="text-muted">Forgot password?</a>
+                            </div>
+                        </div>
+                        
+                        <!-- Signup Form -->
+                        <div class="form-content d-none" id="signupForm">
+                            <div class="text-center">
+                                <i class="bi bi-person-plus login-icon"></i>
+                                <h4 class="mb-4">Create Account</h4>
+                            </div>
+                            
+                            <form id="signupFormElement">
+                                <div class="mb-3">
+                                    <label for="signupFullName" class="form-label">
+                                        <i class="bi bi-person-badge"></i> Full Name
+                                    </label>
+                                    <input type="text" class="form-control" id="signupFullName" placeholder="Enter your full name" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="signupEmail" class="form-label">
+                                        <i class="bi bi-envelope"></i> Email
+                                    </label>
+                                    <input type="email" class="form-control" id="signupEmail" placeholder="Enter your email" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="signupUsername" class="form-label">
+                                        <i class="bi bi-person"></i> Username
+                                    </label>
+                                    <input type="text" class="form-control" id="signupUsername" placeholder="Choose a username" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="signupPassword" class="form-label">
+                                        <i class="bi bi-lock"></i> Password
+                                    </label>
+                                    <div class="input-group">
+                                        <input type="password" class="form-control" id="signupPassword" placeholder="Create a password" required>
+                                        <button class="btn btn-outline-secondary" type="button" id="toggleSignupPassword">
+                                            <i class="bi bi-eye"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="confirmPassword" class="form-label">
+                                        <i class="bi bi-lock-fill"></i> Confirm Password
+                                    </label>
+                                    <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm your password" required>
+                                </div>
+                                <div class="mb-3 form-check">
+                                    <input type="checkbox" class="form-check-input" id="agreeTerms" required>
+                                    <label class="form-check-label" for="agreeTerms">
+                                        I agree to the <a href="#" class="text-decoration-none">Terms and Conditions</a>
+                                    </label>
+                                </div>
+                                <div class="d-grid">
+                                    <button type="submit" class="btn btn-primary">
+                                        <i class="bi bi-person-plus"></i> Create Account
+                                    </button>
+                                </div>
+                            </form>
+                            
+                            <div class="text-center mt-3">
+                                <p>Already have an account? <a href="#" class="switch-form" onclick="switchToLogin()">Sign in here</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JavaScript for login functionality -->
+    <script>
+        let failedAttempts = 0;
+        const MAX_ATTEMPTS = 10;
+        let justLoggedOut = false; // Flag to prevent auto-redirect after logout
+        
+        // Simple user database (in real app, this would be on server)
+        let users = [
+            { username: 'admin', password: 'password123', fullName: 'Administrator', email: 'admin@deakin.edu.au' },
+            { username: 'student', password: 'student123', fullName: 'Student User', email: 'student@deakin.edu.au' },
+            { username: 'teacher', password: 'teacher123', fullName: 'Teacher User', email: 'teacher@deakin.edu.au' }
+        ];
+        
+        // Current logged in user
+        let currentUser = null;
+        
+        // Check if user is already logged in when page loads
+        window.addEventListener('load', function() {
+            const savedUser = localStorage.getItem('currentUser');
+            if (savedUser && !justLoggedOut) {
+                currentUser = JSON.parse(savedUser);
+                updateLoginButton();
+                
+                // Auto redirect to dashboard if user is already logged in
+                setTimeout(() => {
+                    if (currentUser && !justLoggedOut) {
+                        window.location.href = 'dashboard.html';
+                    }
+                }, 2000);
+            }
+        });
+        
+        // Update login button based on login status
+        function updateLoginButton() {
+            const loginButton = document.querySelector('[data-bs-target="#loginModal"]') || document.querySelector('button');
+            if (!loginButton) return;
+            
+            if (currentUser) {
+                loginButton.innerHTML = `<i class="bi bi-person-check"></i> Welcome, ${currentUser.fullName}`;
+                loginButton.classList.remove('btn-light');
+                loginButton.classList.add('btn-success');
+                // Add logout functionality
+                loginButton.onclick = function() {
+                    logout();
+                };
+                loginButton.removeAttribute('data-bs-toggle');
+                loginButton.removeAttribute('data-bs-target');
+            } else {
+                loginButton.innerHTML = '<i class="bi bi-person-circle"></i> Login';
+                loginButton.classList.remove('btn-success');
+                loginButton.classList.add('btn-light');
+                loginButton.onclick = null;
+                loginButton.setAttribute('data-bs-toggle', 'modal');
+                loginButton.setAttribute('data-bs-target', '#loginModal');
+            }
+        }
+        
+        // Logout function
+        function logout() {
+            currentUser = null;
+            localStorage.removeItem('currentUser');
+            failedAttempts = 0;
+            justLoggedOut = true; // Set flag to prevent auto-redirect
+            updateLoginButton();
+            showMessage('Successfully logged out!', 'success');
+            
+            // Reset flag after 5 seconds
+            setTimeout(() => {
+                justLoggedOut = false;
+            }, 5000);
+        }
+        
+        // Show message function
+        function showMessage(message, type = 'info') {
+            const alertDiv = document.createElement('div');
+            alertDiv.className = `alert alert-${type} alert-dismissible fade show position-fixed`;
+            alertDiv.style.top = '20px';
+            alertDiv.style.right = '20px';
+            alertDiv.style.zIndex = '9999';
+            alertDiv.innerHTML = `
+                ${message}
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            `;
+            document.body.appendChild(alertDiv);
+            
+            // Auto remove after 3 seconds
+            setTimeout(() => {
+                if (alertDiv.parentNode) {
+                    alertDiv.remove();
+                }
+            }, 3000);
+        }
+        
+        // Input validation functions
+        function validateEmail(email) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+        
+        function validatePassword(password) {
+            return password.length >= 6;
+        }
+        
+        function validateUsername(username) {
+            return username.length >= 3 && /^[a-zA-Z0-9_]+$/.test(username);
+        }
+        
+        // Switch between login and signup forms
+        function switchToSignup() {
+            const loginForm = document.getElementById('loginForm');
+            const signupForm = document.getElementById('signupForm');
+            const modalTitle = document.getElementById('loginModalLabel');
+            
+            loginForm.classList.add('slide-left');
+            setTimeout(() => {
+                loginForm.classList.add('d-none');
+                signupForm.classList.remove('d-none');
+                signupForm.classList.add('slide-right');
+                modalTitle.innerHTML = '<i class="bi bi-person-plus"></i> Create Account';
+                setTimeout(() => {
+                    signupForm.classList.remove('slide-right');
+                    loginForm.classList.remove('slide-left');
+                }, 50);
+            }, 300);
+        }
+        
+        function switchToLogin() {
+            const loginForm = document.getElementById('loginForm');
+            const signupForm = document.getElementById('signupForm');
+            const modalTitle = document.getElementById('loginModalLabel');
+            
+            signupForm.classList.add('slide-right');
+            setTimeout(() => {
+                signupForm.classList.add('d-none');
+                loginForm.classList.remove('d-none');
+                loginForm.classList.add('slide-left');
+                modalTitle.innerHTML = '<i class="bi bi-shield-lock"></i> Secure Access';
+                setTimeout(() => {
+                    loginForm.classList.remove('slide-left');
+                    signupForm.classList.remove('slide-right');
+                }, 50);
+            }, 300);
+        }
+        
+        // Password visibility toggle
+        document.getElementById('toggleLoginPassword').addEventListener('click', function() {
+            const password = document.getElementById('loginPassword');
+            const icon = this.querySelector('i');
+            
+            if (password.type === 'password') {
+                password.type = 'text';
+                icon.classList.remove('bi-eye');
+                icon.classList.add('bi-eye-slash');
+            } else {
+                password.type = 'password';
+                icon.classList.remove('bi-eye-slash');
+                icon.classList.add('bi-eye');
+            }
+        });
+        
+        document.getElementById('toggleSignupPassword').addEventListener('click', function() {
+            const password = document.getElementById('signupPassword');
+            const icon = this.querySelector('i');
+            
+            if (password.type === 'password') {
+                password.type = 'text';
+                icon.classList.remove('bi-eye');
+                icon.classList.add('bi-eye-slash');
+            } else {
+                password.type = 'password';
+                icon.classList.remove('bi-eye-slash');
+                icon.classList.add('bi-eye');
+            }
+        });
+        
+        // Login form submission with failed attempt tracking
+        document.getElementById('loginFormElement').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const username = document.getElementById('loginUsername').value.trim();
+            const password = document.getElementById('loginPassword').value;
+            const rememberMe = document.getElementById('rememberMe').checked;
+            
+            // Input validation
+            if (!username || !password) {
+                showMessage('Please enter complete information!', 'warning');
+                return;
+            }
+            
+            // Find user in database
+            const user = users.find(u => u.username === username && u.password === password);
+            
+            if (user) {
+                // Successful login
+                failedAttempts = 0;
+                currentUser = user;
+                document.getElementById('warningMessage').classList.add('d-none');
+                
+                // Always save to localStorage for persistence
+                localStorage.setItem('currentUser', JSON.stringify(user));
+                
+                showMessage(`Login successful! Welcome ${user.fullName}`, 'success');
+                bootstrap.Modal.getInstance(document.getElementById('loginModal')).hide();
+                updateLoginButton();
+                
+                // Reset form
+                this.reset();
+                
+                // Redirect to dashboard after short delay
+                setTimeout(() => {
+                    window.location.href = 'dashboard.html';
+                }, 1500);
+            } else {
+                // Failed login
+                failedAttempts++;
+                
+                if (failedAttempts >= MAX_ATTEMPTS) {
+                    // Show warning message after 10 failed attempts
+                    document.getElementById('warningMessage').classList.remove('d-none');
+                }
+                
+                // Show error message
+                showMessage(`Login failed! Incorrect username or password. Attempts: ${failedAttempts}/${MAX_ATTEMPTS}`, 'danger');
+                
+                // Clear password field
+                document.getElementById('loginPassword').value = '';
+            }
+        });
+        
+        // Signup form submission
+        document.getElementById('signupFormElement').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const fullName = document.getElementById('signupFullName').value.trim();
+            const email = document.getElementById('signupEmail').value.trim();
+            const username = document.getElementById('signupUsername').value.trim();
+            const password = document.getElementById('signupPassword').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            
+            // Input validation
+            if (!fullName || !email || !username || !password || !confirmPassword) {
+                showMessage('Please fill in complete information!', 'warning');
+                return;
+            }
+            
+            if (!validateEmail(email)) {
+                showMessage('Invalid email format!', 'warning');
+                return;
+            }
+            
+            if (!validateUsername(username)) {
+                showMessage('Username must be at least 3 characters and contain only letters, numbers, and underscores!', 'warning');
+                return;
+            }
+            
+            if (!validatePassword(password)) {
+                showMessage('Password must be at least 6 characters!', 'warning');
+                return;
+            }
+            
+            if (password !== confirmPassword) {
+                showMessage('Password confirmation does not match!', 'warning');
+                return;
+            }
+            
+            // Check if username or email already exists
+            if (users.find(u => u.username === username)) {
+                showMessage('Username already exists!', 'warning');
+                return;
+            }
+            
+            if (users.find(u => u.email === email)) {
+                showMessage('Email already in use!', 'warning');
+                return;
+            }
+            
+            // Create new user
+            const newUser = {
+                username: username,
+                password: password,
+                fullName: fullName,
+                email: email
+            };
+            
+            users.push(newUser);
+            
+            // Save users to localStorage
+            localStorage.setItem('users', JSON.stringify(users));
+            
+            showMessage('Account created successfully! Please log in.', 'success');
+            switchToLogin();
+            this.reset();
+        });
+        
+        // Reset forms when modal is closed
+        document.getElementById('loginModal').addEventListener('hidden.bs.modal', function() {
+            document.getElementById('loginFormElement').reset();
+            document.getElementById('signupFormElement').reset();
+            document.getElementById('warningMessage').classList.add('d-none');
+            
+            // Reset to login form
+            const loginForm = document.getElementById('loginForm');
+            const signupForm = document.getElementById('signupForm');
+            const modalTitle = document.getElementById('loginModalLabel');
+            
+            if (!signupForm.classList.contains('d-none')) {
+                signupForm.classList.add('d-none');
+                loginForm.classList.remove('d-none');
+                modalTitle.innerHTML = '<i class="bi bi-shield-lock"></i> Secure Access';
+            }
+        });
+        
+        // Load users from localStorage on page load
+        window.addEventListener('load', function() {
+            const savedUsers = localStorage.getItem('users');
+            if (savedUsers) {
+                const parsedUsers = JSON.parse(savedUsers);
+                // Merge with default users, avoiding duplicates
+                parsedUsers.forEach(user => {
+                    if (!users.find(u => u.username === user.username)) {
+                        users.push(user);
+                    }
+                });
+            }
+        });
+    </script>
 </body>
+
 </html>

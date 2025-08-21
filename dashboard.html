@@ -1,0 +1,2349 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Dashboard - Deakin University</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <!-- Custom styles for dashboard -->
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        
+        .dashboard-header {
+            background: linear-gradient(135deg, #008b8b 0%, #20b2aa 100%);
+            color: white;
+            padding: 2rem 0;
+            margin-bottom: 2rem;
+        }
+        
+        /* Search Bar Styles */
+        .search-container {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+        
+        .search-bar {
+            position: relative;
+        }
+        
+        .search-input {
+            width: 100%;
+            padding: 1rem 3rem 1rem 1rem;
+            border: 2px solid #e9ecef;
+            border-radius: 25px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background: #f8f9fa;
+        }
+        
+        .search-input:focus {
+            outline: none;
+            border-color: #008b8b;
+            box-shadow: 0 0 0 0.2rem rgba(0, 139, 139, 0.25);
+            background: white;
+        }
+        
+        .search-btn {
+            position: absolute;
+            right: 5px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: linear-gradient(135deg, #008b8b 0%, #20b2aa 100%);
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .search-btn:hover {
+            transform: translateY(-50%) scale(1.1);
+            box-shadow: 0 4px 15px rgba(0, 139, 139, 0.4);
+        }
+        
+        /* Auto-suggestions Dropdown */
+        .suggestions-dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            z-index: 1000;
+            max-height: 300px;
+            overflow-y: auto;
+            display: none;
+            margin-top: 5px;
+        }
+        
+        .suggestion-item {
+            padding: 0.75rem 1rem;
+            border-bottom: 1px solid #e9ecef;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+            display: flex;
+            align-items: center;
+        }
+        
+        .suggestion-item:hover {
+            background-color: #f8f9fa;
+        }
+        
+        .suggestion-item:last-child {
+            border-bottom: none;
+        }
+        
+        .suggestion-icon {
+            color: #008b8b;
+            margin-right: 0.5rem;
+        }
+        
+        /* Search Results */
+        .search-results {
+            display: none;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+        }
+        
+        .search-results-header {
+            background: linear-gradient(135deg, #008b8b 0%, #4682b4 100%);
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: 15px 15px 0 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .search-tabs {
+            border-bottom: 1px solid #e9ecef;
+            background: #f8f9fa;
+        }
+        
+        .search-tab {
+            background: none;
+            border: none;
+            padding: 1rem 1.5rem;
+            color: #6c757d;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-bottom: 3px solid transparent;
+        }
+        
+        .search-tab.active {
+            color: #008b8b;
+            border-bottom-color: #008b8b;
+            background: white;
+        }
+        
+        .search-tab:hover {
+            color: #008b8b;
+            background: white;
+        }
+        
+        /* Filters */
+        .search-filters {
+            padding: 1rem 1.5rem;
+            border-bottom: 1px solid #e9ecef;
+            background: #f8f9fa;
+        }
+        
+        .filter-group {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .filter-select {
+            padding: 0.5rem;
+            border: 1px solid #ced4da;
+            border-radius: 8px;
+            background: white;
+            color: #495057;
+            min-width: 120px;
+        }
+        
+        .view-toggle {
+            display: flex;
+            background: white;
+            border-radius: 8px;
+            border: 1px solid #ced4da;
+            overflow: hidden;
+        }
+        
+        .view-btn {
+            background: none;
+            border: none;
+            padding: 0.5rem 0.75rem;
+            color: #6c757d;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .view-btn.active {
+            background: #008b8b;
+            color: white;
+        }
+        
+        /* Search Result Items */
+        .search-results-content {
+            padding: 1.5rem;
+            min-height: 200px;
+        }
+        
+        .result-item {
+            padding: 1rem;
+            border-bottom: 1px solid #e9ecef;
+            transition: background-color 0.2s ease;
+        }
+        
+        .result-item:hover {
+            background-color: #f8f9fa;
+        }
+        
+        .result-item:last-child {
+            border-bottom: none;
+        }
+        
+        .result-title {
+            font-weight: bold;
+            color: #008b8b;
+            margin-bottom: 0.5rem;
+            text-decoration: none;
+        }
+        
+        .result-title:hover {
+            text-decoration: underline;
+        }
+        
+        .result-description {
+            color: #6c757d;
+            margin-bottom: 0.5rem;
+        }
+        
+        .result-meta {
+            display: flex;
+            gap: 1rem;
+            font-size: 0.875rem;
+            color: #6c757d;
+        }
+        
+        .highlight {
+            background-color: #fff3cd;
+            color: #856404;
+            padding: 0.1rem 0.2rem;
+            border-radius: 3px;
+        }
+        
+        /* Grid View */
+        .grid-view .result-item {
+            border: 1px solid #e9ecef;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            padding: 1.5rem;
+        }
+        
+        .grid-view .search-results-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1rem;
+        }
+        
+        .no-results {
+            text-align: center;
+            padding: 3rem;
+            color: #6c757d;
+        }
+        
+        .no-results i {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+        
+        /* Chatbot Styles */
+        .chatbot-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+        
+        .chatbot-toggle {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #008b8b 0%, #20b2aa 100%);
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 15px rgba(0, 139, 139, 0.4);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .chatbot-toggle:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(0, 139, 139, 0.6);
+        }
+        
+        .chatbot-window {
+            position: absolute;
+            bottom: 70px;
+            right: 0;
+            width: 350px;
+            height: 500px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            display: none;
+            flex-direction: column;
+            overflow: hidden;
+        }
+        
+        .chatbot-header {
+            background: linear-gradient(135deg, #008b8b 0%, #20b2aa 100%);
+            color: white;
+            padding: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .chatbot-header h6 {
+            margin: 0;
+            font-weight: bold;
+        }
+        
+        .chatbot-close {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.2rem;
+            cursor: pointer;
+            padding: 0;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .chatbot-messages {
+            flex: 1;
+            padding: 1rem;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .message {
+            max-width: 80%;
+            padding: 0.75rem 1rem;
+            border-radius: 15px;
+            word-wrap: break-word;
+        }
+        
+        .message.bot {
+            background: #f1f3f4;
+            color: #333;
+            align-self: flex-start;
+            border-bottom-left-radius: 5px;
+        }
+        
+        .message.user {
+            background: linear-gradient(135deg, #008b8b 0%, #20b2aa 100%);
+            color: white;
+            align-self: flex-end;
+            border-bottom-right-radius: 5px;
+        }
+        
+        .message.typing {
+            background: #f1f3f4;
+            color: #666;
+            align-self: flex-start;
+            border-bottom-left-radius: 5px;
+            font-style: italic;
+        }
+        
+        .chatbot-input-container {
+            padding: 1rem;
+            border-top: 1px solid #e9ecef;
+            display: flex;
+            gap: 0.5rem;
+        }
+        
+        .chatbot-input {
+            flex: 1;
+            border: 1px solid #ced4da;
+            border-radius: 20px;
+            padding: 0.5rem 1rem;
+            outline: none;
+        }
+        
+        .chatbot-input:focus {
+            border-color: #008b8b;
+            box-shadow: 0 0 0 0.2rem rgba(0, 139, 139, 0.25);
+        }
+        
+        .chatbot-send {
+            background: linear-gradient(135deg, #008b8b 0%, #20b2aa 100%);
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            color: white;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        
+        .chatbot-send:hover {
+            transform: scale(1.1);
+        }
+        
+        .chatbot-send:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .quick-replies {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+        }
+        
+        .quick-reply {
+            background: #e9ecef;
+            border: 1px solid #ced4da;
+            border-radius: 15px;
+            padding: 0.4rem 0.8rem;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .quick-reply:hover {
+            background: #008b8b;
+            color: white;
+            border-color: #008b8b;
+        }
+        
+        .course-card-mini {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            padding: 0.75rem;
+            margin: 0.5rem 0;
+        }
+        
+        .course-card-mini h6 {
+            color: #008b8b;
+            margin: 0 0 0.25rem 0;
+            font-size: 0.9rem;
+        }
+        
+        .course-card-mini p {
+            margin: 0;
+            font-size: 0.8rem;
+            color: #6c757d;
+        }
+        
+        .course-card {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: none;
+            margin-bottom: 1.5rem;
+        }
+        
+        .course-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .course-header {
+            background: linear-gradient(135deg, #008b8b 0%, #4682b4 100%);
+            color: white;
+            border-radius: 15px 15px 0 0;
+            padding: 1.5rem;
+        }
+        
+        .course-code {
+            font-size: 1.1rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+        
+        .course-title {
+            font-size: 1.3rem;
+            margin-bottom: 0;
+        }
+        
+        .course-body {
+            padding: 1.5rem;
+        }
+        
+        .course-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        
+        .course-progress {
+            background: #e9ecef;
+            border-radius: 10px;
+            height: 8px;
+            margin-bottom: 1rem;
+        }
+        
+        .progress-bar {
+            background: linear-gradient(135deg, #008b8b 0%, #20b2aa 100%);
+            border-radius: 10px;
+            height: 100%;
+            transition: width 0.3s ease;
+        }
+        
+        .course-actions {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .btn-course {
+            background: linear-gradient(135deg, #008b8b 0%, #4682b4 100%);
+            border: none;
+            border-radius: 20px;
+            color: white;
+            padding: 0.5rem 1rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+        
+        .btn-course:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 139, 139, 0.4);
+            color: white;
+        }
+        
+        .sidebar {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .sidebar h5 {
+            color: #008b8b;
+            margin-bottom: 1rem;
+            font-weight: bold;
+        }
+        
+        .quick-link {
+            display: block;
+            color: #6c757d;
+            text-decoration: none;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #e9ecef;
+            transition: color 0.3s ease;
+        }
+        
+        .quick-link:hover {
+            color: #008b8b;
+        }
+        
+        .quick-link:last-child {
+            border-bottom: none;
+        }
+        
+        .user-info {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .user-avatar {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #008b8b 0%, #20b2aa 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-size: 2rem;
+            color: white;
+        }
+        
+        .welcome-text {
+            color: #008b8b;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+        
+        .announcement {
+            background: linear-gradient(135deg, #54a0ff 0%, #5f27cd 100%);
+            color: white;
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .upcoming-deadlines {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem;
+        }
+        
+        .deadline-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #e9ecef;
+        }
+        
+        .deadline-item:last-child {
+            border-bottom: none;
+        }
+        
+        .deadline-date {
+            color: #008b8b;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+        
+        .logout-btn {
+            background: linear-gradient(135deg, #008b8b 0%, #006666 100%);
+            border: none;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .logout-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 139, 139, 0.4);
+            color: white;
+        }
+        
+        @media (max-width: 768px) {
+            .dashboard-header {
+                padding: 1rem 0;
+            }
+            
+            .course-actions {
+                justify-content: center;
+            }
+            
+            .course-info {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+            }
+            
+            /* Mobile Search Styles */
+            .search-container {
+                padding: 1rem;
+                margin-bottom: 1rem;
+            }
+            
+            .search-input {
+                padding: 0.75rem 2.5rem 0.75rem 0.75rem;
+                font-size: 0.9rem;
+            }
+            
+            .search-btn {
+                width: 35px;
+                height: 35px;
+            }
+            
+            .search-tabs {
+                overflow-x: auto;
+                white-space: nowrap;
+                scrollbar-width: none;
+                -ms-overflow-style: none;
+            }
+            
+            .search-tabs::-webkit-scrollbar {
+                display: none;
+            }
+            
+            .search-tab {
+                padding: 0.75rem 1rem;
+                font-size: 0.9rem;
+                display: inline-block;
+            }
+            
+            .search-filters {
+                padding: 0.75rem;
+            }
+            
+            .filter-group {
+                flex-direction: column;
+                gap: 0.75rem;
+                align-items: stretch;
+            }
+            
+            .filter-select {
+                width: 100%;
+                margin-bottom: 0.5rem;
+            }
+            
+            .view-toggle {
+                align-self: center;
+                margin-top: 0.5rem;
+            }
+            
+            .search-results-header {
+                padding: 0.75rem 1rem;
+                flex-direction: column;
+                gap: 0.5rem;
+                align-items: flex-start;
+            }
+            
+            .search-results-content {
+                padding: 1rem;
+            }
+            
+            .result-item {
+                padding: 0.75rem;
+            }
+            
+            .result-meta {
+                flex-direction: column;
+                gap: 0.25rem;
+                font-size: 0.8rem;
+            }
+            
+            .grid-view .search-results-content {
+                grid-template-columns: 1fr;
+                gap: 0.75rem;
+            }
+            
+            .suggestions-dropdown {
+                font-size: 0.9rem;
+            }
+            
+            .suggestion-item {
+                padding: 0.75rem;
+            }
+            
+            /* Mobile Chatbot Styles */
+            .chatbot-window {
+                width: 90vw;
+                height: 70vh;
+                bottom: 80px;
+                right: 5vw;
+            }
+            
+            .chatbot-toggle {
+                width: 50px;
+                height: 50px;
+                font-size: 1.2rem;
+            }
+            
+            .chatbot-header {
+                padding: 0.75rem;
+            }
+            
+            .chatbot-messages {
+                padding: 0.75rem;
+            }
+            
+            .message {
+                max-width: 90%;
+                padding: 0.6rem 0.8rem;
+                font-size: 0.9rem;
+            }
+            
+            .quick-replies {
+                gap: 0.4rem;
+            }
+            
+            .quick-reply {
+                padding: 0.3rem 0.6rem;
+                font-size: 0.75rem;
+            }
+            
+            .course-card-mini {
+                padding: 0.6rem;
+                margin: 0.4rem 0;
+            }
+            
+            .course-card-mini h6 {
+                font-size: 0.8rem;
+            }
+            
+            .course-card-mini p {
+                font-size: 0.75rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .chatbot-window {
+                width: 95vw;
+                height: 60vh;
+                right: 2.5vw;
+            }
+            
+            .chatbot-toggle {
+                width: 45px;
+                height: 45px;
+                font-size: 1rem;
+            }
+            
+            .chatbot-input {
+                font-size: 0.85rem;
+                padding: 0.4rem 0.8rem;
+            }
+            
+            .chatbot-send {
+                width: 35px;
+                height: 35px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .search-input {
+                font-size: 0.85rem;
+                padding: 0.6rem 2.2rem 0.6rem 0.6rem;
+            }
+            
+            .search-btn {
+                width: 30px;
+                height: 30px;
+                font-size: 0.8rem;
+            }
+            
+            .search-tab {
+                padding: 0.6rem 0.8rem;
+                font-size: 0.8rem;
+            }
+            
+            .result-title {
+                font-size: 0.9rem;
+            }
+            
+            .result-description {
+                font-size: 0.85rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <div class="dashboard-header">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <div class="d-flex align-items-center">
+                        <img src="logo.svg" alt="Deakin" width="60" height="63" class="me-3">
+                        <div>
+                            <h2 class="mb-0">Student Dashboard</h2>
+                            <p class="mb-0 opacity-75">Deakin University Portal</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 text-md-end mt-3 mt-md-0">
+                    <a href="index.html" class="logout-btn">
+                        <i class="bi bi-box-arrow-right"></i> Logout
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Search Container -->
+    <div class="container">
+        <div class="search-container">
+            <div class="search-bar">
+                <input 
+                    type="text" 
+                    id="searchInput" 
+                    class="search-input" 
+                    placeholder="Search for lectures, assignments, announcements..."
+                    autocomplete="off"
+                >
+                <button class="search-btn" id="searchBtn">
+                    <i class="bi bi-search"></i>
+                </button>
+                
+                <!-- Auto-suggestions dropdown -->
+                <div class="suggestions-dropdown" id="suggestionsDropdown">
+                    <!-- Suggestions will be populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+        
+        <!-- Search Results -->
+        <div class="search-results" id="searchResults">
+            <div class="search-results-header">
+                <div>
+                    <h5 class="mb-0">Search Results</h5>
+                    <small id="resultCount">0 results found</small>
+                </div>
+                <button class="btn btn-outline-light btn-sm" id="clearSearch">
+                    <i class="bi bi-x-lg"></i> Clear
+                </button>
+            </div>
+            
+            <!-- Search Tabs -->
+            <div class="search-tabs">
+                <button class="search-tab active" data-tab="all">All</button>
+                <button class="search-tab" data-tab="general">General</button>
+                <button class="search-tab" data-tab="video">Videos</button>
+                <button class="search-tab" data-tab="slides">Slides</button>
+                <button class="search-tab" data-tab="assignments">Assignments</button>
+                <button class="search-tab" data-tab="announcements">Announcements</button>
+            </div>
+            
+            <!-- Search Filters -->
+            <div class="search-filters">
+                <div class="filter-group">
+                    <label class="form-label mb-0">Sort by:</label>
+                    <select class="filter-select" id="sortFilter">
+                        <option value="relevance">Relevance</option>
+                        <option value="date">Date</option>
+                        <option value="filename">File Name A-Z</option>
+                        <option value="filename-desc">File Name Z-A</option>
+                    </select>
+                    
+                    <label class="form-label mb-0">Date:</label>
+                    <select class="filter-select" id="dateFilter">
+                        <option value="all">All Time</option>
+                        <option value="week">Past Week</option>
+                        <option value="month">Past Month</option>
+                        <option value="trimester">This Trimester</option>
+                    </select>
+                    
+                    <label class="form-label mb-0">View:</label>
+                    <div class="view-toggle">
+                        <button class="view-btn active" data-view="list">
+                            <i class="bi bi-list"></i>
+                        </button>
+                        <button class="view-btn" data-view="grid">
+                            <i class="bi bi-grid"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Search Results Content -->
+            <div class="search-results-content" id="searchResultsContent">
+                <!-- Results will be populated by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <!-- Sidebar -->
+            <div class="col-lg-3">
+                <!-- User Info Card -->
+                <div class="user-info">
+                    <div class="user-avatar">
+                        <i class="bi bi-person-fill"></i>
+                    </div>
+                    <h5 class="mb-1" id="userName">Loading...</h5>
+                    <p class="text-muted mb-0" id="userRole">Student</p>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="sidebar">
+                    <h5><i class="bi bi-bookmark-fill"></i> Quick Links</h5>
+                    <a href="#" class="quick-link">
+                        <i class="bi bi-calendar-event"></i> Academic Calendar
+                    </a>
+                    <a href="#" class="quick-link">
+                        <i class="bi bi-book"></i> Library Resources
+                    </a>
+                    <a href="#" class="quick-link">
+                        <i class="bi bi-clipboard-check"></i> Grades & Results
+                    </a>
+                    <a href="#" class="quick-link">
+                        <i class="bi bi-credit-card"></i> Student Finance
+                    </a>
+                    <a href="#" class="quick-link">
+                        <i class="bi bi-headset"></i> IT Support
+                    </a>
+                    <a href="#" class="quick-link">
+                        <i class="bi bi-gear"></i> Account Settings
+                    </a>
+                </div>
+
+                <!-- Upcoming Deadlines -->
+                <div class="upcoming-deadlines">
+                    <h5 class="text-danger mb-3">
+                        <i class="bi bi-alarm"></i> Upcoming Deadlines
+                    </h5>
+                    <div class="deadline-item">
+                        <div>
+                            <div class="fw-bold">Assignment 2</div>
+                            <small class="text-muted">SIT223 - Software Engineering</small>
+                        </div>
+                        <div class="deadline-date">Mar 15</div>
+                    </div>
+                    <div class="deadline-item">
+                        <div>
+                            <div class="fw-bold">Project Proposal</div>
+                            <small class="text-muted">SIT753 - Professional Practice</small>
+                        </div>
+                        <div class="deadline-date">Mar 20</div>
+                    </div>
+                    <div class="deadline-item">
+                        <div>
+                            <div class="fw-bold">Final Exam</div>
+                            <small class="text-muted">SIT225 - Data Capture</small>
+                        </div>
+                        <div class="deadline-date">Apr 2</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Content -->
+            <div class="col-lg-9">
+                <!-- Announcement -->
+                <div class="announcement">
+                    <h5><i class="bi bi-megaphone"></i> Important Announcement</h5>
+                    <p class="mb-0">Welcome to Trimester 1, 2024! Check your course materials and upcoming assignments. Good luck with your studies!</p>
+                </div>
+
+                <!-- Enrolled Courses Section -->
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h3 class="text-dark">
+                        <i class="bi bi-journal-bookmark-fill text-primary"></i> My Enrolled Courses
+                    </h3>
+                    <span class="badge bg-primary fs-6" id="courseCount">3 Courses</span>
+                </div>
+
+                <!-- Course Cards -->
+                <div class="row" id="courseContainer">
+                    <!-- Course cards will be populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Chatbot -->
+    <div class="chatbot-container">
+        <button class="chatbot-toggle" id="chatbotToggle">
+            <i class="bi bi-chat-dots"></i>
+        </button>
+        
+        <div class="chatbot-window" id="chatbotWindow">
+            <div class="chatbot-header">
+                <div class="d-flex align-items-center">
+                    <i class="bi bi-robot me-2"></i>
+                    <h6>Deakin Assistant</h6>
+                </div>
+                <button class="chatbot-close" id="chatbotClose">
+                    <i class="bi bi-x"></i>
+                </button>
+            </div>
+            
+            <div class="chatbot-messages" id="chatbotMessages">
+                <div class="message bot">
+                    👋 Hello! I'm Deakin Assistant. I can help you with:
+                    <div class="quick-replies">
+                        <span class="quick-reply" onclick="sendQuickReply('Search courses')">🔍 Find Courses</span>
+                        <span class="quick-reply" onclick="sendQuickReply('View timetable')">📅 Timetable</span>
+                        <span class="quick-reply" onclick="sendQuickReply('Check grades')">📊 Grades</span>
+                        <span class="quick-reply" onclick="sendQuickReply('Assignment info')">📝 Assignments</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="chatbot-input-container">
+                <input 
+                    type="text" 
+                    class="chatbot-input" 
+                    id="chatbotInput" 
+                    placeholder="Type your question..."
+                    maxlength="500"
+                >
+                <button class="chatbot-send" id="chatbotSend">
+                    <i class="bi bi-send"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Dashboard JavaScript -->
+    <script>
+        // Course data based on user type
+        const courseData = {
+            'admin': [
+                {
+                    code: 'ADMIN101',
+                    title: 'System Administration',
+                    instructor: 'Dr. Sarah Wilson',
+                    credits: 4,
+                    progress: 85,
+                    status: 'Active',
+                    trimester: 'Trimester 1, 2024',
+                    students: 45
+                },
+                {
+                    code: 'ADMIN201',
+                    title: 'Network Management',
+                    instructor: 'Prof. Michael Chen',
+                    credits: 3,
+                    progress: 70,
+                    status: 'Active',
+                    trimester: 'Trimester 1, 2024',
+                    students: 32
+                },
+                {
+                    code: 'ADMIN301',
+                    title: 'Database Administration',
+                    instructor: 'Dr. Emily Davis',
+                    credits: 4,
+                    progress: 60,
+                    status: 'Active',
+                    trimester: 'Trimester 1, 2024',
+                    students: 28
+                }
+            ],
+            'student': [
+                {
+                    code: 'SIT223',
+                    title: 'Software Engineering Practice',
+                    instructor: 'Dr. John Smith',
+                    credits: 1,
+                    progress: 75,
+                    status: 'Active',
+                    trimester: 'Trimester 1, 2024',
+                    nextAssignment: 'Assignment 2 - Due Mar 15'
+                },
+                {
+                    code: 'SIT753',
+                    title: 'Professional Practice in IT',
+                    instructor: 'Azadeh Ghari Neiat',
+                    credits: 1,
+                    progress: 60,
+                    status: 'Active',
+                    trimester: 'Trimester 1, 2024',
+                    nextAssignment: 'Project Proposal - Due Mar 20'
+                },
+                {
+                    code: 'SIT225',
+                    title: 'Data Capture Technologies',
+                    instructor: 'Dr. Lisa Brown',
+                    credits: 1,
+                    progress: 45,
+                    status: 'Active',
+                    trimester: 'Trimester 1, 2024',
+                    nextAssignment: 'Lab Report 3 - Due Mar 25'
+                }
+            ],
+            'teacher': [
+                {
+                    code: 'SIT223',
+                    title: 'Software Engineering Practice',
+                    instructor: 'You are teaching this course',
+                    credits: 1,
+                    progress: 100,
+                    status: 'Teaching',
+                    trimester: 'Trimester 1, 2024',
+                    students: 156
+                },
+                {
+                    code: 'SIT320',
+                    title: 'Advanced Algorithms',
+                    instructor: 'You are teaching this course',
+                    credits: 1,
+                    progress: 100,
+                    status: 'Teaching',
+                    trimester: 'Trimester 1, 2024',
+                    students: 89
+                },
+                {
+                    code: 'SIT374',
+                    title: 'Team Project (Computing)',
+                    instructor: 'You are teaching this course',
+                    credits: 2,
+                    progress: 100,
+                    status: 'Teaching',
+                    trimester: 'Trimester 1, 2024',
+                    students: 67
+                }
+            ]
+        };
+
+        // Search data for different content types
+        const searchData = [
+            // Lectures
+            {
+                id: 1,
+                title: "Introduction to Software Engineering",
+                description: "Overview of software development lifecycle, methodologies, and best practices",
+                type: "video",
+                category: "general",
+                course: "SIT223",
+                date: "2024-02-15",
+                url: "#",
+                keywords: ["software", "engineering", "development", "lifecycle", "agile", "waterfall"]
+            },
+            {
+                id: 2,
+                title: "Object-Oriented Programming Principles",
+                description: "Learn about inheritance, polymorphism, encapsulation, and abstraction",
+                type: "slides",
+                category: "general",
+                course: "SIT223",
+                date: "2024-02-20",
+                url: "#",
+                keywords: ["oop", "object", "oriented", "inheritance", "polymorphism", "encapsulation"]
+            },
+            {
+                id: 3,
+                title: "Data Structures and Algorithms",
+                description: "Understanding arrays, linked lists, trees, and sorting algorithms",
+                type: "video",
+                category: "general",
+                course: "SIT320",
+                date: "2024-02-18",
+                url: "#",
+                keywords: ["data", "structures", "algorithms", "arrays", "trees", "sorting"]
+            },
+            // Assignments
+            {
+                id: 4,
+                title: "Assignment 2: Software Design Document",
+                description: "Create a comprehensive design document for your software project",
+                type: "assignment",
+                category: "assignments",
+                course: "SIT223",
+                date: "2024-03-15",
+                url: "#",
+                keywords: ["assignment", "design", "document", "software", "project", "uml"]
+            },
+            {
+                id: 5,
+                title: "Project Proposal Submission",
+                description: "Submit your final project proposal with timeline and requirements",
+                type: "assignment",
+                category: "assignments",
+                course: "SIT753",
+                date: "2024-03-20",
+                url: "#",
+                keywords: ["project", "proposal", "timeline", "requirements", "professional"]
+            },
+            {
+                id: 6,
+                title: "Lab Report 3: Sensor Data Analysis",
+                description: "Analyze sensor data and create visualizations using Python",
+                type: "assignment",
+                category: "assignments",
+                course: "SIT225",
+                date: "2024-03-25",
+                url: "#",
+                keywords: ["lab", "report", "sensor", "data", "analysis", "python", "visualization"]
+            },
+            // Announcements
+            {
+                id: 7,
+                title: "Mid-Trimester Break Schedule",
+                description: "Important dates and schedule changes for the upcoming break",
+                type: "announcement",
+                category: "announcements",
+                course: "ALL",
+                date: "2024-03-01",
+                url: "#",
+                keywords: ["break", "schedule", "dates", "trimester", "holiday"]
+            },
+            {
+                id: 8,
+                title: "New Library Resources Available",
+                description: "Access to new digital databases and research tools",
+                type: "announcement",
+                category: "announcements",
+                course: "ALL",
+                date: "2024-02-28",
+                url: "#",
+                keywords: ["library", "resources", "database", "research", "tools", "digital"]
+            },
+            // Additional content
+            {
+                id: 9,
+                title: "Version Control with Git",
+                description: "Learn how to use Git for collaborative software development",
+                type: "slides",
+                category: "general",
+                course: "SIT223",
+                date: "2024-02-25",
+                url: "#",
+                keywords: ["git", "version", "control", "collaboration", "repository", "commit"]
+            },
+            {
+                id: 10,
+                title: "Database Design Fundamentals",
+                description: "Introduction to relational databases and SQL",
+                type: "video",
+                category: "general",
+                course: "SIT225",
+                date: "2024-02-22",
+                url: "#",
+                keywords: ["database", "sql", "relational", "design", "tables", "queries"]
+            },
+            {
+                id: 11,
+                title: "Professional Communication Skills",
+                description: "Effective communication in IT workplace environments",
+                type: "slides",
+                category: "general",
+                course: "SIT753",
+                date: "2024-02-16",
+                url: "#",
+                keywords: ["communication", "professional", "workplace", "skills", "presentation"]
+            },
+            {
+                id: 12,
+                title: "IoT Sensor Networks",
+                description: "Understanding Internet of Things and sensor data collection",
+                type: "video",
+                category: "general",
+                course: "SIT225",
+                date: "2024-02-19",
+                url: "#",
+                keywords: ["iot", "internet", "things", "sensor", "networks", "data", "collection"]
+            }
+        ];
+
+        // Search functionality
+        let currentSearchResults = [];
+        let currentTab = 'all';
+        let currentView = 'list';
+
+        // Auto-suggestion functionality
+        function initializeSearch() {
+            const searchInput = document.getElementById('searchInput');
+            const searchBtn = document.getElementById('searchBtn');
+            const suggestionsDropdown = document.getElementById('suggestionsDropdown');
+            const searchResults = document.getElementById('searchResults');
+            const clearSearchBtn = document.getElementById('clearSearch');
+
+            // Auto-suggestions
+            searchInput.addEventListener('input', function() {
+                const query = this.value.toLowerCase().trim();
+                if (query.length >= 2) {
+                    showSuggestions(query);
+                } else {
+                    hideSuggestions();
+                }
+            });
+
+            // Hide suggestions when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!e.target.closest('.search-bar')) {
+                    hideSuggestions();
+                }
+            });
+
+            // Search functionality
+            searchBtn.addEventListener('click', performSearch);
+            searchInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    performSearch();
+                }
+            });
+
+            // Clear search
+            clearSearchBtn.addEventListener('click', function() {
+                searchInput.value = '';
+                searchResults.style.display = 'none';
+                hideSuggestions();
+            });
+
+            // Search tabs
+            document.querySelectorAll('.search-tab').forEach(tab => {
+                tab.addEventListener('click', function() {
+                    document.querySelectorAll('.search-tab').forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+                    currentTab = this.dataset.tab;
+                    if (currentSearchResults.length > 0) {
+                        displaySearchResults(currentSearchResults);
+                    }
+                });
+            });
+
+            // View toggle
+            document.querySelectorAll('.view-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    document.querySelectorAll('.view-btn').forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    currentView = this.dataset.view;
+                    updateResultsView();
+                });
+            });
+
+            // Filters
+            document.getElementById('sortFilter').addEventListener('change', function() {
+                if (currentSearchResults.length > 0) {
+                    displaySearchResults(currentSearchResults);
+                }
+            });
+
+            document.getElementById('dateFilter').addEventListener('change', function() {
+                if (currentSearchResults.length > 0) {
+                    displaySearchResults(currentSearchResults);
+                }
+            });
+        }
+
+        function showSuggestions(query) {
+            const suggestions = generateSuggestions(query);
+            const dropdown = document.getElementById('suggestionsDropdown');
+            
+            if (suggestions.length > 0) {
+                dropdown.innerHTML = suggestions.map(suggestion => `
+                    <div class="suggestion-item" onclick="selectSuggestion('${suggestion.text}')">
+                        <i class="bi ${suggestion.icon} suggestion-icon"></i>
+                        <span>${highlightText(suggestion.text, query)}</span>
+                    </div>
+                `).join('');
+                dropdown.style.display = 'block';
+            } else {
+                hideSuggestions();
+            }
+        }
+
+        function hideSuggestions() {
+            document.getElementById('suggestionsDropdown').style.display = 'none';
+        }
+
+        function generateSuggestions(query) {
+            const suggestions = [];
+            const seen = new Set();
+
+            // Add popular searches
+            const popularTerms = ['assignment', 'lecture', 'software engineering', 'database', 'git', 'algorithms', 'project'];
+            popularTerms.forEach(term => {
+                if (term.toLowerCase().includes(query) && !seen.has(term)) {
+                    suggestions.push({
+                        text: term,
+                        icon: 'bi-search'
+                    });
+                    seen.add(term);
+                }
+            });
+
+            // Add course-specific suggestions
+            searchData.forEach(item => {
+                if (item.title.toLowerCase().includes(query) && !seen.has(item.title) && suggestions.length < 5) {
+                    suggestions.push({
+                        text: item.title,
+                        icon: getIconForType(item.type)
+                    });
+                    seen.add(item.title);
+                }
+            });
+
+            return suggestions.slice(0, 5);
+        }
+
+        function selectSuggestion(text) {
+            document.getElementById('searchInput').value = text;
+            hideSuggestions();
+            performSearch();
+        }
+
+        function performSearch() {
+            const query = document.getElementById('searchInput').value.trim();
+            if (query === '') return;
+
+            const results = searchContent(query);
+            currentSearchResults = results;
+            displaySearchResults(results);
+            document.getElementById('searchResults').style.display = 'block';
+        }
+
+        function searchContent(query) {
+            const queryLower = query.toLowerCase();
+            const results = [];
+
+            searchData.forEach(item => {
+                let score = 0;
+                let titleMatch = false;
+                let descriptionMatch = false;
+                let keywordMatch = false;
+
+                // Title match (highest priority)
+                if (item.title.toLowerCase().includes(queryLower)) {
+                    score += 10;
+                    titleMatch = true;
+                }
+
+                // Description match
+                if (item.description.toLowerCase().includes(queryLower)) {
+                    score += 5;
+                    descriptionMatch = true;
+                }
+
+                // Keyword match
+                const matchingKeywords = item.keywords.filter(keyword => 
+                    keyword.toLowerCase().includes(queryLower)
+                );
+                if (matchingKeywords.length > 0) {
+                    score += matchingKeywords.length * 3;
+                    keywordMatch = true;
+                }
+
+                // Course code match
+                if (item.course.toLowerCase().includes(queryLower)) {
+                    score += 7;
+                }
+
+                if (score > 0) {
+                    results.push({
+                        ...item,
+                        score,
+                        titleMatch,
+                        descriptionMatch,
+                        keywordMatch
+                    });
+                }
+            });
+
+            // Sort by relevance score
+            return results.sort((a, b) => b.score - a.score);
+        }
+
+        function displaySearchResults(results) {
+            const filteredResults = filterResults(results);
+            const sortedResults = sortResults(filteredResults);
+            
+            document.getElementById('resultCount').textContent = `${sortedResults.length} results found`;
+            
+            const container = document.getElementById('searchResultsContent');
+            
+            if (sortedResults.length === 0) {
+                container.innerHTML = `
+                    <div class="no-results">
+                        <i class="bi bi-search"></i>
+                        <h5>No results found</h5>
+                        <p>Try adjusting your search terms or filters</p>
+                    </div>
+                `;
+            } else {
+                container.innerHTML = sortedResults.map(result => createResultHTML(result)).join('');
+            }
+            
+            updateResultsView();
+        }
+
+        function filterResults(results) {
+            let filtered = results;
+
+            // Filter by tab
+            if (currentTab !== 'all') {
+                filtered = filtered.filter(result => result.category === currentTab || result.type === currentTab);
+            }
+
+            // Filter by date
+            const dateFilter = document.getElementById('dateFilter').value;
+            if (dateFilter !== 'all') {
+                const now = new Date();
+                const filterDate = new Date();
+                
+                switch (dateFilter) {
+                    case 'week':
+                        filterDate.setDate(now.getDate() - 7);
+                        break;
+                    case 'month':
+                        filterDate.setMonth(now.getMonth() - 1);
+                        break;
+                    case 'trimester':
+                        filterDate.setMonth(now.getMonth() - 3);
+                        break;
+                }
+                
+                filtered = filtered.filter(result => new Date(result.date) >= filterDate);
+            }
+
+            return filtered;
+        }
+
+        function sortResults(results) {
+            const sortBy = document.getElementById('sortFilter').value;
+            
+            switch (sortBy) {
+                case 'date':
+                    return results.sort((a, b) => new Date(b.date) - new Date(a.date));
+                case 'filename':
+                    return results.sort((a, b) => a.title.localeCompare(b.title));
+                case 'filename-desc':
+                    return results.sort((a, b) => b.title.localeCompare(a.title));
+                default:
+                    return results; // Already sorted by relevance
+            }
+        }
+
+        function createResultHTML(result) {
+            const query = document.getElementById('searchInput').value.toLowerCase();
+            const highlightedTitle = highlightText(result.title, query);
+            const highlightedDescription = highlightText(result.description, query);
+            
+            return `
+                <div class="result-item">
+                    <a href="${result.url}" class="result-title">
+                        <i class="bi ${getIconForType(result.type)} me-2"></i>
+                        ${highlightedTitle}
+                    </a>
+                    <div class="result-description">${highlightedDescription}</div>
+                    <div class="result-meta">
+                        <span><i class="bi bi-calendar"></i> ${formatDate(result.date)}</span>
+                        <span><i class="bi bi-book"></i> ${result.course}</span>
+                        <span><i class="bi bi-tag"></i> ${result.type}</span>
+                    </div>
+                </div>
+            `;
+        }
+
+        function updateResultsView() {
+            const container = document.getElementById('searchResultsContent');
+            if (currentView === 'grid') {
+                container.classList.add('grid-view');
+            } else {
+                container.classList.remove('grid-view');
+            }
+        }
+
+        function highlightText(text, query) {
+            if (!query) return text;
+            const regex = new RegExp(`(${query})`, 'gi');
+            return text.replace(regex, '<span class="highlight">$1</span>');
+        }
+
+        function getIconForType(type) {
+            switch (type) {
+                case 'video': return 'bi-play-circle';
+                case 'slides': return 'bi-file-earmark-slides';
+                case 'assignment': return 'bi-clipboard-check';
+                case 'announcement': return 'bi-megaphone';
+                default: return 'bi-file-earmark';
+            }
+        }
+
+        function formatDate(dateString) {
+            const date = new Date(dateString);
+            return date.toLocaleDateString('en-AU', { 
+                year: 'numeric', 
+                month: 'short', 
+                day: 'numeric' 
+            });
+        }
+
+        // Chatbot functionality
+        let chatbotOpen = false;
+        let chatHistory = [];
+        
+        // Student data for chatbot responses
+        const studentData = {
+            'student': {
+                grades: {
+                    'SIT223': { current: 85, assignments: [92, 78, 85], finalExam: null },
+                    'SIT753': { current: 78, assignments: [85, 72], finalExam: null },
+                    'SIT225': { current: 82, assignments: [88, 76, 82], finalExam: null }
+                },
+                schedule: {
+                    'Monday': [
+                        { time: '9:00-12:00', course: 'SIT223', type: 'Lecture', room: 'E210' },
+                        { time: '14:00-17:00', course: 'SIT753', type: 'Workshop', room: 'T101' }
+                    ],
+                    'Tuesday': [
+                        { time: '10:00-12:00', course: 'SIT225', type: 'Lab', room: 'B205' }
+                    ],
+                    'Wednesday': [
+                        { time: '9:00-11:00', course: 'SIT223', type: 'Tutorial', room: 'C105' }
+                    ],
+                    'Thursday': [
+                        { time: '13:00-16:00', course: 'SIT225', type: 'Lecture', room: 'A303' }
+                    ],
+                    'Friday': [
+                        { time: '11:00-13:00', course: 'SIT753', type: 'Seminar', room: 'D102' }
+                    ]
+                },
+                assignments: [
+                    { course: 'SIT223', title: 'Assignment 2: Design Document', dueDate: '2024-03-15', status: 'pending' },
+                    { course: 'SIT753', title: 'Project Proposal', dueDate: '2024-03-20', status: 'pending' },
+                    { course: 'SIT225', title: 'Lab Report 3', dueDate: '2024-03-25', status: 'pending' }
+                ]
+            },
+            'teacher': {
+                teaching: ['SIT223', 'SIT320', 'SIT374'],
+                students: {
+                    'SIT223': 156,
+                    'SIT320': 89,
+                    'SIT374': 67
+                },
+                schedule: {
+                    'Monday': [
+                        { time: '9:00-12:00', course: 'SIT223', type: 'Lecture', room: 'E210' },
+                        { time: '14:00-16:00', course: 'SIT320', type: 'Tutorial', room: 'B301' }
+                    ],
+                    'Wednesday': [
+                        { time: '10:00-12:00', course: 'SIT374', type: 'Project Meeting', room: 'C205' }
+                    ],
+                    'Friday': [
+                        { time: '13:00-15:00', course: 'SIT223', type: 'Consultation', room: 'Staff Room 12' }
+                    ]
+                }
+            },
+            'admin': {
+                systemStats: {
+                    totalUsers: 1245,
+                    activeCourses: 45,
+                    systemUptime: '99.8%'
+                }
+            }
+        };
+        
+        function initializeChatbot() {
+            const toggle = document.getElementById('chatbotToggle');
+            const window = document.getElementById('chatbotWindow');
+            const close = document.getElementById('chatbotClose');
+            const input = document.getElementById('chatbotInput');
+            const send = document.getElementById('chatbotSend');
+            
+            toggle.addEventListener('click', toggleChatbot);
+            close.addEventListener('click', closeChatbot);
+            send.addEventListener('click', sendMessage);
+            
+            input.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    sendMessage();
+                }
+            });
+            
+            input.addEventListener('input', function() {
+                send.disabled = this.value.trim() === '';
+            });
+        }
+        
+        function toggleChatbot() {
+            const window = document.getElementById('chatbotWindow');
+            const toggle = document.getElementById('chatbotToggle');
+            
+            chatbotOpen = !chatbotOpen;
+            
+            if (chatbotOpen) {
+                window.style.display = 'flex';
+                toggle.innerHTML = '<i class="bi bi-chat-dots-fill"></i>';
+                document.getElementById('chatbotInput').focus();
+            } else {
+                window.style.display = 'none';
+                toggle.innerHTML = '<i class="bi bi-chat-dots"></i>';
+            }
+        }
+        
+        function closeChatbot() {
+            chatbotOpen = false;
+            document.getElementById('chatbotWindow').style.display = 'none';
+            document.getElementById('chatbotToggle').innerHTML = '<i class="bi bi-chat-dots"></i>';
+        }
+        
+        function sendMessage() {
+            const input = document.getElementById('chatbotInput');
+            const message = input.value.trim();
+            
+            if (message === '') return;
+            
+            addMessage(message, 'user');
+            input.value = '';
+            document.getElementById('chatbotSend').disabled = true;
+            
+            // Show typing indicator
+            showTyping();
+            
+            // Process message and respond
+            setTimeout(() => {
+                hideTyping();
+                processMessage(message);
+            }, 1000 + Math.random() * 1000);
+        }
+        
+        function sendQuickReply(message) {
+            addMessage(message, 'user');
+            showTyping();
+            
+            setTimeout(() => {
+                hideTyping();
+                processMessage(message);
+            }, 800);
+        }
+        
+        function addMessage(text, sender) {
+            const messagesContainer = document.getElementById('chatbotMessages');
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${sender}`;
+            messageDiv.innerHTML = text;
+            
+            messagesContainer.appendChild(messageDiv);
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+            
+            chatHistory.push({ text, sender, timestamp: new Date() });
+        }
+        
+        function showTyping() {
+            const messagesContainer = document.getElementById('chatbotMessages');
+            const typingDiv = document.createElement('div');
+            typingDiv.className = 'message typing';
+            typingDiv.id = 'typingIndicator';
+            typingDiv.innerHTML = '💭 Searching for information...';
+            
+            messagesContainer.appendChild(typingDiv);
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        }
+        
+        function hideTyping() {
+            const typing = document.getElementById('typingIndicator');
+            if (typing) {
+                typing.remove();
+            }
+        }
+        
+        function processMessage(message) {
+            const currentUser = getCurrentUser();
+            if (!currentUser) {
+                addMessage('❌ Please login to use the chatbot.', 'bot');
+                return;
+            }
+            
+            const userType = getUserType(currentUser.username);
+            const response = generateResponse(message.toLowerCase(), userType);
+            addMessage(response, 'bot');
+        }
+        
+        function generateResponse(message, userType) {
+            // Advanced search patterns
+            if (message.includes('sit223') || message.includes('software engineering')) {
+                return getSpecificCourseInfo('SIT223', userType);
+            }
+            
+            if (message.includes('sit753') || message.includes('professional practice')) {
+                return getSpecificCourseInfo('SIT753', userType);
+            }
+            
+            if (message.includes('sit225') || message.includes('data capture')) {
+                return getSpecificCourseInfo('SIT225', userType);
+            }
+            
+            // Library and resources
+            if (message.includes('library') || message.includes('resources') || message.includes('documents')) {
+                return getLibraryInfo();
+            }
+            
+            // IT Support
+            if (message.includes('it support') || message.includes('technical support') || message.includes('system error')) {
+                return getITSupportInfo();
+            }
+            
+            // Financial info
+            if (message.includes('fees') || message.includes('tuition') || message.includes('payment')) {
+                return getFinancialInfo();
+            }
+            
+            // Today's schedule
+            if (message.includes('today') || message.includes('today schedule') || message.includes('schedule today')) {
+                return getTodaySchedule(userType);
+            }
+            
+            // Course search
+            if (message.includes('search') && (message.includes('course') || message.includes('subject') || message.includes('unit'))) {
+                return getCourseInfo(userType);
+            }
+            
+            // Schedule inquiry
+            if (message.includes('timetable') || message.includes('schedule') || message.includes('class schedule')) {
+                return getScheduleInfo(userType);
+            }
+            
+            // Grades inquiry
+            if (message.includes('grade') || message.includes('marks') || message.includes('score')) {
+                return getGradesInfo(userType);
+            }
+            
+            // Assignment inquiry
+            if (message.includes('assignment') || message.includes('homework') || message.includes('deadline')) {
+                return getAssignmentInfo(userType);
+            }
+            
+            // Help
+            if (message.includes('help') || message.includes('guide') || message.includes('assistance')) {
+                return getHelpInfo(userType);
+            }
+            
+            // Greetings
+            if (message.includes('hello') || message.includes('hi') || message.includes('hey')) {
+                return `👋 Hello! I can help you find information about courses, timetables, grades and assignments. What do you need help with?`;
+            }
+            
+            // Default response with suggestions
+            return `🤔 I don't understand your question. Try asking about:
+                <div class="quick-replies">
+                    <span class="quick-reply" onclick="sendQuickReply('Search courses')">🔍 Courses</span>
+                    <span class="quick-reply" onclick="sendQuickReply('View timetable')">📅 Schedule</span>
+                    <span class="quick-reply" onclick="sendQuickReply('Check grades')">📊 Grades</span>
+                    <span class="quick-reply" onclick="sendQuickReply('Assignment info')">📝 Assignments</span>
+                </div>`;
+        }
+        
+        function getSpecificCourseInfo(courseCode, userType) {
+            const courses = courseData[userType] || [];
+            const course = courses.find(c => c.code === courseCode);
+            
+            if (!course) {
+                return `❌ Could not find information about ${courseCode}.`;
+            }
+            
+            let response = `📚 <strong>${course.code} - ${course.title}</strong><br><br>`;
+            response += `👨‍🏫 <strong>Instructor:</strong> ${course.instructor}<br>`;
+            response += `📖 <strong>Credits:</strong> ${course.credits}<br>`;
+            response += `📈 <strong>Progress:</strong> ${course.progress}%<br>`;
+            response += `📅 <strong>Trimester:</strong> ${course.trimester}<br>`;
+            
+            if (course.nextAssignment) {
+                response += `📝 <strong>Next Assignment:</strong> ${course.nextAssignment}<br>`;
+            }
+            
+            if (course.students) {
+                response += `👥 <strong>Students:</strong> ${course.students}<br>`;
+            }
+            
+            return response + `
+                <div class="quick-replies">
+                    <span class="quick-reply" onclick="sendQuickReply('${courseCode} schedule')">📅 Schedule</span>
+                    <span class="quick-reply" onclick="sendQuickReply('${courseCode} grades')">📊 Grades</span>
+                    <span class="quick-reply" onclick="sendQuickReply('${courseCode} materials')">📚 Materials</span>
+                </div>`;
+        }
+        
+        function getLibraryInfo() {
+            return `📚 <strong>Deakin Library Resources:</strong><br><br>
+                🔍 <strong>Search documents:</strong> DeakinSearch - Find books, academic journals<br>
+                💻 <strong>Databases:</strong> IEEE, ACM Digital Library, SpringerLink<br>
+                📖 <strong>E-books:</strong> Over 500,000 digital books<br>
+                📋 <strong>Research:</strong> Thesis writing support, citations<br>
+                ⏰ <strong>Opening hours:</strong> 24/7 online, Mon-Fri: 8:00-22:00<br><br>
+                
+                <div class="quick-replies">
+                    <span class="quick-reply" onclick="sendQuickReply('Book study room')">🏠 Book Room</span>
+                    <span class="quick-reply" onclick="sendQuickReply('Renew books')">📚 Renew</span>
+                    <span class="quick-reply" onclick="sendQuickReply('Citation guide')">📝 Citations</span>
+                </div>`;
+        }
+        
+        function getITSupportInfo() {
+            return `💻 <strong>Deakin IT Support:</strong><br><br>
+                📞 <strong>Hotline:</strong> (03) 5227 8888<br>
+                📧 <strong>Email:</strong> itsupport@deakin.edu.au<br>
+                💬 <strong>Live Chat:</strong> Available Mon-Fri 8:00-18:00<br>
+                🎫 <strong>Ticket System:</strong> ServiceNow Portal<br><br>
+                
+                <strong>Common issues:</strong><br>
+                🔐 Account password reset<br>
+                📱 VPN, WiFi setup<br>
+                💻 Microsoft Office 365 software<br>
+                📋 CloudDeakin, DeakinSync access<br><br>
+                
+                <div class="quick-replies">
+                    <span class="quick-reply" onclick="sendQuickReply('Reset password')">🔐 Reset PW</span>
+                    <span class="quick-reply" onclick="sendQuickReply('Setup VPN')">🌐 VPN</span>
+                    <span class="quick-reply" onclick="sendQuickReply('Office 365')">💻 Office</span>
+                </div>`;
+        }
+        
+        function getFinancialInfo() {
+            return `💰 <strong>Tuition Fee Information:</strong><br><br>
+                💳 <strong>Payment:</strong> StudentConnect Portal<br>
+                📅 <strong>Due dates:</strong> Before 31/3 (T1), 31/7 (T2), 30/11 (T3)<br>
+                💸 <strong>Methods:</strong> Credit card, BPAY, Bank transfer<br>
+                📊 <strong>View balance:</strong> StudentConnect > Financial Summary<br><br>
+                
+                <strong>Financial support:</strong><br>
+                🎓 Excellence, Equity scholarships<br>
+                💰 Flexible payment plans<br>
+                📞 Consultation: (03) 5227 2333<br><br>
+                
+                <div class="quick-replies">
+                    <span class="quick-reply" onclick="sendQuickReply('View current fees')">💳 Fees</span>
+                    <span class="quick-reply" onclick="sendQuickReply('Scholarships')">🎓 Scholarships</span>
+                    <span class="quick-reply" onclick="sendQuickReply('Payment plan')">📊 Payment</span>
+                </div>`;
+        }
+        
+        function getTodaySchedule(userType) {
+            const userData = studentData[userType];
+            if (!userData || !userData.schedule) {
+                return '❌ Could not find today\'s schedule information.';
+            }
+            
+            const today = new Date().toLocaleDateString('en-US', { weekday: 'long' });
+            const todayClasses = userData.schedule[today];
+            
+            if (!todayClasses || todayClasses.length === 0) {
+                return `📅 <strong>Today's Schedule (${today}):</strong><br><br>
+                    🎉 You have no classes today! Great time to:<br>
+                    📚 Review previous lessons<br>
+                    📝 Work on assignments<br>
+                    📖 Read additional materials<br><br>
+                    
+                    <div class="quick-replies">
+                        <span class="quick-reply" onclick="sendQuickReply('Upcoming assignments')">📝 Assignments</span>
+                        <span class="quick-reply" onclick="sendQuickReply('This week schedule')">📅 This Week</span>
+                    </div>`;
+            }
+            
+            let response = `📅 <strong>Today's Schedule (${today}):</strong><br><br>`;
+            todayClasses.forEach(cls => {
+                const currentTime = new Date();
+                const classTime = cls.time.split('-')[0];
+                const isUpcoming = currentTime.getHours() < parseInt(classTime.split(':')[0]);
+                const status = isUpcoming ? '🔔' : '✅';
+                
+                response += `${status} <strong>${cls.time}</strong> - ${cls.course}<br>`;
+                response += `📍 ${cls.type} in room ${cls.room}<br><br>`;
+            });
+            
+            return response + `
+                <div class="quick-replies">
+                    <span class="quick-reply" onclick="sendQuickReply('Directions to class')">🗺️ Directions</span>
+                    <span class="quick-reply" onclick="sendQuickReply('Class materials')">📚 Materials</span>
+                </div>`;
+        }
+        
+        function getCourseInfo(userType) {
+            const courses = courseData[userType] || [];
+            if (courses.length === 0) {
+                return '❌ Could not find course information.';
+            }
+            
+            let response = `📚 <strong>Your Courses:</strong><br>`;
+            courses.forEach(course => {
+                response += `
+                    <div class="course-card-mini">
+                        <h6>${course.code} - ${course.title}</h6>
+                        <p>👨‍🏫 ${course.instructor}</p>
+                        <p>📈 Progress: ${course.progress}% | 📖 ${course.credits} credits</p>
+                    </div>`;
+            });
+            
+            return response + `
+                <div class="quick-replies">
+                    <span class="quick-reply" onclick="sendQuickReply('View timetable')">📅 View Schedule</span>
+                    <span class="quick-reply" onclick="sendQuickReply('Check grades')">📊 View Grades</span>
+                </div>`;
+        }
+        
+        function getScheduleInfo(userType) {
+            const userData = studentData[userType];
+            if (!userData || !userData.schedule) {
+                return '❌ Could not find schedule information.';
+            }
+            
+            let response = `📅 <strong>This Week's Timetable:</strong><br>`;
+            
+            Object.entries(userData.schedule).forEach(([day, classes]) => {
+                response += `<br><strong>${day}:</strong><br>`;
+                classes.forEach(cls => {
+                    response += `⏰ ${cls.time} - ${cls.course} (${cls.type}) - Room ${cls.room}<br>`;
+                });
+            });
+            
+            return response + `
+                <div class="quick-replies">
+                    <span class="quick-reply" onclick="sendQuickReply('Today attendance')">✅ Attendance</span>
+                    <span class="quick-reply" onclick="sendQuickReply('Upcoming assignments')">📝 Assignments</span>
+                </div>`;
+        }
+        
+        function getGradesInfo(userType) {
+            if (userType !== 'student') {
+                return '📊 Grade viewing is only available for students.';
+            }
+            
+            const grades = studentData.student.grades;
+            let response = `📊 <strong>Current Grades:</strong><br>`;
+            
+            Object.entries(grades).forEach(([course, data]) => {
+                response += `
+                    <div class="course-card-mini">
+                        <h6>${course}</h6>
+                        <p>📈 Current grade: <strong>${data.current}/100</strong></p>
+                        <p>📝 Assignments: ${data.assignments.join(', ')}</p>
+                        <p>📋 Final exam: ${data.finalExam || 'Not available'}</p>
+                    </div>`;
+            });
+            
+            return response + `
+                <div class="quick-replies">
+                    <span class="quick-reply" onclick="sendQuickReply('SIT223 grade details')">📊 SIT223</span>
+                    <span class="quick-reply" onclick="sendQuickReply('How to improve grades')">💡 Improve</span>
+                </div>`;
+        }
+        
+        function getAssignmentInfo(userType) {
+            if (userType !== 'student') {
+                return '📝 Assignment viewing is only available for students.';
+            }
+            
+            const assignments = studentData.student.assignments;
+            let response = `📝 <strong>Upcoming Assignments:</strong><br>`;
+            
+            assignments.forEach(assignment => {
+                const dueDate = new Date(assignment.dueDate);
+                const today = new Date();
+                const daysLeft = Math.ceil((dueDate - today) / (1000 * 60 * 60 * 24));
+                const urgency = daysLeft <= 3 ? '🔴' : daysLeft <= 7 ? '🟡' : '🟢';
+                
+                response += `
+                    <div class="course-card-mini">
+                        <h6>${urgency} ${assignment.course}</h6>
+                        <p><strong>${assignment.title}</strong></p>
+                        <p>📅 Due: ${formatDate(assignment.dueDate)} (${daysLeft} days)</p>
+                        <p>📊 Status: ${assignment.status === 'pending' ? 'Not submitted' : 'Submitted'}</p>
+                    </div>`;
+            });
+            
+            return response + `
+                <div class="quick-replies">
+                    <span class="quick-reply" onclick="sendQuickReply('Submission guide')">📤 Submit</span>
+                    <span class="quick-reply" onclick="sendQuickReply('Contact instructor')">👨‍🏫 Contact</span>
+                </div>`;
+        }
+        
+        function getHelpInfo(userType) {
+            return `💡 <strong>I can help you with:</strong><br><br>
+                🔍 <strong>Search information:</strong> Courses, instructors, course content<br>
+                📅 <strong>Timetable:</strong> Weekly schedule, classrooms, class types<br>
+                📊 <strong>Grades:</strong> Current grades, assignment scores, exam results<br>
+                📝 <strong>Assignments:</strong> Deadlines, submission guides, status<br>
+                📚 <strong>Learning resources:</strong> Library, slides, lecture videos<br>
+                👥 <strong>Support:</strong> Contact instructors, IT support<br><br>
+                
+                <div class="quick-replies">
+                    <span class="quick-reply" onclick="sendQuickReply('Search courses')">🔍 Courses</span>
+                    <span class="quick-reply" onclick="sendQuickReply('View timetable')">📅 Schedule</span>
+                    <span class="quick-reply" onclick="sendQuickReply('Check grades')">📊 Grades</span>
+                </div>`;
+        }
+
+        // Get current user from localStorage
+        function getCurrentUser() {
+            const savedUser = localStorage.getItem('currentUser');
+            if (savedUser) {
+                return JSON.parse(savedUser);
+            }
+            // Redirect to login if no user found
+            window.location.href = 'index.html';
+            return null;
+        }
+
+        // Determine user type based on username
+        function getUserType(username) {
+            if (username === 'admin') return 'admin';
+            if (username === 'teacher') return 'teacher';
+            return 'student';
+        }
+
+        // Create course card HTML
+        function createCourseCard(course, userType) {
+            const progressColor = course.progress >= 70 ? '#28a745' : course.progress >= 40 ? '#ffc107' : '#dc3545';
+            
+            let actionButtons = '';
+            if (userType === 'student') {
+                actionButtons = `
+                    <a href="#" class="btn-course">
+                        <i class="bi bi-book"></i> Course Materials
+                    </a>
+                    <a href="#" class="btn-course">
+                        <i class="bi bi-clipboard-check"></i> Assignments
+                    </a>
+                    <a href="#" class="btn-course">
+                        <i class="bi bi-chat-dots"></i> Discussion
+                    </a>
+                `;
+            } else if (userType === 'teacher') {
+                actionButtons = `
+                    <a href="#" class="btn-course">
+                        <i class="bi bi-people"></i> Manage Students
+                    </a>
+                    <a href="#" class="btn-course">
+                        <i class="bi bi-file-earmark-plus"></i> Add Content
+                    </a>
+                    <a href="#" class="btn-course">
+                        <i class="bi bi-graph-up"></i> View Analytics
+                    </a>
+                `;
+            } else {
+                actionButtons = `
+                    <a href="#" class="btn-course">
+                        <i class="bi bi-gear"></i> Course Settings
+                    </a>
+                    <a href="#" class="btn-course">
+                        <i class="bi bi-people"></i> User Management
+                    </a>
+                    <a href="#" class="btn-course">
+                        <i class="bi bi-bar-chart"></i> Reports
+                    </a>
+                `;
+            }
+
+            return `
+                <div class="col-lg-6 col-xl-4">
+                    <div class="course-card">
+                        <div class="course-header">
+                            <div class="course-code">${course.code}</div>
+                            <div class="course-title">${course.title}</div>
+                        </div>
+                        <div class="course-body">
+                            <div class="course-info">
+                                <div>
+                                    <small class="text-muted">Instructor</small>
+                                    <div class="fw-bold">${course.instructor}</div>
+                                </div>
+                                <div class="text-end">
+                                    <small class="text-muted">Credits</small>
+                                    <div class="fw-bold">${course.credits}</div>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-2">
+                                <small class="text-muted">Progress: ${course.progress}%</small>
+                            </div>
+                            <div class="course-progress">
+                                <div class="progress-bar" style="width: ${course.progress}%; background-color: ${progressColor};"></div>
+                            </div>
+                            
+                            ${course.nextAssignment ? `
+                                <div class="alert alert-warning py-2 px-3 mb-3">
+                                    <small><i class="bi bi-clock"></i> ${course.nextAssignment}</small>
+                                </div>
+                            ` : ''}
+                            
+                            ${course.students ? `
+                                <div class="mb-3">
+                                    <small class="text-muted">
+                                        <i class="bi bi-people"></i> ${course.students} ${userType === 'teacher' ? 'Students' : 'Enrolled'}
+                                    </small>
+                                </div>
+                            ` : ''}
+                            
+                            <div class="course-actions">
+                                ${actionButtons}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Initialize dashboard
+        function initDashboard() {
+            const currentUser = getCurrentUser();
+            if (!currentUser) return;
+
+            const userType = getUserType(currentUser.username);
+            const courses = courseData[userType] || [];
+
+            // Update user info
+            document.getElementById('userName').textContent = currentUser.fullName;
+            document.getElementById('userRole').textContent = userType.charAt(0).toUpperCase() + userType.slice(1);
+
+            // Update course count
+            document.getElementById('courseCount').textContent = `${courses.length} ${userType === 'teacher' ? 'Teaching' : 'Courses'}`;
+
+            // Populate courses
+            const courseContainer = document.getElementById('courseContainer');
+            if (courses.length === 0) {
+                courseContainer.innerHTML = `
+                    <div class="col-12">
+                        <div class="text-center py-5">
+                            <i class="bi bi-journal-x display-1 text-muted"></i>
+                            <h4 class="text-muted mt-3">No courses found</h4>
+                            <p class="text-muted">You are not enrolled in any courses yet.</p>
+                        </div>
+                    </div>
+                `;
+            } else {
+                courseContainer.innerHTML = courses.map(course => createCourseCard(course, userType)).join('');
+            }
+
+            // Add click handlers for course cards
+            document.querySelectorAll('.course-card').forEach(card => {
+                card.addEventListener('click', function(e) {
+                    if (!e.target.closest('.btn-course')) {
+                        // Handle course card click (navigate to course detail)
+                        const courseCode = this.querySelector('.course-code').textContent;
+                        alert(`Opening course: ${courseCode}`);
+                    }
+                });
+            });
+
+            // Add click handlers for action buttons
+            document.querySelectorAll('.btn-course').forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    const action = this.textContent.trim();
+                    alert(`Action: ${action}`);
+                });
+            });
+        }
+
+        // Initialize when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            initDashboard();
+            initializeSearch();
+            initializeChatbot();
+        });
+
+        // Handle logout
+        document.querySelector('.logout-btn').addEventListener('click', function(e) {
+            e.preventDefault();
+            localStorage.removeItem('currentUser');
+            window.location.href = 'index.html';
+        });
+    </script>
+</body>
+
+</html>

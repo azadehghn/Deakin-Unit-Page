@@ -1,19 +1,149 @@
-
-
 h1 {
   font-size: 40px;
   font-family: Arial
 }
+
 h2 {
   font-size: 25px;
   font-family: Arial
 }
+
 h3 {
   font-family: Arial
 }
+
 p {
   font-size: 14px;
   font-family: Arial
 }
 
+div {
+  text-align: left;
+}
 
+th,
+td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+  font-family: Arial
+}
+
+tr:nth-child(odd) {
+  background-color: #f2f2f2;
+}
+
+.modal-content {
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.modal {
+  --bs-modal-padding: 2rem !important;
+}
+
+.modal-body {
+  border-radius: 15px;
+}
+
+.modal-header {
+  border-bottom: none;
+  background: linear-gradient(135deg, #008b8b 0%, #20b2aa 100%);
+  color: white;
+  border-radius: 15px 15px 0 0;
+}
+
+.form-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.form-content {
+  transition: transform 0.6s ease-in-out;
+}
+
+.form-content.slide-left {
+  transform: translateX(-100%);
+}
+
+.form-content.slide-right {
+  transform: translateX(100%);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #008b8b 0%, #4682b4 100%);
+  border: none;
+  border-radius: 25px;
+  padding: 10px 30px;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 139, 139, 0.4);
+}
+
+.form-control {
+  border-radius: 10px;
+  border: 2px solid #e9ecef;
+  transition: border-color 0.3s ease;
+}
+
+.form-control:focus {
+  border-color: #008b8b;
+  box-shadow: 0 0 0 0.2rem rgba(0, 139, 139, 0.25);
+}
+
+.warning-message {
+  background: linear-gradient(135deg, #008b8b 0%, #006666 100%);
+  color: white;
+  border-radius: 10px;
+  padding: 15px;
+  margin: 15px 0;
+  border-left: 5px solid #006666;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.02);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+.switch-form {
+  color: #008b8b;
+  cursor: pointer;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.switch-form:hover {
+  color: #4682b4;
+  text-decoration: underline;
+}
+
+.login-icon {
+  font-size: 3rem;
+  color: #008b8b;
+  margin-bottom: 20px;
+}
+
+.form-label {
+  text-align: left;
+  display: block;
+}
+
+#loginFormElement{
+  padding: 0 40px;
+}
+#signupFormElement{
+  padding: 0 40px;
+}
