@@ -1,9 +1,9 @@
 /* ===== Theme variables ===== */
 /* Light (day) — soft light-blue background + blue header */
 :root{
-  --bg:#e6f2ff;        /* bluer page background */
+  --bg:rgb(255, 255, 255);        /* bluer page background */
   --text:#0f172a;      /* deep slate text */
-  --header-bg:#bfdbfe; /* deeper blue header */
+  --header-bg:darkcyan; /* deeper blue header */
   --border:#93c5fd;    /* blue accent border */
   --muted:#475569;     /* subtle text */
   --button-bg:#111827; /* dark button for contrast */
