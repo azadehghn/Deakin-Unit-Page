@@ -15,5 +15,10 @@ p {
   font-size: 14px;
   font-family: Arial
 }
+.site-header {
+  background-color: blue;
+  text-align: right;
+  padding: 10px;
+}
 
 
