@@ -1,20 +1,22 @@
 /* ===== Theme variables ===== */
-/* Light (day) — soft, gentle header */
+/* Light (day) — soft light-blue background + blue header */
 :root{
-  --bg:#f8fafc;          /* off-white background */
-  --text:#0f172a;        /* deep slate text */
-  --header-bg:#eef2ff;   /* soft indigo/blue header tint */
-  --border:#e2e8f0;      /* light border */
-  --button-bg:#111827;   /* dark button for contrast */
-  --button-text:#ffffff; /* readable on dark button */
+  --bg:#e6f2ff;        /* bluer page background */
+  --text:#0f172a;      /* deep slate text */
+  --header-bg:#bfdbfe; /* deeper blue header */
+  --border:#93c5fd;    /* blue accent border */
+  --muted:#475569;     /* subtle text */
+  --button-bg:#111827; /* dark button for contrast */
+  --button-text:#ffffff;
 }
 
-/* Dark (night) — warm grey palette */
+/* Dark (night) — warm greys */
 html[data-theme="dark"]{
   --bg:#0f1115;          /* soft charcoal */
   --text:#e7e7ea;        /* light grey text */
   --header-bg:#1f2937;   /* grey-blue header */
   --border:#2b3542;      /* muted border */
+  --muted:#94a3b8;       /* subtle text on dark */
   --button-bg:#e7e7ea;   /* light button for contrast */
   --button-text:#0f1115; /* readable on light button */
 }
@@ -36,14 +38,32 @@ html, body {
   border-bottom: 1px solid var(--border);
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  padding: 10px 16px;
+  justify-content: space-between; /* left block vs right logo */
+  gap: 16px;
+  padding: 12px 20px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
 }
+
 .site-logo{
   width: 160px;
   height: auto;
   display: block;
+}
+
+/* Left block: toggle (first) + sentence (next) */
+.header-controls{
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-align: left;         /* now on the left side */
+  max-width: 760px;
+}
+
+.header-note{
+  margin: 0;
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.4;
 }
 
 /* Toggle button */
@@ -63,22 +83,24 @@ html, body {
 
 /* ===== Layout ===== */
 .container{
-  max-width: 70ch;   /* comfortable reading width */
+  max-width: 70ch;
   margin: 24px auto;
   padding: 0 16px;
 }
 
 /* ===== Responsive ===== */
-@media (max-width: 480px){
+@media (max-width: 640px){
   .site-logo{ width: 130px; }
-}
-/* Subtle depth + breathing room */
-.site-header{
-  padding: 12px 20px;              /* a bit more height */
-  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+
+  /* stack the left block for small screens */
+  .header-controls{
+    flex-direction: column;
+    align-items: flex-start; /* left-aligned when stacked */
+    gap: 8px;
+  }
 }
 
-/* Reduce motion for users who prefer it */
+/* Respect users who prefer less motion */
 @media (prefers-reduced-motion: reduce){
   * { transition: none !important; }
 }

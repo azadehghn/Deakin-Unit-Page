@@ -22,16 +22,21 @@
   <script defer src="theme.js"></script>
 </head>
 <body>
-  <!-- Header with logo + theme toggle -->
+  <!-- Header: left = toggle + note, right = logo -->
   <header class="site-header" role="banner" aria-label="Unit header">
+    <div class="header-controls">
+      <button id="theme-toggle" class="theme-toggle" type="button"
+              aria-pressed="false" aria-label="Toggle dark mode">🌙 Dark</button>
+      <p class="header-note">
+        Use the 🌙/☀️ toggle to switch between night-friendly warm grey and a soft, light day theme.
+      </p>
+    </div>
+
     <img src="logo.svg" alt="Deakin" class="site-logo" />
-    <button id="theme-toggle" class="theme-toggle" type="button"
-            aria-pressed="false" aria-label="Toggle dark mode">🌙 Dark</button>
   </header>
 
   <main class="container" role="main">
     <h1>SIT223–SIT753 - Professional Practice in IT</h1>
-    <p>Use the 🌙/☀️ toggle to switch between night-friendly warm grey and a soft, light day theme.</p>
   </main>
 </body>
 </html>
