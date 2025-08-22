@@ -1,19 +1,20 @@
+body {
+  margin: 0;
+}
 
+.header {
+  background-color: darkcyan;
+  text-align: right;
+  padding: 14px 18px;
+}
+
+.header img {
+  display: inline-block;
+  vertical-align: middle;
+}
 
 h1 {
   font-size: 40px;
-  font-family: Arial
+  font-family: Arial, sans-serif;
+  margin: 24px;
 }
-h2 {
-  font-size: 25px;
-  font-family: Arial
-}
-h3 {
-  font-family: Arial
-}
-p {
-  font-size: 14px;
-  font-family: Arial
-}
-
-
