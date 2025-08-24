@@ -1,19 +1,30 @@
-
-
 h1 {
-  font-size: 40px;
-  font-family: Arial
+    font-size: 40px;
+    font-family: Arial;
 }
 h2 {
-  font-size: 25px;
-  font-family: Arial
+    font-size: 25px;
+    font-family: Arial;
 }
 h3 {
-  font-family: Arial
+    font-family: Arial;
 }
 p {
-  font-size: 14px;
-  font-family: Arial
+    font-size: 14px;
+    font-family: Arial;
+<<<<<<< HEAD
+}
+div {
+    background-color: darkcyan;
+    text-align: right;
+}
+=======
+}
+div {
+    background-color: darkcyan;
+    text-align: right;
 }
 
 
+
+>>>>>>> 7c6c7340fb6adaa6e194a83e1db6994ea4fd524d
