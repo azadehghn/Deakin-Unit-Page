@@ -1,10 +1,122 @@
 <!DOCTYPE html>
 <html>
-<head>
-<title> Home </title>
-<link rel="stylesheet" type="text/css" media="screen" href="main.css"/>
-</head>
-<body>
-<h1>SIT223-SIT753 - Professional Practice in IT</h1>
-</body>
+  <head>
+    <title>Home</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <!-- Include Font Awesome for icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+  </head>
+
+  <body>
+    <!-- Branded, responsive header (US1) -->
+    <header
+      class="site-header"
+      role="banner"
+      aria-label="Deakin branded header"
+    >
+      <div class="brand">
+        <img
+          src="images/deakin-logo.svg"
+          alt="Deakin University Logo"
+          class="brand-logo"
+        />
+        <div class="brand-text">
+          <h1 class="site-title">Deakin University</h1>
+          <p class="site-subtitle">
+            SIT223–SIT753 • Professional Practice in IT
+          </p>
+        </div>
+      </div>
+    </header>
+
+    <!-- US2: Easy Navigation Menu -->
+    <nav class="navigation-bar" role="navigation" aria-label="Primary">
+      <button class="hamburger-menu" aria-label="Toggle navigation menu">
+        <i class="fas fa-bars"></i>
+      </button>
+      <ul class="nav-links">
+        <li><a href="https://www.deakin.edu.au/" class="active">Home</a></li>
+        <li>
+          <a href="https://www.deakin.edu.au/study/find-a-course">Courses</a>
+        </li>
+        <li>
+          <a
+            href="https://www.deakin.edu.au/about-deakin/news-and-media-releases"
+            >News</a
+          >
+        </li>
+        <li><a href="https://www.deakin.edu.au/students">Student Portal</a></li>
+        <li>
+          <a href="https://talent.deakin.edu.au/unauth/440019/login"
+            >Staff Portal</a
+          >
+        </li>
+        <li><a href="https://www.deakin.edu.au/contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <!-- Search function (US3) -->
+    <section class="search-bar-section" aria-labelledby="search-title">
+      <h1 id="search-title">How can I assist you today ?</h1>
+      <!-- Search input and button -->
+      <div class="search-container">
+        <i class="fas fa-search search-icon" aria-hidden="true"></i>
+        <input
+          type="text"
+          id="searchInput"
+          placeholder="I want to know about ..."
+          aria-label="Search"
+          required
+        />
+        <button class="search-button" onclick="performSearch()">
+          Search Now
+        </button>
+      </div>
+      <!-- Error message -->
+      <p id="error-message" role="alert"></p>
+
+      <!-- Modal design -->
+      <div
+        id="search-modal"
+        class="modal"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="modal-title"
+      >
+        <div class="modal-content">
+          <h3 id="modal-title">We are fetching the information</h3>
+          <p>Please give us a moment ...</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="unit-details">
+      <h2>SIT223-SIT753 - Professional Practice in IT</h2>
+      <h3>Unit details</h3>
+      <table style="width: 100%">
+        <tr>
+          <td>Year:</td>
+          <td>2023 unit information</td>
+        </tr>
+        <tr>
+          <td>Enrolment modes:</td>
+          <td>Trimester 1: Burwood (Melbourne), Geelong, Cloud (online)</td>
+        </tr>
+        <tr>
+          <td>Credit point(s):</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <td>Unit Chair:</td>
+          <td>Trimester 1: Azadeh Ghari Neiat</td>
+        </tr>
+      </table>
+    </section>
+    <script src="script.js"></script>
+  </body>
 </html>
