@@ -16,4 +16,37 @@ p {
   font-family: Arial
 }
 
+.site-header {
+  background-color: darkcyan;
+  text-align: right;
+  padding: 0.5em;
+}
 
+.page-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5em;
+  padding: 1em;
+}
+
+.homepage-section {
+  background: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 1em;
+}
+
+.homepage-section h2 {
+  margin-top: 0;
+  font-size: 1.25rem;
+}
+th, td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+  font-family: Arial;
+}
+
+tr:nth-child(odd) {
+  background-color: #f2f2f2;
+}
