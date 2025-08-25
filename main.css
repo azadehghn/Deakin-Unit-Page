@@ -1,26 +1,56 @@
-
-
+/* General text styles */
 h1 {
   font-size: 40px;
-  font-family: Arial
+  font-family: Arial, sans-serif;
 }
 h2 {
   font-size: 25px;
-  font-family: Arial
+  font-family: Arial, sans-serif;
 }
 h3 {
-  font-family: Arial
+  font-family: Arial, sans-serif;
 }
 p {
   font-size: 14px;
-  font-family: Arial
+  font-family: Arial, sans-serif;
 }
-th, td {
+
+/* Header styles */
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 20px;
+  border-bottom: 1px solid #e5e7eb;
+  background: darkcyan;
+}
+.site-header .brand {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  font-weight: 600;
+  color: white;
+}
+.main-nav a {
+  margin-left: 16px;
+  text-decoration: none;
+  color: white;
+}
+.main-nav a:hover {
+  text-decoration: underline;
+}
+
+/* Table styling */
+#unitTable {
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+#unitTable td {
   padding: 8px;
   text-align: left;
   border-bottom: 1px solid #ddd;
-  font-family: Arial;
+  font-family: Arial, sans-serif;
 }
-tr:nth-child(odd) { background-color: #f2f2f2; }
-
-
+#unitTable tr:nth-child(odd) {
+  background-color: #f2f2f2;
+}
