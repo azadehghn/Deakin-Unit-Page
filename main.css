@@ -1,4 +1,6 @@
-
+p {
+  line-height: 1.6;
+}
 
 h1 {
   font-size: 40px;
@@ -16,4 +18,37 @@ p {
   font-family: Arial
 }
 
+div {
+  background-color: blue;
+  text-align: right;
+}
+
+.button-link {
+  display: inline-block;
+  padding: 10px 20px;
+  color: black;
+  background-color: white;
+  border: 2px solid black;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.button-link:hover {
+  background-color: black;
+  color: white;
+}
+
+th, td {
+padding: 8px;
+text-align: left;
+border-bottom: 1px solid #ddd;
+font-family: Arial
+}
+
+tr:nth-child(odd) 
+{
+  background-color: #f2f2f2;
+}
 
