@@ -1,0 +1,60 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 40px;
+  background-color: #f9f9f9;
+  color: #333;
+  line-height: 1.6;
+}
+
+h1 {
+  text-align: center;
+  color: #004080;
+}
+
+.unit-details, .content, .fees {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  margin-bottom: 20px;
+}
+.content-box {
+  background-color: #800080; /* Purple background */
+  color: white;              /* White text for contrast */
+  padding: 20px;
+  border-radius: 10px;       /* Rounded corners */
+  margin: 20px 0;
+}
+
+.unit-details table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 15px 0;
+}
+
+.unit-details th, .unit-details td {
+  text-align: left;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.unit-details th {
+  width: 25%;
+  background: #f0f0f0;
+  font-weight: bold;
+}
+
+a.enrol-link {
+  display: inline-block;
+  background: #004080;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+a.enrol-link:hover {
+  background: #0066cc;
+}
