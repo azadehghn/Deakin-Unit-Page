@@ -1,19 +1,35 @@
-
-
 h1 {
   font-size: 40px;
-  font-family: Arial
+  font-family: Arial;
 }
+
 h2 {
   font-size: 25px;
-  font-family: Arial
+  font-family: Arial;
 }
+
 h3 {
-  font-family: Arial
+  font-family: Arial;
 }
+
 p {
   font-size: 14px;
-  font-family: Arial
+  font-family: Arial;
 }
 
+/* remove default page margins so the header touches edges */
+body {
+  margin: 0;
+}
 
+/* header style */
+#header {
+  background-color: darkcyan;
+  text-align: right;
+  padding: 12px;
+}
+
+div {
+  background-color: blue;
+  text-align: right;
+}
