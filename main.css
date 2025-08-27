@@ -1,19 +1,65 @@
-
-
 h1 {
   font-size: 40px;
-  font-family: Arial
+  font-family: Arial;
 }
 h2 {
   font-size: 25px;
-  font-family: Arial
+  font-family: Arial;
 }
 h3 {
-  font-family: Arial
+  font-family: Arial;
 }
 p {
   font-size: 14px;
-  font-family: Arial
+  font-family: Arial;
 }
 
+th, td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+  font-family: Arial;
+}
+tr:nth-child(odd) {
+  background-color: #f2f2f2;
+}
+/* -------------------------------
+   Extra Front-End Styling by Niyati
+   Improves table readability + look
+----------------------------------*/
 
+/* Table header styling */
+th {
+  background-color: #004466;   /* Dark header */
+  color: white;                /* White text */
+  text-transform: uppercase;   /* Makes headers stand out */
+}
+
+/* Hover effect on table rows */
+tr:hover {
+  background-color: #e6f7ff;   /* Light blue on hover */
+  transition: background-color 0.3s ease;
+}
+
+/* Style for links (e.g., fee link at bottom) */
+a {
+  color: darkcyan;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+a:hover {
+  color: darkblue;
+  text-decoration: underline;
+}
+table {
+  border: 1px solid #444;
+  border-collapse: collapse;
+  width: 100%;
+  margin-top: 10px;
+}
+
+td {
+  padding: 8px;
+  border: 1px solid #444;
+}
