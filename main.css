@@ -1,19 +1,71 @@
+/* main.css */
+* { box-sizing: border-box; }
 
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #111;
+  line-height: 1.5;
+}
+
+.header {
+  background-color: blue;              /* UI final tweak: blue header */
+  text-align: right;                   /* Logo on the right */
+  padding: 16px 24px;
+}
+
+.logo {
+  width: 200px;
+  height: 210px;
+  object-fit: contain;
+}
+
+main {
+  padding: 24px;
+}
 
 h1 {
   font-size: 40px;
-  font-family: Arial
+  margin: 0 0 12px 0;
 }
+
 h2 {
   font-size: 25px;
-  font-family: Arial
+  margin-top: 28px;
 }
+
 h3 {
-  font-family: Arial
+  margin-top: 24px;
 }
+
 p {
   font-size: 14px;
-  font-family: Arial
+  max-width: 900px;
 }
 
+a {
+  color: #1a0dab;
+  text-decoration: none;
+}
+a:hover { text-decoration: underline; }
 
+/* Table styling (FD task) */
+table {
+  border-collapse: collapse;
+  width: 60%;
+  min-width: 420px;
+  margin: 16px 0 8px 0;
+}
+th, td {
+  border: 1px solid #000;
+  padding: 8px 10px;
+  text-align: left;
+  vertical-align: top;
+}
+th {
+  width: 38%;
+  font-weight: bold;
+}
+tr:nth-child(odd) {
+  background-color: #f2f2f2;
+}
