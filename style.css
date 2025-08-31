@@ -1,0 +1,44 @@
+/* General page styling */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f9;
+  margin: 0;
+  padding: 0;
+}
+
+/* Header style */
+header {
+  background: #333366;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+/* Navigation bar */
+nav {
+  background: #444488;
+  padding: 10px;
+  text-align: center;
+}
+nav a {
+  color: white;
+  margin: 0 15px;
+  text-decoration: none;
+}
+nav a:hover {
+  text-decoration: underline;
+}
+
+/* Main content */
+main {
+  padding: 20px;
+}
+
+/* Footer */
+footer {
+  background: #333366;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  margin-top: 20px;
+}
