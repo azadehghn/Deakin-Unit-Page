@@ -1,0 +1,6 @@
+.vs/
+*.vsidx
+.vscode/
+*.user
+*.suo
+Thumbs.db
