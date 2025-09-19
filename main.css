@@ -15,5 +15,19 @@ p {
   font-size: 14px;
   font-family: Arial
 }
+.site-header {
+  background-color: darkcyan;   /* we’ll switch to blue later */
+  padding: 8px 16px;
+  text-align: right;
+}
+.site-header .logo {
+  height: 36px;
+}
+.unit-table { border-collapse: collapse; width: 100%; max-width: 720px; }
+.unit-table th, .unit-table td { border: 1px solid #ddd; padding: 8px; }
+.unit-table th { text-align: left; width: 220px; }
+.unit-table tr:nth-child(odd) { background: #f7f7f7; }
+
+
 
 
