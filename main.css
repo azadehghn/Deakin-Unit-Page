@@ -15,5 +15,52 @@ p {
   font-size: 14px;
   font-family: Arial
 }
+th, td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+  font-family: Arial;
+}
+tr:nth-child(odd) {
+  background-color: #f2f2f2;
+}
 
+
+<<<<<<< HEAD
+
+/* General font styling */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+/* Header styling */
+.site-header {
+  background-color: #2e8b57;   /* green (can change to blue later) */
+  color: white;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+=======
+>>>>>>> dd3e2853d34ae9a50b5196a7027e87cd14343800
+
+/* Logo + Title in one line */
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 15px;   /* space between logo and text */
+}
+
+/* Logo size */
+.logo {
+  width: 60px;
+  height: auto;
+}
+/* Header title */
+.site-header {
+  background-color: blue;
+  color: white;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
 
