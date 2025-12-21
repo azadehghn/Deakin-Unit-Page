@@ -16,4 +16,22 @@ p {
   font-family: Arial
 }
 
+.logo-container {
+  background-color: darkcyan;
+  display: flex;
+  justify-content: right;
+  align-items: right;
+  padding: 10px;
+}
 
+th, td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+  font-family: Arial;
+}
+
+/* Applied color to odd rows in table*/
+tr:nth-child(odd) {
+  background-color: #f2f2f2;
+}
