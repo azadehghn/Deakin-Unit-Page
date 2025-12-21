@@ -1,3 +1,11 @@
+<<<<<<< HEAD
+=======
+body {
+  font-family: Arial;
+  margin: 20px;
+}
+
+>>>>>>> origin/add-unit-content
 h1 {
   font-size: 40px;
   font-family: Arial;
@@ -15,6 +23,7 @@ h3 {
 p {
   font-size: 14px;
   font-family: Arial;
+<<<<<<< HEAD
 }
 
 /* Table Styling - Front-End Developer Task */
@@ -28,6 +37,17 @@ th, td {
 
 tr:nth-child(odd) {
   background-color: #f2f2f2;
+=======
+>>>>>>> origin/add-unit-content
 }
 
+a {
+  font-family: Arial;
+  font-size: 14px;
+  color: #0645ad;
+  text-decoration: underline;
+}
 
+a:hover {
+  text-decoration: none;
+}
