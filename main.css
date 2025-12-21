@@ -1,19 +1,34 @@
-
+body {
+  font-family: Arial;
+  margin: 20px;
+}
 
 h1 {
   font-size: 40px;
-  font-family: Arial
+  font-family: Arial;
 }
+
 h2 {
   font-size: 25px;
-  font-family: Arial
+  font-family: Arial;
 }
+
 h3 {
-  font-family: Arial
+  font-family: Arial;
 }
+
 p {
   font-size: 14px;
-  font-family: Arial
+  font-family: Arial;
 }
 
+a {
+  font-family: Arial;
+  font-size: 14px;
+  color: #0645ad;
+  text-decoration: underline;
+}
 
+a:hover {
+  text-decoration: none;
+}
