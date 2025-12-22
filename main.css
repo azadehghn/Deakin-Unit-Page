@@ -13,7 +13,26 @@ h3 {
 }
 p {
   font-size: 14px;
-  font-family: Arial
+  font-family: Arial;
+  line-height: 1.6;
+}
+div { 
+  background-color: blue; 
+  text-align: right;
+}
+a {
+  color: #0055a5;
+  font-weight: bold;
+  text-decoration: none;
 }
 
-
+a:hover {
+  text-decoration: underline;
+}
+ td {
+ padding: 8px;
+ text-align: left;
+ border-bottom: 1px solid #ddd;
+ font-family: Arial
+}
+tr:nth-child(odd) {background-color: #f2f2f2;}
