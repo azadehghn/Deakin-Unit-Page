@@ -1,10 +1,47 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title> Home </title>
-<link rel="stylesheet" type="text/css" media="screen" href="main.css"/>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SIT223-SIT753 - Professional Practice in IT</title>
+  <link rel="stylesheet" href="./main.css?v=2" />
 </head>
 <body>
-<h1>SIT223-SIT753 - Professional Practice in IT</h1>
+  <header class="site-header">
+   <div class="container">
+    <img class="deakin-logo" src="logo.png" alt="Deakin University" />
+   </div>
+  </header>
+
+  <main class="container">
+    <h1>SIT223-SIT753 - Professional Practice in IT</h1>
+
+    <h2>Unit details</h2>
+    <table class="unit-table">
+      <tr><td class="label">Year:</td><td>2026 unit information</td></tr>
+      <tr><td class="label">Enrolment modes:</td><td>Trimester 1: Burwood (Melbourne), Geelong, Cloud (online)</td></tr>
+      <tr><td class="label">Credit point(s):</td><td>1</td></tr>
+      <tr><td class="label">Unit Chair:</td><td>Trimester 1: Azadeh Ghari Neiat</td></tr>
+    </table>
+
+    <h3>Content</h3>
+    <p>To be successful IT graduates need to understand the use of industry tools and practices,
+      how these tools connect, and the professional, ethical and teamwork skills needed to use them properly.</p>
+    <p><a href="https://www.deakin.edu.au/students/enrolment-and-fees/fees">› Fee Information </a></p>
+
+    <h3>Staff Portal — Login (Mock)</h3>
+    <form method="post" action="#" autocomplete="on" aria-describedby="login-note">
+      <label for="username">Staff email</label>
+      <input id="username" name="username" type="email" autocomplete="username" required />
+      <label for="password">Password</label>
+      <input id="password" name="password" type="password" autocomplete="current-password" minlength="12" required aria-describedby="pw-rules" />
+      <small id="pw-rules">Min 12 characters. Avoid common passwords.</small>
+      <label for="otp">Authenticator code</label>
+      <input id="otp" name="otp" type="text" inputmode="numeric" pattern="[0-9]{6}" autocomplete="one-time-code" placeholder="6-digit code" required />
+      <button type="submit" disabled>Sign in (demo only)</button>
+      <p id="login-note" class="privacy-note">By signing in you agree to our <a href="#" rel="noopener">privacy notice</a>.</p>
+    </form>
+  </main>
 </body>
 </html>
+

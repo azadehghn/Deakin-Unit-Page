@@ -1,3 +1,44 @@
+/* Base layout */
+* { box-sizing: border-box; }
+:root { --blue:#0b6fc5; --border:#bbb; --muted:#f2f2f2; }
+body { margin:0; font-family:Arial, Helvetica, sans-serif; line-height:1.5; color:#111; }
+.container { max-width:980px; margin:24px auto; padding:0 16px; }
+
+/* Headings / text sizes */
+h1{ font-size:40px; margin:12px 0 16px; }
+h2{ font-size:25px; margin:24px 0 12px; }
+h3{ font-size:20px; margin:24px 0 8px; }
+p { font-size:14px; }
+
+/* Header + logo */
+.site-header { background:darkcyan; border-bottom:1px solid #0b4e55; }
+.site-header .container { display:flex; justify-content:flex-end; padding:8px 12px; }
+.deakin-logo { display:block; height:210px; width:200px; }
+
+/* Links */
+a { color:var(--blue); text-decoration:none; }
+a:hover { text-decoration:underline; }
+
+/* Unit details table — full borders */
+.unit-table { width:100%; border-collapse:collapse; border:1px solid var(--border); background:#fff; }
+.unit-table td { padding:8px; text-align:left; border:1px solid var(--border); vertical-align:top; }
+.unit-table .label { width:32%; background:var(--muted); font-weight:700; }
+.unit-table tr:nth-child(odd) td { background-color:#f9f9f9; }
+.unit-table tr td.label:nth-child(1) { background:var(--muted); }
+
+/* Login mock styles */
+form { max-width:420px; padding:16px; border:1px solid #ddd; border-radius:8px; background:#fff; }
+label { display:block; margin-top:12px; font-weight:600; }
+input { width:100%; padding:8px; margin-top:4px; border:1px solid #ddd; border-radius:6px; }
+input:focus { outline:2px solid var(--blue); outline-offset:1px; }
+button { margin-top:16px; padding:8px 12px; border:1px solid #ddd; border-radius:6px; background:#f3f4f6; }
+.privacy-note { font-size:.9rem; }
+
+/* Small-screen tweaks */
+@media (max-width:640px){
+  h1{ font-size:32px; }
+  .deakin-logo { height:140px; width:auto; }
+}
 
 
 h1 {
@@ -15,5 +56,3 @@ p {
   font-size: 14px;
   font-family: Arial
 }
-
-
