@@ -1,0 +1,31 @@
+/* Headings & text */
+h1 { font-size: 32px; font-family: Arial, sans-serif; margin: 0; }
+h2 { font-size: 25px; font-family: Arial, sans-serif; margin: 20px 0 10px; }
+h3 { font-family: Arial, sans-serif; margin: 15px 0 8px; }
+p  { font-size: 14px; font-family: Arial, sans-serif; line-height: 1.5; margin-bottom: 12px; }
+
+th, td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+  font-family: Arial, sans-serif;
+}
+tr:nth-child(odd) { background-color: #f9f9f9; }
+tr:hover { background-color: #e0f7fa; }
+
+/* Header bar with logo on left + title on right */
+.header {
+  background-color: blue;
+  display: flex;          /* place items in a row */
+  align-items: center;    /* vertical center */
+  padding: 10px;
+  gap: 15px;              /* space between logo and title */
+}
+
+.header img {
+  height: 100px;
+}
+
+.header h1 {
+  color: green;
+}
