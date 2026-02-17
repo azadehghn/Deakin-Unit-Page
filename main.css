@@ -1,5 +1,9 @@
+body {
+  margin: 0;
+  padding: 0;
+}
 
-
+/* Typography */
 h1 {
   font-size: 40px;
   font-family: Arial
@@ -16,4 +20,161 @@ p {
   font-family: Arial
 }
 
+/* ===== US1: Branded, responsive header ===== */
+:root {
+  --brand-bg: #004b6e;      /* deep blue */
+  --brand-text: #ffffff;    /* white text on header */
+  --brand-accent: #cde7f5;  /* subtle accent if needed */
+}
 
+.site-header {
+  background-color: var(--brand-bg);
+  color: var(--brand-text);
+  padding: 16px 20px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.brand-logo {
+  width: 120px;
+  height: auto;
+  display: block;
+}
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.site-title {
+  margin: 0;
+  font-size: 28px;
+  line-height: 1.2;
+  color: var(--brand-text);
+}
+
+.site-subtitle {
+  margin: 4px 0 0;
+  font-size: 16px;
+  color: var(--brand-accent);
+}
+
+/* Mobile: stack logo and text */
+@media (max-width: 640px) {
+  .brand {
+    flex-direction: column;
+    text-align: center;
+  }
+  .brand-logo {
+    width: 96px;
+  }
+  .site-title {
+    font-size: 24px;
+  }
+  .site-subtitle {
+    font-size: 14px;
+  }
+}
+
+/* ===== Your existing styles (kept) ===== */
+.navigation-bar{
+  background-color: #333;
+  color: white;
+  padding: 10px;
+  text-align: center;
+}
+
+.search-bar-section{
+  margin: 20px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: var(--brand-bg);
+  color: var(--brand-text);
+}
+
+.search-bar-section h1{
+  text-align: center;
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+#searchInput {
+  width: 300px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.search-button{
+  padding: 10px 20px;
+  background-color: #04AA6D;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.search-button:hover {
+  background-color: #5CE65C; /* Accent color on hover */
+}
+
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7); /* Dark semi-transparent background */
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background-color: #fff; /* White background for the modal content */
+  padding: 30px;
+  border-radius: 10px; /* Rounded corners */
+  text-align: center;
+  font-size: 18px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
+  max-width: 400px; /* Limit the width of the modal */
+  width: 90%; /* Responsive width */
+  border: 2px solid #04AA6D; /* Add border color */
+}
+
+.modal-content p {
+  margin: 10px 0; /* Add spacing between paragraphs */
+  color: #333; /* Dark text color */
+}
+
+#error-message:empty {
+  display: none; /* Hide the error message if it's empty */
+}
+
+#error-message { 
+  color: red;
+  font-weight: bold;
+  font-size: 14px; /* Adjust font size */
+  margin-top: 10px; /* Add spacing above the error message */
+  padding: 5px; /* Add padding for better spacing */
+  border: 1px solid red; /* Add a red border */
+  border-radius: 5px; /* Rounded corners */
+  background-color: #ffe6e6; /* Light red background for emphasis */
+  text-align: center; /* Center the text */
+  margin: 10px auto 10px auto; /* Center the error message */
+  max-width: 20%; /* Limit the width of the error message */
+}
