@@ -1,5 +1,5 @@
 div {
-  background-color: darkcyan;
+  background-color: blue;
   text-align: right;
 }
 
@@ -7,6 +7,7 @@ h1 {
   font-size: 40px;
   font-family: Arial;
 }
+
 
 h2 {
   font-size: 25px;
@@ -21,3 +22,12 @@ p {
   font-size: 14px;
   font-family: Arial;
 }
+th, td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+  font-family: Arial;
+}
+
+tr:nth-child(odd) {background-color: #f2f2f2;}
+
