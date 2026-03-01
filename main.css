@@ -1,19 +1,55 @@
-
-
-h1 {
-  font-size: 40px;
-  font-family: Arial
-}
-h2 {
-  font-size: 25px;
-  font-family: Arial
-}
-h3 {
-  font-family: Arial
-}
-p {
-  font-size: 14px;
-  font-family: Arial
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
 }
 
+/* HEADER */
+.site-header {
+  background-color: rgb(25, 169, 150);
+  color: white;
+  padding: 10px;
+}
 
+.header-inner {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.deakin-logo {
+  width: 100px;
+}
+
+.site-title h1 {
+  margin: 0;
+  font-size: 22px;
+}
+
+.subtitle {
+  font-size: 15px;
+}
+
+/* CONTENT */
+.container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 20px;
+}
+
+/* TABLE */
+.unit-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.unit-table th,
+.unit-table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+}
+
+.unit-table th {
+  background-color: #f2f2f2;
+}
