@@ -1,19 +1,57 @@
-
-
 h1 {
   font-size: 40px;
-  font-family: Arial
+  font-family: Arial;
 }
+
 h2 {
   font-size: 25px;
-  font-family: Arial
+  font-family: Arial;
 }
+
 h3 {
-  font-family: Arial
+  font-family: Arial;
 }
+
 p {
   font-size: 14px;
-  font-family: Arial
+  font-family: Arial;
 }
 
+th, td { 
+  padding: 8px; 
+  text-align: left; 
+  border-bottom: 1px solid #ddd; 
+  font-family: Arial; 
+} 
 
+tr:nth-child(odd) {
+  background-color: #f2f2f2;
+}
+
+div {
+  background-color: blue;
+  text-align: right;
+}
+
+.header {
+  background-color: #003366;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.header img {
+  height: 50px; /* Adjust as needed */
+  margin-right: 10px;
+}
+
+@media screen and (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .header img {
+    margin-bottom: 10px;
+  }
+}
