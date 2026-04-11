@@ -1,9 +1,15 @@
+div {
+  background-color: darkcyan;  /* header background color */
+  text-align: right;            /* logo alignment */
+}
+
 
 
 h1 {
   font-size: 40px;
-  font-family: Arial
+  font-family: Arial;
 }
+
 h2 {
   font-size: 25px;
   font-family: Arial
@@ -15,5 +21,30 @@ p {
   font-size: 14px;
   font-family: Arial
 }
+th, td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+  font-family: Arial;
+}
+tr:nth-child(odd) {
+  background-color: #f2f2f2;
+}
 
+.header {
+  display: flex;
+  justify-content: space-between; /* pushes nav left, logo right */
+  align-items: center;
+  padding: 10px;
+}
 
+nav a {
+  color: white;
+  margin-right: 15px;
+  text-decoration: none;
+  font-family: Arial;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
