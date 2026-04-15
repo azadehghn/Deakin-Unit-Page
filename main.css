@@ -15,5 +15,13 @@ p {
   font-size: 14px;
   font-family: Arial
 }
+.header {
+    background-color: darkcyan;
+    text-align: right;
+    padding: 10px;
+}
 
+.logo {
+    width: 100px;
+}
 
