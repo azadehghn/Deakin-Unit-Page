@@ -1,19 +1,57 @@
-
-
 h1 {
   font-size: 40px;
-  font-family: Arial
+  font-family: Arial;
 }
+
 h2 {
   font-size: 25px;
-  font-family: Arial
+  font-family: Arial;
 }
+
 h3 {
-  font-family: Arial
+  font-family: Arial;
 }
+
 p {
   font-size: 14px;
-  font-family: Arial
+  font-family: Arial;
 }
+<<<<<<< HEAD
+th, td { 
+  padding: 8px; 
+  text-align: left; 
+  border-bottom: 1px solid #ddd; 
+  font-family: Arial 
+} 
+ 
+tr:nth-child(odd) {background-color: #f2f2f2;}
+=======
 
+header {
+  background-color: blue;
+  color: white;
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+>>>>>>> add-header
 
+header img {
+  height: 60px;
+}
+.main-header {
+    background-color: green;
+    color: white;
+    display: flex;
+    align-items: center;
+    padding: 15px;
+}
+.logo {
+    height: 50px;
+    margin-right: 15px;
+}
+div {
+ background-color: blue;
+ text-align: right;
+}
