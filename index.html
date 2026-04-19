@@ -3,8 +3,123 @@
 <head>
 <title> Home </title>
 <link rel="stylesheet" type="text/css" media="screen" href="main.css"/>
+ <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 <h1>SIT223-SIT753 - Professional Practice in IT</h1>
+ <section class="hero-section d-flex align-items-center">
+    <div class="container">
+      <div class="hero-card text-center">
+        <h1 class="display-5 fw-bold">Explore Your Units</h1>
+        <p class="lead mb-0">
+          View important unit information in a clean, modern and student-friendly format.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="unit-section py-5">
+    <div class="container">
+      <div class="unit-wrapper p-4 p-md-5">
+
+        <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center mb-4 gap-3">
+          <div>
+            <h2 class="fw-bold mb-1">Unit Details Table</h2>
+            <p class="text-muted mb-0">A redesigned and responsive overview of selected units.</p>
+          </div>
+
+          <div class="search-box">
+            <input type="text" class="form-control" placeholder="Search units..." />
+          </div>
+        </div>
+
+        <div class="table-responsive">
+          <table class="table custom-table align-middle">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Unit Code</th>
+                <th>Unit Name</th>
+                <th>Study Area</th>
+                <th>Level</th>
+                <th>Description</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>01</td>
+                <td><span class="unit-code">SIT223</span></td>
+                <td class="fw-semibold">Cyber Security</td>
+                <td><span class="badge bg-primary-subtle text-primary">Security</span></td>
+                <td>Level 2</td>
+                <td>Introduces cybersecurity risks, threats, vulnerabilities, and protection strategies.</td>
+                <td><span class="status-pill active-status">Available</span></td>
+              </tr>
+
+              <tr>
+                <td>02</td>
+                <td><span class="unit-code">SIT753</span></td>
+                <td class="fw-semibold">Professional Practice in IT</td>
+                <td><span class="badge bg-warning-subtle text-dark">Project</span></td>
+                <td>Level 3</td>
+                <td>Focuses on teamwork, agile methods, communication, ethics, and industry practice.</td>
+                <td><span class="status-pill active-status">Available</span></td>
+              </tr>
+
+              <tr>
+                <td>03</td>
+                <td><span class="unit-code">SIT774</span></td>
+                <td class="fw-semibold">Web Technologies and Development</td>
+                <td><span class="badge bg-info-subtle text-info-emphasis">Web</span></td>
+                <td>Level 3</td>
+                <td>Covers HTML, CSS, JavaScript, Bootstrap, and responsive web development concepts.</td>
+                <td><span class="status-pill pending-status">Popular</span></td>
+              </tr>
+
+              <tr>
+                <td>04</td>
+                <td><span class="unit-code">SIT772</span></td>
+                <td class="fw-semibold">Database Fundamentals</td>
+                <td><span class="badge bg-success-subtle text-success">Data</span></td>
+                <td>Level 2</td>
+                <td>Introduces relational databases, SQL, data modelling, and schema design principles.</td>
+                <td><span class="status-pill active-status">Available</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="row g-4 mt-2">
+          <div class="col-md-4">
+            <div class="summary-card">
+              <h5>Total Units</h5>
+              <p>4</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="summary-card">
+              <h5>Main Category</h5>
+              <p>Information Technology</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="summary-card">
+              <h5>Delivery</h5>
+              <p>On-campus / Online</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
