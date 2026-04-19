@@ -1,10 +1,74 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title> Home </title>
-<link rel="stylesheet" type="text/css" media="screen" href="main.css"/>
+    <title>Deakin Unit Page</title>
+    <link rel="stylesheet" href="main.css">
 </head>
 <body>
-<h1>SIT223-SIT753 - Professional Practice in IT</h1>
+
+    <header>
+        <img src="logo.png" alt="Deakin Logo" class="logo">
+
+        <nav>
+            <a href="#">Home</a>
+            <a href="#units">Units</a>
+            <a href="#register">Register</a>
+        </nav>
+    </header>
+
+    <h1>SIT223-SIT753 - Professional Practice in IT</h1>
+
+    <section id="units">
+        <h2>Unit Details</h2>
+
+        <table>
+            <tr>
+                <th>Unit Code</th>
+                <th>Name</th>
+                <th>Description</th>
+            </tr>
+            <tr>
+                <td>SIT223</td>
+                <td>Professional Practice</td>
+                <td>Learn teamwork and agile methods</td>
+            </tr>
+            <tr>
+                <td>SIT753</td>
+                <td>Advanced Practice</td>
+                <td>Industry-level IT project skills</td>
+            </tr>
+        </table>
+    </section>
+
+    <section id="register">
+        <h2>Register</h2>
+
+        <form onsubmit="return validateForm()">
+            <input type="text" id="name" placeholder="Enter name">
+            <br><br>
+            <input type="email" id="email" placeholder="Enter email">
+            <br><br>
+            <button type="submit">Submit</button>
+        </form>
+
+        <p id="error"></p>
+    </section>
+
+    <script>
+        function validateForm() {
+            let name = document.getElementById("name").value;
+            let email = document.getElementById("email").value;
+
+            if (name === "" || email === "") {
+                document.getElementById("error").innerText = "Please fill all fields!";
+                document.getElementById("error").style.color = "red";
+                return false;
+            }
+
+            document.getElementById("error").innerText = "";
+            return true;
+        }
+    </script>
+
 </body>
 </html>
