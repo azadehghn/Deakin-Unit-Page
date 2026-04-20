@@ -1,19 +1,66 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: #f4f6fb;
+  font-family: Arial, sans-serif;
+}
 
-
+/* Header */
 h1 {
-  font-size: 40px;
-  font-family: Arial
+  background: linear-gradient(to right, #4a00e0, #8e2de2);
+  color: white;
+  padding: 30px;
+  margin: 0;
+  text-align: center;
+  font-size: 36px;
 }
+
+/* Subtitle */
+.subtitle {
+  text-align: center;
+  color: #555;
+  margin: 20px auto;
+  width: 60%;
+  font-size: 16px;
+}
+
+/* Section title */
 h2 {
-  font-size: 25px;
-  font-family: Arial
-}
-h3 {
-  font-family: Arial
-}
-p {
-  font-size: 14px;
-  font-family: Arial
+  text-align: center;
+  color: #333;
+  margin-top: 30px;
 }
 
+/* Table styling */
+table {
+  width: 90%;
+  margin: 20px auto;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0px 4px 12px rgba(0,0,0,0.1);
+}
 
+/* Table cells */
+td {
+  padding: 15px;
+  border-bottom: 1px solid #eee;
+}
+
+/* Left column bold */
+td:first-child {
+  font-weight: bold;
+  color: #4a00e0;
+  width: 30%;
+}
+
+/* Hover effect */
+tr:hover {
+  background-color: #f1f1ff;
+}
+
+/* Alternate rows */
+tr:nth-child(even) {
+  background-color: #fafafa;
+}
