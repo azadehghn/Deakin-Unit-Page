@@ -1,19 +1,102 @@
-
-
+/* General text styles */
 h1 {
   font-size: 40px;
-  font-family: Arial
+  font-family: Arial;
+  text-align: center;
+  margin-top: 30px;
 }
+
 h2 {
   font-size: 25px;
-  font-family: Arial
+  font-family: Arial;
 }
+
 h3 {
-  font-family: Arial
+  font-family: Arial;
 }
+
 p {
   font-size: 14px;
-  font-family: Arial
+  font-family: Arial;
+}
+th, td { 
+  padding: 8px; 
+  text-align: left; 
+  border-bottom: 1px solid #ddd; 
+  font-family: Arial 
+} 
+ 
+tr:nth-child(odd) {background-color: #f2f2f2;}
+/* Header */
+div {
+  background-color: #808080;
+  padding: 15px 30px;
+  text-align: right;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.2);
 }
 
+/* Logo */
+img {
+  height: auto;
+  max-height: 120px;
+}
 
+/* Navigation bar */
+nav {
+  display: flex;
+  justify-content: center;
+  background: #333;
+  padding: 12px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+}
+
+/* Navigation links */
+nav a {
+  color: white;
+  margin: 0 20px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+/* Hover effect */
+nav a:hover {
+  color: #00c6ff;
+  transform: scale(1.1);
+}
+
+/* Content box */
+.content {
+  width: 60%;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: white;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+  border-radius: 8px;
+  text-align: center;   /* THIS fixes alignment */
+}
+
+.content h2 {
+  margin-top: 20px;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 15px;
+  background-color: #333;
+  color: white;
+  margin-top: 40px;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  nav {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  div {
+    text-align: center;
+  }
+}
