@@ -1,0 +1,21 @@
+{
+  "name": "deakin-unit-page",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DrunkenHero-commits/Deakin-Unit-Page.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/DrunkenHero-commits/Deakin-Unit-Page/issues"
+  },
+  "homepage": "https://github.com/DrunkenHero-commits/Deakin-Unit-Page#readme"
+}
