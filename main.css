@@ -1,19 +1,96 @@
+/* Base styles & page layout */
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #f4f6f8;
+  color: #333333;
+  margin: 0;
+  padding: 40px 20px;
+}
+
+/* Central container card */
+.container {
+  max-width: 1920px;
+  margin: 0 auto;
+  background: #ffffff;
+  padding: 32px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.content-frame {
+    width: 100%;
+    height: 600px;
+    border: none;
+    border-radius: 8px;
+    margin-top: 20px;
+}
 
 
+/* Headings */
 h1 {
-  font-size: 40px;
-  font-family: Arial
+  font-size: 32px;
+  color: #004b49; /* Deakin-inspired teal tint */
+  margin-top: 0;
+  margin-bottom: 12px;
 }
+
 h2 {
-  font-size: 25px;
-  font-family: Arial
+  font-size: 22px;
+  color: #222222;
+  margin-top: 24px;
+  border-bottom: 2px solid #eef0f2;
+  padding-bottom: 8px;
 }
+
 h3 {
-  font-family: Arial
+  font-size: 18px;
+  color: #444444;
+  margin-top: 24px;
 }
+
+/* Body text */
 p {
-  font-size: 14px;
-  font-family: Arial
+  font-size: 15px;
+  line-height: 1.6; /* Makes reading long paragraphs much easier */
+  color: #555555;
 }
 
+/* Temporary branch tag styling */
+.badge {
+  display: inline-block;
+  background-color: #fff3cd;
+  color: #856404;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 4px 8px;
+  border-radius: 4px;
+  margin-bottom: 16px;
+}
 
+/* Link list styling */
+.link-list {
+  list-style: none; /* Removes standard bullet points */
+  padding: 0;
+}
+
+.link-list li {
+  margin-bottom: 10px;
+}
+
+.link-list a {
+  color: #0066cc;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.2s ease;
+}
+
+.link-list a:hover {
+  color: #003366;
+  text-decoration: underline;
+}
+.security-note{
+    margin-top:15px;
+    padding:12px;
+    background:#fff3cd;
+    border-left:4px solid orange;
+}
