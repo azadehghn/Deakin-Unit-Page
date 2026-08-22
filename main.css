@@ -1,19 +1,18 @@
-
-
-h1 {
-  font-size: 40px;
-  font-family: Arial
-}
-h2 {
-  font-size: 25px;
-  font-family: Arial
-}
-h3 {
-  font-family: Arial
-}
-p {
-  font-size: 14px;
-  font-family: Arial
+.main-header {
+    background-color: blue;
+    color: white;
+    display: flex;
+    align-items: center;
+    padding: 15px 30px;
+    gap: 20px;
 }
 
+.deakin-logo {
+    width: 150px;
+    height: auto;
+}
 
+.main-header h1 {
+    margin: 0;
+    font-size: 28px;
+}
