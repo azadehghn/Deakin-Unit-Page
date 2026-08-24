@@ -1,19 +1,122 @@
-
-
 h1 {
   font-size: 40px;
-  font-family: Arial
+  font-family: Arial;
 }
 h2 {
   font-size: 25px;
-  font-family: Arial
+  font-family: Arial;
 }
 h3 {
-  font-family: Arial
+  font-family: Arial;
 }
 p {
   font-size: 14px;
-  font-family: Arial
+  font-family: Arial;
+}
+th,
+td {
+  padding: 12px 16px;
+  text-align: left;
+  border-bottom: 1px solid #c5d8eb;
+  font-family: Arial;
 }
 
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid #00539b;
+  background-color: #fff;
+}
 
+td:first-child {
+  font-weight: bold;
+  color: #00539b;
+  width: 35%;
+  background-color: #e8f1f8;
+}
+
+tr:nth-child(even) td:last-child {
+  background-color: #f5f9fc;
+}
+
+tr:hover td:last-child {
+  background-color: #e8f1f8;
+}
+
+.site-header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background-color: #00539b;
+  padding: 16px 24px;
+}
+
+.site-header h1 {
+  color: white;
+  margin: 0;
+  font-size: 28px;
+}
+
+.logo {
+  width: 80px;
+  height: auto;
+}
+
+@media (max-width: 600px) {
+  .site-header {
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .site-header h1 {
+    font-size: 20px;
+  }
+
+  .logo {
+    width: 60px;
+  }
+}
+
+/* Content and Hurdle sections */
+.unit-content,
+.hurdle-requirement {
+  max-width: 900px;
+  margin: 1.5rem 0;
+  padding: 0 1rem;
+}
+
+.unit-content h3,
+.hurdle-requirement h3 {
+  color: #1e4d8b;
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+}
+
+.unit-content p,
+.hurdle-requirement p {
+  line-height: 1.6;
+  color: #333;
+}
+
+/* Unit links section */
+.unit-links {
+  max-width: 900px;
+  margin: 1.5rem 0;
+  padding: 1rem;
+  background-color: #f4f8fc;
+  border: 1px solid #cfe0f2;
+  border-radius: 4px;
+}
+
+.unit-links a {
+  display: block;
+  color: #6b3fa0;
+  text-decoration: underline;
+  margin: 0.5rem 0;
+  font-size: 1rem;
+}
+
+.unit-links a:hover {
+  color: #4a2c70;
+}
