@@ -1,19 +1,206 @@
+:root {
+    --deakin-blue: #003c71;
+    --deakin-teal: #007d8a;
+    --dark-text: #1f2933;
+    --light-background: #f4f7f9;
+    --white: #ffffff;
+    --border-colour: #c8d0d6;
+    --focus-colour: #ffbf47;
+}
 
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    color: var(--dark-text);
+    background-color: var(--light-background);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.site-header {
+    background-color: var(--deakin-blue);
+    color: var(--white);
+}
+
+.header-content {
+    width: min(1100px, 92%);
+    min-height: 76px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: var(--white);
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.logo-placeholder {
+    width: 42px;
+    height: 42px;
+    display: grid;
+    place-items: center;
+    border: 2px solid var(--white);
+    border-radius: 50%;
+    font-weight: 700;
+}
+
+.main-navigation {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+    .main-navigation a {
+        color: var(--white);
+        font-weight: 700;
+        text-decoration: none;
+    }
+
+        .main-navigation a:hover,
+        .main-navigation a:focus {
+            text-decoration: underline;
+        }
+
+.page-content {
+    width: min(900px, 92%);
+    margin: 0 auto;
+    padding: 2.5rem 0;
+}
+
+.hero,
+.content-section {
+    background-color: var(--white);
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    padding: 2rem;
+}
+
+.hero {
+    border-left: 6px solid var(--deakin-teal);
+}
+
+.content-section {
+    margin-top: 1.5rem;
+}
+
+.unit-code {
+    margin: 0;
+    color: var(--deakin-teal);
+    font-weight: 700;
+    letter-spacing: 0.06em;
+}
+
+h1,
+h2,
+h3 {
+    color: var(--deakin-blue);
+    line-height: 1.2;
+}
 
 h1 {
-  font-size: 40px;
-  font-family: Arial
+    margin: 0.35rem 0 1rem;
+    font-size: clamp(2rem, 5vw, 2.75rem);
 }
+
 h2 {
-  font-size: 25px;
-  font-family: Arial
+    margin-top: 0;
+    font-size: 1.7rem;
 }
-h3 {
-  font-family: Arial
-}
+
 p {
-  font-size: 14px;
-  font-family: Arial
+    margin: 0 0 1rem;
 }
 
+.table-wrapper {
+    overflow-x: auto;
+}
 
+.unit-details {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+    .unit-details caption {
+        margin-bottom: 0.75rem;
+        font-weight: 700;
+        text-align: left;
+    }
+
+    .unit-details th,
+    .unit-details td {
+        border: 1px solid var(--border-colour);
+        padding: 0.85rem;
+        text-align: left;
+        vertical-align: top;
+    }
+
+    .unit-details thead th {
+        background-color: var(--deakin-blue);
+        color: var(--white);
+    }
+
+    .unit-details tbody th {
+        width: 32%;
+        background-color: #eaf2f5;
+    }
+
+a {
+    color: #005f9e;
+}
+
+    a:hover {
+        color: #003c71;
+    }
+
+    a:focus {
+        outline: 3px solid var(--focus-colour);
+        outline-offset: 3px;
+    }
+
+.site-footer {
+    padding: 1.5rem;
+    color: var(--white);
+    background-color: var(--deakin-blue);
+    text-align: center;
+}
+
+    .site-footer p {
+        margin: 0;
+    }
+
+@media (max-width: 650px) {
+    .header-content {
+        padding: 1rem 0;
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .hero,
+    .content-section {
+        padding: 1.25rem;
+    }
+
+    .unit-details th,
+    .unit-details td {
+        min-width: 150px;
+        padding: 0.65rem;
+    }
+}
+.site-logo {
+    width: 160px;
+    height: auto;
+    display: block;
+}
