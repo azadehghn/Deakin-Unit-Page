@@ -1,19 +1,21 @@
-
-
-h1 {
-  font-size: 40px;
-  font-family: Arial
+body {
+    font-family: Arial, sans-serif;
+    margin: 40px;
 }
+
+section {
+    margin-top: 30px;
+}
+
 h2 {
-  font-size: 25px;
-  font-family: Arial
-}
-h3 {
-  font-family: Arial
-}
-p {
-  font-size: 14px;
-  font-family: Arial
+    margin-bottom: 10px;
 }
 
+a {
+    color: blue;
+}
 
+div {
+    background-color: blue;
+    text-align: right;
+}
