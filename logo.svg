@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 80" role="img" aria-label="Deakin University Logo">
+  <title>Deakin University</title>
+  <!-- Deakin "D" lettermark -->
+  <rect x="0" y="0" width="60" height="80" rx="4" fill="#003c71"/>
+  <path d="M14 14 h16 q20 0 20 26 q0 26 -20 26 h-16 z" fill="#ffffff"/>
+  <!-- Wordmark -->
+  <text x="74" y="38" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="bold" fill="#003c71" letter-spacing="3">DEAKIN</text>
+  <text x="74" y="62" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#003c71" letter-spacing="4">UNIVERSITY</text>
+</svg>
